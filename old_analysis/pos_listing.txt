@@ -1,0 +1,145 @@
+new graph
+add vertex The
+add vertex Time
+add vertex Traveller
+add vertex convenient
+add edge Time - Traveller
+add edge Traveller - convenient
+add vertex speak
+add vertex expounding
+add edge convenient - speak
+add edge speak - expounding
+add vertex recondite
+add vertex matter
+add vertex us
+add vertex His
+add vertex pale
+add vertex grey
+add vertex eyes
+add vertex shone
+add vertex and
+add vertex twinkled
+add vertex usually
+add vertex face
+add vertex flushed
+add vertex animated
+add vertex fire
+add vertex burnt
+add vertex brightly
+add edge fire - burnt
+add edge burnt - brightly
+add vertex soft
+add vertex radiance
+add vertex incandescent
+add vertex lights
+add edge radiance - incandescent
+add edge incandescent - lights
+add vertex lilies
+add vertex silver
+add vertex caught
+add vertex bubbles
+add vertex flashed
+add vertex passed
+add vertex glasses
+add vertex Our
+add vertex chairs
+add vertex patents
+add vertex embraced
+add edge chairs - patents
+add edge patents - embraced
+add vertex caressed
+add vertex rather
+add vertex submitted
+add vertex sat
+add vertex upon
+add vertex luxurious
+add vertex after-dinner
+add vertex atmosphere
+add vertex thought
+add edge after-dinner - atmosphere
+add edge atmosphere - thought
+add vertex runs
+add vertex gracefully
+add vertex free
+add vertex trammels
+add vertex precision
+add vertex And
+add vertex put
+add vertex way—marking
+add vertex points
+add vertex lean
+add vertex forefinger
+add vertex lazily
+add vertex admired
+add vertex earnestness
+add vertex new
+add vertex paradox
+add edge earnestness - new
+add edge new - paradox
+add edge paradox - thought
+add edge thought - and
+add vertex fecundity
+update The with attributes(size=4)
+update Time with attributes(size=2)
+update Traveller with attributes(size=3)
+update convenient with attributes(size=3)
+update speak with attributes(size=3)
+update expounding with attributes(size=3)
+update recondite with attributes(size=3)
+update matter with attributes(size=3)
+update us with attributes(size=9)
+update His with attributes(size=3)
+update pale with attributes(size=6)
+update grey with attributes(size=3)
+update eyes with attributes(size=3)
+update shone with attributes(size=3)
+update and with attributes(size=26)
+update twinkled with attributes(size=3)
+update usually with attributes(size=3)
+update face with attributes(size=3)
+update flushed with attributes(size=3)
+update animated with attributes(size=3)
+update fire with attributes(size=3)
+update burnt with attributes(size=3)
+update brightly with attributes(size=3)
+update soft with attributes(size=3)
+update radiance with attributes(size=3)
+update incandescent with attributes(size=3)
+update lights with attributes(size=3)
+update lilies with attributes(size=3)
+update silver with attributes(size=3)
+update caught with attributes(size=3)
+update bubbles with attributes(size=3)
+update flashed with attributes(size=3)
+update passed with attributes(size=3)
+update glasses with attributes(size=3)
+update Our with attributes(size=3)
+update chairs with attributes(size=3)
+update patents with attributes(size=3)
+update embraced with attributes(size=3)
+update caressed with attributes(size=3)
+update rather with attributes(size=3)
+update submitted with attributes(size=3)
+update sat with attributes(size=6)
+update upon with attributes(size=3)
+update luxurious with attributes(size=3)
+update after-dinner with attributes(size=3)
+update atmosphere with attributes(size=3)
+update thought with attributes(size=6)
+update runs with attributes(size=3)
+update gracefully with attributes(size=3)
+update free with attributes(size=3)
+update trammels with attributes(size=3)
+update precision with attributes(size=3)
+update And with attributes(size=3)
+update put with attributes(size=3)
+update way—marking with attributes(size=3)
+update points with attributes(size=3)
+update lean with attributes(size=3)
+update forefinger with attributes(size=3)
+update lazily with attributes(size=3)
+update admired with attributes(size=3)
+update earnestness with attributes(size=3)
+update new with attributes(size=3)
+update paradox with attributes(size=3)
+update fecundity with attributes(size=1)

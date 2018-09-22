@@ -1,0 +1,5 @@
+new graph
+add vertex traveller with attributes(size=1000)
+add vertex traveller
+add vertex said
+add edge traveller - said

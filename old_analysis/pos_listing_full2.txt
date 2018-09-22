@@ -1,0 +1,2209 @@
+/* 172.0 */
+new graph
+add vertex time
+add vertex traveller
+add vertex convenient
+add edge time - traveller
+add edge traveller - convenient
+add vertex speak
+add edge convenient - speak
+add vertex expounding
+add edge speak - expounding
+add vertex recondite
+add edge expounding - recondite
+add vertex matter
+add edge recondite - matter
+add vertex pale
+add edge matter - pale
+add vertex grey
+add edge pale - grey
+add vertex eyes
+add edge grey - eyes
+add vertex shone
+add edge eyes - shone
+add vertex twinkled
+add edge shone - twinkled
+add vertex usually
+add edge twinkled - usually
+add edge usually - pale
+add vertex face
+add edge pale - face
+add vertex flushed
+add edge face - flushed
+add vertex animated
+add edge flushed - animated
+add vertex fire
+add edge animated - fire
+add vertex burnt
+add edge fire - burnt
+add vertex brightly
+add edge burnt - brightly
+add vertex soft
+add edge brightly - soft
+add vertex radiance
+add edge soft - radiance
+add vertex incandescent
+add edge radiance - incandescent
+add vertex lights
+add edge incandescent - lights
+add vertex lilies
+add edge lights - lilies
+add vertex silver
+add edge lilies - silver
+add vertex caught
+add edge silver - caught
+add vertex bubbles
+add edge caught - bubbles
+add vertex flashed
+add edge bubbles - flashed
+add vertex passed
+add edge flashed - passed
+add vertex glasses
+add edge passed - glasses
+add vertex chairs
+add edge glasses - chairs
+add vertex patents
+add edge chairs - patents
+add vertex embraced
+add edge patents - embraced
+add vertex caressed
+add edge embraced - caressed
+add vertex rather
+add edge caressed - rather
+add vertex submitted
+add edge rather - submitted
+add vertex sat
+add edge submitted - sat
+add vertex upon
+add edge sat - upon
+add vertex luxurious
+add edge upon - luxurious
+add vertex after-dinner
+add edge luxurious - after-dinner
+add vertex atmosphere
+add edge after-dinner - atmosphere
+add vertex thought
+add edge atmosphere - thought
+add vertex runs
+add edge thought - runs
+add vertex gracefully
+add edge runs - gracefully
+add vertex free
+add edge gracefully - free
+add vertex trammels
+add edge free - trammels
+add vertex precision
+add edge trammels - precision
+add vertex put
+add edge precision - put
+add vertex way—marking
+add edge put - way—marking
+add vertex points
+add edge way—marking - points
+add vertex lean
+add edge points - lean
+add vertex forefinger
+add edge lean - forefinger
+add edge forefinger - sat
+add vertex lazily
+add edge sat - lazily
+add vertex admired
+add edge lazily - admired
+add vertex earnestness
+add edge admired - earnestness
+add vertex new
+add edge earnestness - new
+add vertex paradox
+add edge new - paradox
+add edge paradox - thought
+add vertex fecundity
+add edge thought - fecundity
+add vertex must
+add edge fecundity - must
+add vertex follow
+add edge must - follow
+add vertex carefully
+add edge follow - carefully
+add vertex shall
+add edge carefully - shall
+add vertex controvert
+add edge shall - controvert
+add vertex one
+add edge controvert - one
+add vertex two
+add edge one - two
+add vertex ideas
+add edge two - ideas
+add vertex almost
+add edge ideas - almost
+add vertex universally
+add edge almost - universally
+add vertex accepted
+add edge universally - accepted
+add vertex geometry
+add edge accepted - geometry
+add vertex instance
+add edge geometry - instance
+add vertex taught
+add edge instance - taught
+add vertex school
+add edge taught - school
+add vertex founded
+add edge school - founded
+add vertex misconception
+add edge founded - misconception
+add edge misconception - rather
+add vertex large
+add edge rather - large
+add vertex thing
+add edge large - thing
+add vertex expect
+add edge thing - expect
+add vertex begin
+add edge expect - begin
+add edge begin - upon
+add vertex said
+add edge upon - said
+add vertex filby
+add edge said - filby
+add vertex argumentative
+add edge filby - argumentative
+add vertex person
+add edge argumentative - person
+add vertex red
+add edge person - red
+add vertex hair
+add edge red - hair
+add vertex mean
+add edge hair - mean
+add vertex ask
+add edge mean - ask
+add vertex accept
+add edge ask - accept
+add vertex anything
+add edge accept - anything
+add vertex without
+add edge anything - without
+add vertex reasonable
+add edge without - reasonable
+add vertex ground
+add edge reasonable - ground
+add vertex soon
+add edge ground - soon
+add vertex admit
+add edge soon - admit
+add vertex much
+add edge admit - much
+add vertex need
+add edge much - need
+add vertex know
+add edge need - know
+add vertex course
+add edge know - course
+add vertex mathematical
+add edge course - mathematical
+add vertex line
+add edge mathematical - line
+add edge line - line
+add vertex thickness
+add edge line - thickness
+add vertex nil
+add edge thickness - nil
+add vertex real
+add edge nil - real
+add vertex existence
+add edge real - existence
+add edge existence - taught
+add vertex neither
+add edge taught - neither
+add edge neither - mathematical
+add vertex plane
+add edge mathematical - plane
+add vertex things
+add edge plane - things
+add vertex mere
+add edge things - mere
+add vertex abstractions
+add edge mere - abstractions
+add vertex right
+add edge abstractions - right
+add edge right - said
+add vertex psychologist
+add edge said - psychologist
+add vertex length
+add edge psychologist - length
+add vertex breadth
+add edge length - breadth
+add edge breadth - thickness
+add vertex cube
+add edge thickness - cube
+add edge cube - real
+add vertex object
+add edge existence - object
+add edge object - said
+add edge filby - course
+add vertex solid
+add edge course - solid
+add vertex body
+add edge solid - body
+add vertex may
+add edge body - may
+add vertex exist
+add edge may - exist
+add edge exist - real
+add vertex things—
+add edge real - things—
+add vertex people
+add edge things— - people
+add vertex think
+add edge people - think
+add vertex wait
+add edge think - wait
+add vertex moment
+add edge wait - moment
+add vertex instantaneous
+add edge moment - instantaneous
+add edge instantaneous - cube
+add edge cube - exist
+add vertex ’
+add edge exist - ’
+add edge ’ - follow
+add edge follow - said
+add edge filby - cube
+add vertex last
+add edge cube - last
+add edge last - time
+add edge time - real
+add edge existence - filby
+add vertex became
+add edge filby - became
+add vertex pensive
+add edge became - pensive
+add vertex clearly
+add edge pensive - clearly
+add edge clearly - time
+add vertex proceeded
+add edge traveller - proceeded
+add edge proceeded - real
+add edge real - body
+add edge body - must
+add vertex extension
+add edge must - extension
+add vertex four
+add edge extension - four
+add vertex directions
+add edge four - directions
+add vertex :
+add edge directions - :
+add edge : - must
+add edge must - length
+add vertex and—duration
+add edge thickness - and—duration
+add vertex natural
+add edge and—duration - natural
+add vertex infirmity
+add edge natural - infirmity
+add vertex flesh
+add edge infirmity - flesh
+add vertex explain
+add edge flesh - explain
+add edge explain - moment
+add vertex incline
+add edge moment - incline
+add vertex overlook
+add edge incline - overlook
+add vertex fact
+add edge overlook - fact
+add vertex really
+add edge fact - really
+add edge really - four
+add vertex dimensions
+add edge four - dimensions
+add vertex three
+add edge dimensions - three
+add vertex call
+add edge three - call
+add edge call - three
+add vertex planes
+add edge three - planes
+add vertex space
+add edge planes - space
+add vertex fourth
+add edge space - fourth
+add edge fourth - time
+add vertex however
+add edge time - however
+add vertex tendency
+add edge however - tendency
+add vertex draw
+add edge tendency - draw
+add vertex unreal
+add edge draw - unreal
+add vertex distinction
+add edge unreal - distinction
+add vertex former
+add edge distinction - former
+add edge former - three
+add edge three - dimensions
+add vertex latter
+add edge dimensions - latter
+add vertex happens
+add edge latter - happens
+add vertex consciousness
+add edge happens - consciousness
+add vertex moves
+add edge consciousness - moves
+add vertex intermittently
+add edge moves - intermittently
+add edge intermittently - one
+add vertex direction
+add edge one - direction
+add vertex along
+add edge direction - along
+add edge along - latter
+add vertex beginning
+add edge latter - beginning
+add vertex end
+add edge beginning - end
+add vertex lives
+add edge end - lives
+add edge lives - said
+add vertex young
+add edge said - young
+add vertex man
+add edge young - man
+add vertex making
+add edge man - making
+add vertex spasmodic
+add edge making - spasmodic
+add vertex efforts
+add edge spasmodic - efforts
+add vertex relight
+add edge efforts - relight
+add vertex cigar
+add edge relight - cigar
+add vertex lamp
+add edge cigar - lamp
+add vertex clear
+add edge lamp - clear
+add vertex indeed
+add edge clear - indeed
+add vertex remarkable
+add edge indeed - remarkable
+add vertex extensively
+add edge remarkable - extensively
+add vertex overlooked
+add edge extensively - overlooked
+add vertex continued
+add edge overlooked - continued
+add edge continued - time
+add vertex slight
+add edge traveller - slight
+add vertex accession
+add edge slight - accession
+add vertex cheerfulness
+add edge accession - cheerfulness
+add edge cheerfulness - really
+add vertex meant
+add edge really - meant
+add edge meant - fourth
+add vertex dimension
+add edge fourth - dimension
+add vertex though
+add edge dimension - though
+add edge though - people
+add vertex talk
+add edge people - talk
+add edge talk - fourth
+add edge dimension - know
+add edge know - mean
+add vertex another
+add edge mean - another
+add vertex way
+add edge another - way
+add vertex looking
+add edge way - looking
+add edge looking - time
+add vertex difference
+add edge time - difference
+add edge difference - time
+add edge time - three
+add edge dimensions - space
+add vertex except
+add edge space - except
+add edge except - consciousness
+add edge moves - along
+add vertex foolish
+add edge along - foolish
+add edge foolish - people
+add vertex got
+add edge people - got
+add vertex hold
+add edge got - hold
+add vertex wrong
+add edge hold - wrong
+add vertex side
+add edge wrong - side
+add vertex idea
+add edge side - idea
+add vertex heard
+add edge idea - heard
+add vertex say
+add edge heard - say
+add edge say - fourth
+add edge dimension - said
+add vertex provincial
+add edge said - provincial
+add vertex mayor
+add edge provincial - mayor
+add vertex simply
+add edge mayor - simply
+add edge simply - space
+add vertex mathematicians
+add edge space - mathematicians
+add vertex spoken
+add edge mathematicians - spoken
+add edge spoken - three
+add edge dimensions - one
+add edge one - may
+add edge may - call
+add edge call - length
+add vertex always
+add edge thickness - always
+add vertex definable
+add edge always - definable
+add vertex reference
+add edge definable - reference
+add edge reference - three
+add edge planes - right
+add vertex angles
+add edge right - angles
+add vertex others
+add edge angles - others
+add vertex philosophical
+add edge others - philosophical
+add edge philosophical - people
+add vertex asking
+add edge people - asking
+add edge asking - three
+add vertex particularly—why
+add edge dimensions - particularly—why
+add edge particularly—why - another
+add edge another - direction
+add edge direction - right
+add vertex three—and
+add edge angles - three—and
+add vertex even
+add edge three—and - even
+add vertex tried
+add edge even - tried
+add vertex construct
+add edge tried - construct
+add vertex four-dimensional
+add edge construct - four-dimensional
+add edge four-dimensional - geometry
+add vertex professor
+add edge geometry - professor
+add vertex simon
+add edge professor - simon
+add vertex newcomb
+add edge simon - newcomb
+add edge newcomb - expounding
+add edge expounding - new
+add vertex york
+add edge new - york
+add edge york - mathematical
+add vertex society
+add edge mathematical - society
+add vertex month
+add edge society - month
+add vertex ago
+add edge month - ago
+add edge ago - know
+add vertex flat
+add edge know - flat
+add vertex surface
+add edge flat - surface
+add edge surface - two
+add edge two - dimensions
+add vertex represent
+add edge dimensions - represent
+add vertex figure
+add edge represent - figure
+add vertex three-dimensional
+add edge figure - three-dimensional
+add edge three-dimensional - solid
+add vertex similarly
+add edge solid - similarly
+add edge similarly - think
+add vertex models
+add edge think - models
+add edge models - three
+add vertex could
+add edge dimensions - could
+add edge could - represent
+add edge represent - one
+add edge one - four
+add edge four - could
+add vertex master
+add edge could - master
+add vertex perspective
+add edge master - perspective
+add edge perspective - thing
+add vertex see
+add edge thing - see
+add edge see - think
+add vertex murmured
+add edge think - murmured
+add edge murmured - provincial
+add vertex knitting
+add edge mayor - knitting
+add vertex brows
+add edge knitting - brows
+add vertex lapsed
+add edge brows - lapsed
+add vertex introspective
+add edge lapsed - introspective
+add vertex state
+add edge introspective - state
+add vertex lips
+add edge state - lips
+add vertex moving
+add edge lips - moving
+add edge moving - one
+add vertex repeats
+add edge one - repeats
+add vertex mystic
+add edge repeats - mystic
+add vertex words
+add edge mystic - words
+add vertex yes
+add edge words - yes
+add edge yes - think
+add edge think - see
+add edge see - said
+add edge said - time
+add vertex brightening
+add edge time - brightening
+add vertex quite
+add edge brightening - quite
+add vertex transitory
+add edge quite - transitory
+add vertex manner
+add edge transitory - manner
+add vertex well
+add edge manner - well
+add vertex mind
+add edge well - mind
+add vertex telling
+add edge mind - telling
+add vertex work
+add edge telling - work
+add edge work - upon
+add edge upon - geometry
+add edge geometry - four
+add edge dimensions - time
+add vertex results
+add edge time - results
+add vertex curious
+add edge results - curious
+add edge curious - instance
+add vertex portrait
+add edge instance - portrait
+add edge portrait - man
+add vertex eight
+add edge man - eight
+add vertex years
+add edge eight - years
+add vertex old
+add edge years - old
+add edge old - another
+add vertex fifteen
+add edge another - fifteen
+add edge fifteen - another
+add vertex seventeen
+add edge another - seventeen
+add edge seventeen - another
+add vertex twenty-three
+add edge another - twenty-three
+add vertex evidently
+add edge twenty-three - evidently
+add vertex sections
+add edge evidently - sections
+add edge sections - three-dimensional
+add vertex representations
+add edge three-dimensional - representations
+add vertex four-dimensioned
+add edge representations - four-dimensioned
+add vertex fixed
+add edge four-dimensioned - fixed
+add vertex unalterable
+add edge fixed - unalterable
+add edge unalterable - thing
+add vertex scientific
+add edge thing - scientific
+add edge scientific - people
+add edge people - proceeded
+add edge proceeded - time
+add vertex pause
+add edge traveller - pause
+add vertex required
+add edge pause - required
+add vertex proper
+add edge required - proper
+add vertex assimilation
+add edge proper - assimilation
+add edge assimilation - know
+add edge know - well
+add edge well - time
+add vertex kind
+add edge time - kind
+add edge kind - space
+add vertex popular
+add edge space - popular
+add edge popular - scientific
+add vertex diagram
+add edge scientific - diagram
+add vertex weather
+add edge diagram - weather
+add vertex record
+add edge weather - record
+add edge record - line
+add vertex trace
+add edge line - trace
+add vertex finger
+add edge trace - finger
+add vertex shows
+add edge finger - shows
+add vertex movement
+add edge shows - movement
+add vertex barometer
+add edge movement - barometer
+add vertex yesterday
+add edge barometer - yesterday
+add vertex high
+add edge yesterday - high
+add edge high - yesterday
+add vertex night
+add edge yesterday - night
+add vertex fell
+add edge night - fell
+add vertex morning
+add edge fell - morning
+add vertex rose
+add edge morning - rose
+add vertex gently
+add edge rose - gently
+add vertex upward
+add edge gently - upward
+add vertex surely
+add edge upward - surely
+add vertex mercury
+add edge surely - mercury
+add edge mercury - trace
+add edge trace - line
+add edge line - dimensions
+add vertex generally
+add edge space - generally
+add vertex recognised
+add edge generally - recognised
+add vertex certainly
+add edge recognised - certainly
+add vertex traced
+add edge certainly - traced
+add edge traced - line
+add vertex therefore
+add edge line - therefore
+add edge therefore - must
+add vertex conclude
+add edge must - conclude
+add edge conclude - along
+add vertex time-dimension
+add edge along - time-dimension
+add edge time-dimension - said
+add vertex medical
+add edge said - medical
+add edge medical - man
+add vertex staring
+add edge man - staring
+add vertex hard
+add edge staring - hard
+add vertex coal
+add edge hard - coal
+add edge coal - fire
+add edge fire - time
+add edge time - really
+add edge really - fourth
+add edge dimension - space
+add edge space - always
+add vertex regarded
+add edge always - regarded
+add vertex something
+add edge regarded - something
+add vertex different
+add edge something - different
+add vertex move
+add edge different - move
+add edge move - time
+add edge time - move
+add edge move - dimensions
+add edge space - time
+add vertex smiled
+add edge traveller - smiled
+add vertex sure
+add edge smiled - sure
+add edge sure - move
+add vertex freely
+add edge move - freely
+add edge freely - space
+add edge space - right
+add vertex left
+add edge right - left
+add vertex go
+add edge left - go
+add vertex backward
+add edge go - backward
+add vertex forward
+add edge backward - forward
+add edge forward - freely
+add vertex enough
+add edge freely - enough
+add vertex men
+add edge enough - men
+add edge men - always
+add vertex done
+add edge always - done
+add edge done - admit
+add edge admit - move
+add edge freely - two
+add vertex gravitation
+add edge dimensions - gravitation
+add vertex limits
+add edge gravitation - limits
+add vertex exactly
+add edge limits - exactly
+add edge exactly - said
+add vertex balloons
+add edge man - balloons
+add edge balloons - balloons
+add vertex save
+add edge balloons - save
+add edge save - spasmodic
+add vertex jumping
+add edge spasmodic - jumping
+add vertex inequalities
+add edge jumping - inequalities
+add edge inequalities - surface
+add edge surface - man
+add vertex freedom
+add edge man - freedom
+add vertex vertical
+add edge freedom - vertical
+add edge vertical - movement
+add vertex still
+add edge movement - still
+add edge still - could
+add edge could - move
+add vertex little
+add edge move - little
+add edge little - said
+add vertex easier
+add edge man - easier
+add vertex far
+add edge easier - far
+add edge far - easier
+add edge easier - move
+add vertex get
+add edge time - get
+add vertex away
+add edge get - away
+add vertex present
+add edge away - present
+add edge present - moment
+add vertex dear
+add edge moment - dear
+add vertex sir
+add edge dear - sir
+add edge sir - wrong
+add vertex whole
+add edge wrong - whole
+add vertex world
+add edge whole - world
+add vertex gone
+add edge world - gone
+add edge gone - wrong
+add edge wrong - always
+add vertex getting
+add edge always - getting
+add edge getting - away
+add vertex mental
+add edge moment - mental
+add vertex existences
+add edge mental - existences
+add vertex immaterial
+add edge existences - immaterial
+add edge immaterial - dimensions
+add vertex passing
+add edge dimensions - passing
+add edge passing - along
+add vertex uniform
+add edge time-dimension - uniform
+add vertex velocity
+add edge uniform - velocity
+add vertex cradle
+add edge velocity - cradle
+add vertex grave
+add edge cradle - grave
+add vertex travel
+add edge grave - travel
+add vertex began
+add edge travel - began
+add edge began - existence
+add vertex fifty
+add edge existence - fifty
+add vertex miles
+add edge fifty - miles
+add vertex earth
+add edge miles - earth
+add edge earth - ’
+add edge ’ - surface
+add vertex great
+add edge surface - great
+add vertex difficulty
+add edge great - difficulty
+add vertex interrupted
+add edge difficulty - interrupted
+add edge interrupted - psychologist
+add edge psychologist - ’
+add edge ’ - move
+add edge move - directions
+add edge directions - space
+add edge space - move
+add vertex germ
+add edge time - germ
+add edge germ - great
+add vertex discovery
+add edge great - discovery
+add edge discovery - wrong
+add edge wrong - say
+add edge say - move
+add edge time - instance
+add vertex recalling
+add edge instance - recalling
+add vertex incident
+add edge recalling - incident
+add vertex vividly
+add edge incident - vividly
+add edge vividly - go
+add vertex back
+add edge go - back
+add vertex instant
+add edge back - instant
+add vertex occurrence
+add edge instant - occurrence
+add edge occurrence - :
+add vertex become
+add edge : - become
+add vertex absent-minded
+add edge become - absent-minded
+add edge absent-minded - say
+add vertex jump
+add edge say - jump
+add edge jump - back
+add edge back - moment
+add edge moment - course
+add vertex means
+add edge course - means
+add vertex staying
+add edge means - staying
+add edge staying - back
+add edge back - length
+add edge length - time
+add vertex savage
+add edge time - savage
+add vertex animal
+add edge savage - animal
+add edge animal - staying
+add vertex six
+add edge staying - six
+add vertex feet
+add edge six - feet
+add edge feet - ground
+add vertex civilised
+add edge ground - civilised
+add edge civilised - man
+add vertex better
+add edge man - better
+add edge better - savage
+add vertex respect
+add edge savage - respect
+add edge respect - go
+add edge go - gravitation
+add vertex balloon
+add edge gravitation - balloon
+add vertex hope
+add edge balloon - hope
+add vertex ultimately
+add edge hope - ultimately
+add edge ultimately - may
+add vertex able
+add edge may - able
+add vertex stop
+add edge able - stop
+add vertex accelerate
+add edge stop - accelerate
+add vertex drift
+add edge accelerate - drift
+add edge drift - along
+add edge time-dimension - even
+add vertex turn
+add edge even - turn
+add edge turn - travel
+add edge travel - way
+add vertex oh
+add edge way - oh
+add edge oh - began
+add edge began - filby
+add edge filby - said
+add edge traveller - ’
+add vertex reason
+add edge ’ - reason
+add edge reason - said
+add edge filby - reason
+add vertex show
+add edge traveller - show
+add vertex black
+add edge show - black
+add vertex white
+add edge black - white
+add vertex argument
+add edge white - argument
+add edge argument - said
+add vertex never
+add edge filby - never
+add vertex convince
+add edge never - convince
+add vertex possibly
+add edge convince - possibly
+add edge possibly - said
+add edge traveller - begin
+add edge begin - see
+add edge see - object
+add vertex investigations
+add edge object - investigations
+add edge investigations - geometry
+add vertex long
+add edge dimensions - long
+add edge long - ago
+add vertex vague
+add edge ago - vague
+add vertex inkling
+add edge vague - inkling
+add vertex machine
+add edge inkling - machine
+add edge machine - travel
+add edge travel - time
+add vertex exclaimed
+add edge time - exclaimed
+add edge exclaimed - young
+add edge man - shall
+add edge shall - travel
+add vertex indifferently
+add edge travel - indifferently
+add edge indifferently - direction
+add edge direction - space
+add vertex driver
+add edge time - driver
+add vertex determines
+add edge driver - determines
+add edge determines - filby
+add vertex contented
+add edge filby - contented
+add vertex laughter
+add edge contented - laughter
+add vertex experimental
+add edge laughter - experimental
+add vertex verification
+add edge experimental - verification
+add edge verification - said
+add vertex would
+add edge traveller - would
+add vertex remarkably
+add edge would - remarkably
+add edge remarkably - convenient
+add vertex historian
+add edge convenient - historian
+add edge historian - psychologist
+add vertex suggested
+add edge psychologist - suggested
+add edge suggested - one
+add vertex might
+add edge one - might
+add edge might - travel
+add edge travel - back
+add vertex verify
+add edge back - verify
+add edge verify - accepted
+add vertex account
+add edge accepted - account
+add vertex battle
+add edge account - battle
+add vertex hastings
+add edge battle - hastings
+add edge hastings - instance
+add edge instance - ’
+add edge ’ - think
+add edge think - would
+add vertex attract
+add edge would - attract
+add vertex attention
+add edge attract - attention
+add edge attention - said
+add vertex ancestors
+add edge man - ancestors
+add edge ancestors - great
+add vertex tolerance
+add edge great - tolerance
+add vertex anachronisms
+add edge tolerance - anachronisms
+add edge anachronisms - one
+add edge might - get
+add edge get - one
+add edge one - ’
+add vertex greek
+add edge ’ - greek
+add edge greek - lips
+add vertex homer
+add edge lips - homer
+add vertex plato
+add edge homer - plato
+add edge plato - young
+add edge man - thought
+add vertex case
+add edge thought - case
+add edge case - would
+add edge would - certainly
+add vertex plough
+add edge certainly - plough
+add vertex little-go
+add edge plough - little-go
+add vertex german
+add edge little-go - german
+add vertex scholars
+add edge german - scholars
+add vertex improved
+add edge scholars - improved
+add edge improved - greek
+add edge greek - much
+add vertex future
+add edge much - future
+add edge future - said
+add edge man - think
+add edge think - one
+add vertex invest
+add edge might - invest
+add edge invest - one
+add vertex money
+add edge ’ - money
+add vertex leave
+add edge money - leave
+add vertex accumulate
+add edge leave - accumulate
+add vertex interest
+add edge accumulate - interest
+add vertex hurry
+add edge interest - hurry
+add vertex ahead
+add edge hurry - ahead
+add vertex discover
+add edge ahead - discover
+add edge discover - society
+add edge society - said
+add vertex erected
+add edge said - erected
+add vertex strictly
+add edge erected - strictly
+add vertex communistic
+add edge strictly - communistic
+add vertex basis
+add edge communistic - basis
+add vertex wild
+add edge basis - wild
+add vertex extravagant
+add edge wild - extravagant
+add vertex theories
+add edge extravagant - theories
+add edge theories - began
+add edge began - psychologist
+add edge psychologist - yes
+add vertex seemed
+add edge yes - seemed
+add edge seemed - never
+add vertex talked
+add edge never - talked
+add vertex until—
+add edge talked - until—
+add edge until— - experimental
+add vertex cried
+add edge verification - cried
+add vertex going
+add edge cried - going
+add edge going - verify
+add vertex experiment
+add edge verify - experiment
+add edge experiment - cried
+add edge cried - filby
+add edge filby - getting
+add vertex brain-weary
+add edge getting - brain-weary
+add vertex let
+add edge brain-weary - let
+add edge let - ’
+add edge ’ - see
+add edge see - experiment
+add vertex anyhow
+add edge experiment - anyhow
+add edge anyhow - said
+add edge psychologist - though
+add edge though - ’
+add vertex humbug
+add edge ’ - humbug
+add edge humbug - know
+add edge know - time
+add vertex round
+add edge smiled - round
+add edge round - still
+add vertex smiling
+add edge still - smiling
+add vertex faintly
+add edge smiling - faintly
+add vertex hands
+add edge faintly - hands
+add vertex deep
+add edge hands - deep
+add vertex trousers
+add edge deep - trousers
+add vertex pockets
+add edge trousers - pockets
+add vertex walked
+add edge pockets - walked
+add vertex slowly
+add edge walked - slowly
+add vertex room
+add edge slowly - room
+add edge room - heard
+add vertex slippers
+add edge heard - slippers
+add vertex shuffling
+add edge slippers - shuffling
+add edge shuffling - long
+add vertex passage
+add edge long - passage
+add vertex laboratory
+add edge passage - laboratory
+add edge laboratory - psychologist
+add vertex looked
+add edge psychologist - looked
+add vertex wonder
+add edge looked - wonder
+add edge wonder - ’
+add edge ’ - got
+add vertex sleight-of-hand
+add edge got - sleight-of-hand
+add vertex trick
+add edge sleight-of-hand - trick
+add edge trick - said
+add edge man - filby
+add edge filby - tried
+add vertex tell
+add edge tried - tell
+add vertex conjuror
+add edge tell - conjuror
+add vertex seen
+add edge conjuror - seen
+add vertex burslem
+add edge seen - burslem
+add vertex finished
+add edge burslem - finished
+add vertex preface
+add edge finished - preface
+add edge preface - time
+add vertex came
+add edge traveller - came
+add edge came - back
+add edge back - filby
+add edge filby - ’
+add vertex anecdote
+add edge ’ - anecdote
+add vertex collapsed
+add edge anecdote - collapsed
+update time with attributes(size=76)
+update time with attributes(pos=NN)
+update traveller with attributes(size=32)
+update traveller with attributes(pos=NN)
+update convenient with attributes(size=6)
+update convenient with attributes(pos=NNS)
+update speak with attributes(size=3)
+update speak with attributes(pos=NN)
+update expounding with attributes(size=6)
+update expounding with attributes(pos=NN)
+update recondite with attributes(size=3)
+update recondite with attributes(pos=NN)
+update matter with attributes(size=3)
+update matter with attributes(pos=VB)
+update pale with attributes(size=6)
+update pale with attributes(pos=VB)
+update grey with attributes(size=3)
+update grey with attributes(pos=NN)
+update eyes with attributes(size=3)
+update eyes with attributes(pos=NN)
+update shone with attributes(size=3)
+update shone with attributes(pos=NN)
+update twinkled with attributes(size=3)
+update twinkled with attributes(pos=NN)
+update usually with attributes(size=3)
+update usually with attributes(pos=JJ)
+update face with attributes(size=3)
+update face with attributes(pos=VB)
+update flushed with attributes(size=3)
+update flushed with attributes(pos=JJ)
+update animated with attributes(size=3)
+update animated with attributes(pos=DT)
+update fire with attributes(size=6)
+update fire with attributes(pos=NN)
+update burnt with attributes(size=3)
+update burnt with attributes(pos=NN)
+update brightly with attributes(size=3)
+update brightly with attributes(pos=NN)
+update soft with attributes(size=3)
+update soft with attributes(pos=NN)
+update radiance with attributes(size=3)
+update radiance with attributes(pos=VB)
+update incandescent with attributes(size=3)
+update incandescent with attributes(pos=NN)
+update lights with attributes(size=3)
+update lights with attributes(pos=NN)
+update lilies with attributes(size=3)
+update lilies with attributes(pos=NN)
+update silver with attributes(size=3)
+update silver with attributes(pos=NN)
+update caught with attributes(size=3)
+update caught with attributes(pos=VB)
+update bubbles with attributes(size=3)
+update bubbles with attributes(pos=NN)
+update flashed with attributes(size=3)
+update flashed with attributes(pos=NN)
+update passed with attributes(size=3)
+update passed with attributes(pos=VB)
+update glasses with attributes(size=3)
+update glasses with attributes(pos=NN)
+update chairs with attributes(size=3)
+update chairs with attributes(pos=NNS)
+update patents with attributes(size=3)
+update patents with attributes(pos=VB)
+update embraced with attributes(size=3)
+update embraced with attributes(pos=NN)
+update caressed with attributes(size=3)
+update caressed with attributes(pos=VB)
+update rather with attributes(size=6)
+update rather with attributes(pos=VB)
+update submitted with attributes(size=3)
+update submitted with attributes(pos=NN)
+update sat with attributes(size=6)
+update sat with attributes(pos=VB)
+update upon with attributes(size=9)
+update upon with attributes(pos=JJ)
+update luxurious with attributes(size=3)
+update luxurious with attributes(pos=NN)
+update after-dinner with attributes(size=3)
+update after-dinner with attributes(pos=DT)
+update atmosphere with attributes(size=3)
+update atmosphere with attributes(pos=DT)
+update thought with attributes(size=9)
+update thought with attributes(pos=NN)
+update runs with attributes(size=3)
+update runs with attributes(pos=NN)
+update gracefully with attributes(size=3)
+update gracefully with attributes(pos=NN)
+update free with attributes(size=3)
+update free with attributes(pos=JJ)
+update trammels with attributes(size=3)
+update trammels with attributes(pos=NN)
+update precision with attributes(size=3)
+update precision with attributes(pos=NN)
+update put with attributes(size=3)
+update put with attributes(pos=NN)
+update way—marking with attributes(size=3)
+update way—marking with attributes(pos=VB)
+update points with attributes(size=3)
+update points with attributes(pos=NN)
+update lean with attributes(size=3)
+update lean with attributes(pos=NN)
+update forefinger with attributes(size=3)
+update forefinger with attributes(pos=NN)
+update lazily with attributes(size=3)
+update lazily with attributes(pos=NN)
+update admired with attributes(size=3)
+update admired with attributes(pos=DT)
+update earnestness with attributes(size=3)
+update earnestness with attributes(pos=VB)
+update new with attributes(size=6)
+update new with attributes(pos=JJ)
+update paradox with attributes(size=3)
+update paradox with attributes(pos=NN)
+update fecundity with attributes(size=3)
+update fecundity with attributes(pos=JJ)
+update must with attributes(size=12)
+update must with attributes(pos=NN)
+update follow with attributes(size=6)
+update follow with attributes(pos=JJ)
+update carefully with attributes(size=3)
+update carefully with attributes(pos=VB)
+update shall with attributes(size=6)
+update shall with attributes(pos=NN)
+update controvert with attributes(size=3)
+update controvert with attributes(pos=NNS)
+update one with attributes(size=30)
+update one with attributes(pos=JJ)
+update two with attributes(size=9)
+update two with attributes(pos=NN)
+update ideas with attributes(size=3)
+update ideas with attributes(pos=NN)
+update almost with attributes(size=3)
+update almost with attributes(pos=DT)
+update universally with attributes(size=3)
+update universally with attributes(pos=JJ)
+update accepted with attributes(size=6)
+update accepted with attributes(pos=DT)
+update geometry with attributes(size=12)
+update geometry with attributes(pos=NN)
+update instance with attributes(size=12)
+update instance with attributes(pos=NN)
+update taught with attributes(size=6)
+update taught with attributes(pos=VB)
+update school with attributes(size=3)
+update school with attributes(pos=JJ)
+update founded with attributes(size=3)
+update founded with attributes(pos=JJ)
+update misconception with attributes(size=3)
+update misconception with attributes(pos=NN)
+update large with attributes(size=3)
+update large with attributes(pos=NN)
+update thing with attributes(size=9)
+update thing with attributes(pos=NN)
+update expect with attributes(size=3)
+update expect with attributes(pos=NN)
+update begin with attributes(size=6)
+update begin with attributes(pos=NN)
+update said with attributes(size=63)
+update said with attributes(pos=VB)
+update filby with attributes(size=33)
+update filby with attributes(pos=NN)
+update argumentative with attributes(size=3)
+update argumentative with attributes(pos=DT)
+update person with attributes(size=3)
+update person with attributes(pos=NN)
+update red with attributes(size=3)
+update red with attributes(pos=NN)
+update hair with attributes(size=3)
+update hair with attributes(pos=NN)
+update mean with attributes(size=6)
+update mean with attributes(pos=NN)
+update ask with attributes(size=3)
+update ask with attributes(pos=DT)
+update accept with attributes(size=3)
+update accept with attributes(pos=DT)
+update anything with attributes(size=3)
+update anything with attributes(pos=DT)
+update without with attributes(size=3)
+update without with attributes(pos=NN)
+update reasonable with attributes(size=3)
+update reasonable with attributes(pos=NN)
+update ground with attributes(size=6)
+update ground with attributes(pos=NN)
+update soon with attributes(size=3)
+update soon with attributes(pos=NN)
+update admit with attributes(size=6)
+update admit with attributes(pos=DT)
+update much with attributes(size=6)
+update much with attributes(pos=NN)
+update need with attributes(size=3)
+update need with attributes(pos=JJ)
+update know with attributes(size=15)
+update know with attributes(pos=NN)
+update course with attributes(size=9)
+update course with attributes(pos=NNS)
+update mathematical with attributes(size=9)
+update mathematical with attributes(pos=VB)
+update line with attributes(size=18)
+update line with attributes(pos=NN)
+update thickness with attributes(size=12)
+update thickness with attributes(pos=NN)
+update nil with attributes(size=3)
+update nil with attributes(pos=NN)
+update real with attributes(size=15)
+update real with attributes(pos=NN)
+update existence with attributes(size=12)
+update existence with attributes(pos=NN)
+update neither with attributes(size=3)
+update neither with attributes(pos=JJ)
+update plane with attributes(size=3)
+update plane with attributes(pos=NN)
+update things with attributes(size=3)
+update things with attributes(pos=NN)
+update mere with attributes(size=3)
+update mere with attributes(pos=NN)
+update abstractions with attributes(size=3)
+update abstractions with attributes(pos=DT)
+update right with attributes(size=12)
+update right with attributes(pos=NN)
+update psychologist with attributes(size=18)
+update psychologist with attributes(pos=NN)
+update length with attributes(size=12)
+update length with attributes(pos=NN)
+update breadth with attributes(size=9)
+update breadth with attributes(pos=NN)
+update cube with attributes(size=9)
+update cube with attributes(pos=NN)
+update object with attributes(size=6)
+update object with attributes(pos=NN)
+update solid with attributes(size=6)
+update solid with attributes(pos=NN)
+update body with attributes(size=6)
+update body with attributes(pos=NN)
+update may with attributes(size=9)
+update may with attributes(pos=VB)
+update exist with attributes(size=6)
+update exist with attributes(pos=NN)
+update things— with attributes(size=3)
+update things— with attributes(pos=NN)
+update people with attributes(size=15)
+update people with attributes(pos=NN)
+update think with attributes(size=18)
+update think with attributes(pos=NN)
+update wait with attributes(size=3)
+update wait with attributes(pos=IN)
+update moment with attributes(size=15)
+update moment with attributes(pos=NN)
+update instantaneous with attributes(size=3)
+update instantaneous with attributes(pos=NN)
+update ’ with attributes(size=33)
+update ’ with attributes(pos=NN)
+update last with attributes(size=3)
+update last with attributes(pos=NN)
+update became with attributes(size=3)
+update became with attributes(pos=NN)
+update pensive with attributes(size=3)
+update pensive with attributes(pos=NN)
+update clearly with attributes(size=3)
+update clearly with attributes(pos=NNS)
+update proceeded with attributes(size=6)
+update proceeded with attributes(pos=NN)
+update extension with attributes(size=3)
+update extension with attributes(pos=NN)
+update four with attributes(size=15)
+update four with attributes(pos=JJ)
+update directions with attributes(size=6)
+update directions with attributes(pos=NN)
+update : with attributes(size=6)
+update : with attributes(pos=:)
+update and—duration with attributes(size=3)
+update and—duration with attributes(pos=DT)
+update natural with attributes(size=3)
+update natural with attributes(pos=RB)
+update infirmity with attributes(size=3)
+update infirmity with attributes(pos=NN)
+update flesh with attributes(size=3)
+update flesh with attributes(pos=JJ)
+update explain with attributes(size=3)
+update explain with attributes(pos=NN)
+update incline with attributes(size=3)
+update incline with attributes(pos=NN)
+update overlook with attributes(size=3)
+update overlook with attributes(pos=JJ)
+update fact with attributes(size=3)
+update fact with attributes(pos=VB)
+update really with attributes(size=9)
+update really with attributes(pos=NN)
+update dimensions with attributes(size=39)
+update dimensions with attributes(pos=NN)
+update three with attributes(size=24)
+update three with attributes(pos=NN)
+update call with attributes(size=6)
+update call with attributes(pos=VB)
+update planes with attributes(size=6)
+update planes with attributes(pos=NN)
+update space with attributes(size=30)
+update space with attributes(pos=NN)
+update fourth with attributes(size=15)
+update fourth with attributes(pos=JJ)
+update however with attributes(size=3)
+update however with attributes(pos=NN)
+update tendency with attributes(size=3)
+update tendency with attributes(pos=NN)
+update draw with attributes(size=3)
+update draw with attributes(pos=NN)
+update unreal with attributes(size=3)
+update unreal with attributes(pos=JJ)
+update distinction with attributes(size=3)
+update distinction with attributes(pos=NN)
+update former with attributes(size=3)
+update former with attributes(pos=NN)
+update latter with attributes(size=6)
+update latter with attributes(pos=NN)
+update happens with attributes(size=3)
+update happens with attributes(pos=VB)
+update consciousness with attributes(size=6)
+update consciousness with attributes(pos=NNS)
+update moves with attributes(size=6)
+update moves with attributes(pos=NN)
+update intermittently with attributes(size=3)
+update intermittently with attributes(pos=NN)
+update direction with attributes(size=9)
+update direction with attributes(pos=NN)
+update along with attributes(size=15)
+update along with attributes(pos=DT)
+update beginning with attributes(size=3)
+update beginning with attributes(pos=NN)
+update end with attributes(size=3)
+update end with attributes(pos=NN)
+update lives with attributes(size=3)
+update lives with attributes(pos=NN)
+update young with attributes(size=12)
+update young with attributes(pos=NN)
+update man with attributes(size=36)
+update man with attributes(pos=VB)
+update making with attributes(size=3)
+update making with attributes(pos=NN)
+update spasmodic with attributes(size=6)
+update spasmodic with attributes(pos=NN)
+update efforts with attributes(size=3)
+update efforts with attributes(pos=NN)
+update relight with attributes(size=3)
+update relight with attributes(pos=NN)
+update cigar with attributes(size=3)
+update cigar with attributes(pos=NN)
+update lamp with attributes(size=3)
+update lamp with attributes(pos=NN)
+update clear with attributes(size=3)
+update clear with attributes(pos=NNS)
+update indeed with attributes(size=3)
+update indeed with attributes(pos=NN)
+update remarkable with attributes(size=3)
+update remarkable with attributes(pos=NN)
+update extensively with attributes(size=3)
+update extensively with attributes(pos=NN)
+update overlooked with attributes(size=3)
+update overlooked with attributes(pos=JJ)
+update continued with attributes(size=3)
+update continued with attributes(pos=NNS)
+update slight with attributes(size=3)
+update slight with attributes(pos=JJ)
+update accession with attributes(size=3)
+update accession with attributes(pos=DT)
+update cheerfulness with attributes(size=3)
+update cheerfulness with attributes(pos=NNS)
+update meant with attributes(size=3)
+update meant with attributes(pos=NN)
+update dimension with attributes(size=12)
+update dimension with attributes(pos=NN)
+update though with attributes(size=6)
+update though with attributes(pos=NN)
+update talk with attributes(size=3)
+update talk with attributes(pos=VB)
+update another with attributes(size=15)
+update another with attributes(pos=DT)
+update way with attributes(size=6)
+update way with attributes(pos=VB)
+update looking with attributes(size=3)
+update looking with attributes(pos=NN)
+update difference with attributes(size=3)
+update difference with attributes(pos=NN)
+update except with attributes(size=3)
+update except with attributes(pos=NN)
+update foolish with attributes(size=3)
+update foolish with attributes(pos=JJ)
+update got with attributes(size=6)
+update got with attributes(pos=NN)
+update hold with attributes(size=3)
+update hold with attributes(pos=NN)
+update wrong with attributes(size=12)
+update wrong with attributes(pos=NN)
+update side with attributes(size=3)
+update side with attributes(pos=NN)
+update idea with attributes(size=3)
+update idea with attributes(pos=NN)
+update heard with attributes(size=6)
+update heard with attributes(pos=NN)
+update say with attributes(size=9)
+update say with attributes(pos=VB)
+update provincial with attributes(size=6)
+update provincial with attributes(pos=NN)
+update mayor with attributes(size=6)
+update mayor with attributes(pos=VB)
+update simply with attributes(size=3)
+update simply with attributes(pos=NN)
+update mathematicians with attributes(size=3)
+update mathematicians with attributes(pos=VB)
+update spoken with attributes(size=3)
+update spoken with attributes(pos=NN)
+update always with attributes(size=12)
+update always with attributes(pos=DT)
+update definable with attributes(size=3)
+update definable with attributes(pos=NN)
+update reference with attributes(size=3)
+update reference with attributes(pos=NN)
+update angles with attributes(size=6)
+update angles with attributes(pos=DT)
+update others with attributes(size=3)
+update others with attributes(pos=JJ)
+update philosophical with attributes(size=3)
+update philosophical with attributes(pos=NN)
+update asking with attributes(size=3)
+update asking with attributes(pos=DT)
+update particularly—why with attributes(size=3)
+update particularly—why with attributes(pos=NN)
+update three—and with attributes(size=3)
+update three—and with attributes(pos=NN)
+update even with attributes(size=6)
+update even with attributes(pos=NN)
+update tried with attributes(size=6)
+update tried with attributes(pos=NN)
+update construct with attributes(size=3)
+update construct with attributes(pos=NNS)
+update four-dimensional with attributes(size=3)
+update four-dimensional with attributes(pos=JJ)
+update professor with attributes(size=3)
+update professor with attributes(pos=NN)
+update simon with attributes(size=3)
+update simon with attributes(pos=NN)
+update newcomb with attributes(size=3)
+update newcomb with attributes(pos=JJ)
+update york with attributes(size=3)
+update york with attributes(pos=NN)
+update society with attributes(size=6)
+update society with attributes(pos=NN)
+update month with attributes(size=3)
+update month with attributes(pos=NN)
+update ago with attributes(size=6)
+update ago with attributes(pos=DT)
+update flat with attributes(size=3)
+update flat with attributes(pos=NN)
+update surface with attributes(size=9)
+update surface with attributes(pos=NN)
+update represent with attributes(size=6)
+update represent with attributes(pos=NN)
+update figure with attributes(size=3)
+update figure with attributes(pos=NN)
+update three-dimensional with attributes(size=6)
+update three-dimensional with attributes(pos=NN)
+update similarly with attributes(size=3)
+update similarly with attributes(pos=NN)
+update models with attributes(size=3)
+update models with attributes(pos=NN)
+update could with attributes(size=9)
+update could with attributes(pos=NNS)
+update master with attributes(size=3)
+update master with attributes(pos=VB)
+update perspective with attributes(size=3)
+update perspective with attributes(pos=NN)
+update see with attributes(size=12)
+update see with attributes(pos=NN)
+update murmured with attributes(size=3)
+update murmured with attributes(pos=NN)
+update knitting with attributes(size=3)
+update knitting with attributes(pos=NN)
+update brows with attributes(size=3)
+update brows with attributes(pos=NN)
+update lapsed with attributes(size=3)
+update lapsed with attributes(pos=NN)
+update introspective with attributes(size=3)
+update introspective with attributes(pos=NN)
+update state with attributes(size=3)
+update state with attributes(pos=NN)
+update lips with attributes(size=6)
+update lips with attributes(pos=NN)
+update moving with attributes(size=3)
+update moving with attributes(pos=NN)
+update repeats with attributes(size=3)
+update repeats with attributes(pos=NN)
+update mystic with attributes(size=3)
+update mystic with attributes(pos=NN)
+update words with attributes(size=3)
+update words with attributes(pos=NN)
+update yes with attributes(size=6)
+update yes with attributes(pos=NN)
+update brightening with attributes(size=3)
+update brightening with attributes(pos=NN)
+update quite with attributes(size=3)
+update quite with attributes(pos=NN)
+update transitory with attributes(size=3)
+update transitory with attributes(pos=NN)
+update manner with attributes(size=3)
+update manner with attributes(pos=VB)
+update well with attributes(size=6)
+update well with attributes(pos=NN)
+update mind with attributes(size=3)
+update mind with attributes(pos=NN)
+update telling with attributes(size=3)
+update telling with attributes(pos=NN)
+update work with attributes(size=3)
+update work with attributes(pos=NN)
+update results with attributes(size=3)
+update results with attributes(pos=NN)
+update curious with attributes(size=3)
+update curious with attributes(pos=NNS)
+update portrait with attributes(size=3)
+update portrait with attributes(pos=NN)
+update eight with attributes(size=3)
+update eight with attributes(pos=NN)
+update years with attributes(size=3)
+update years with attributes(pos=NN)
+update old with attributes(size=3)
+update old with attributes(pos=JJ)
+update fifteen with attributes(size=3)
+update fifteen with attributes(pos=NN)
+update seventeen with attributes(size=3)
+update seventeen with attributes(pos=NN)
+update twenty-three with attributes(size=3)
+update twenty-three with attributes(pos=NN)
+update evidently with attributes(size=3)
+update evidently with attributes(pos=NN)
+update sections with attributes(size=3)
+update sections with attributes(pos=NN)
+update representations with attributes(size=3)
+update representations with attributes(pos=NN)
+update four-dimensioned with attributes(size=3)
+update four-dimensioned with attributes(pos=JJ)
+update fixed with attributes(size=3)
+update fixed with attributes(pos=NN)
+update unalterable with attributes(size=3)
+update unalterable with attributes(pos=JJ)
+update scientific with attributes(size=6)
+update scientific with attributes(pos=JJ)
+update pause with attributes(size=3)
+update pause with attributes(pos=VB)
+update required with attributes(size=3)
+update required with attributes(pos=NN)
+update proper with attributes(size=3)
+update proper with attributes(pos=NN)
+update assimilation with attributes(size=3)
+update assimilation with attributes(pos=DT)
+update kind with attributes(size=3)
+update kind with attributes(pos=NN)
+update popular with attributes(size=3)
+update popular with attributes(pos=NN)
+update diagram with attributes(size=3)
+update diagram with attributes(pos=NN)
+update weather with attributes(size=3)
+update weather with attributes(pos=NN)
+update record with attributes(size=3)
+update record with attributes(pos=NN)
+update trace with attributes(size=6)
+update trace with attributes(pos=NN)
+update finger with attributes(size=3)
+update finger with attributes(pos=NN)
+update shows with attributes(size=3)
+update shows with attributes(pos=NN)
+update movement with attributes(size=6)
+update movement with attributes(pos=NN)
+update barometer with attributes(size=3)
+update barometer with attributes(pos=NN)
+update yesterday with attributes(size=6)
+update yesterday with attributes(pos=NN)
+update high with attributes(size=3)
+update high with attributes(pos=NN)
+update night with attributes(size=3)
+update night with attributes(pos=NN)
+update fell with attributes(size=3)
+update fell with attributes(pos=JJ)
+update morning with attributes(size=3)
+update morning with attributes(pos=NN)
+update rose with attributes(size=3)
+update rose with attributes(pos=NN)
+update gently with attributes(size=3)
+update gently with attributes(pos=NN)
+update upward with attributes(size=3)
+update upward with attributes(pos=JJ)
+update surely with attributes(size=3)
+update surely with attributes(pos=NN)
+update mercury with attributes(size=3)
+update mercury with attributes(pos=NN)
+update generally with attributes(size=3)
+update generally with attributes(pos=NN)
+update recognised with attributes(size=3)
+update recognised with attributes(pos=NN)
+update certainly with attributes(size=6)
+update certainly with attributes(pos=NNS)
+update traced with attributes(size=3)
+update traced with attributes(pos=NN)
+update therefore with attributes(size=3)
+update therefore with attributes(pos=NN)
+update conclude with attributes(size=3)
+update conclude with attributes(pos=NNS)
+update time-dimension with attributes(size=9)
+update time-dimension with attributes(pos=NN)
+update medical with attributes(size=15)
+update medical with attributes(pos=NN)
+update staring with attributes(size=3)
+update staring with attributes(pos=NN)
+update hard with attributes(size=3)
+update hard with attributes(pos=NN)
+update coal with attributes(size=3)
+update coal with attributes(pos=NNS)
+update regarded with attributes(size=3)
+update regarded with attributes(pos=NN)
+update something with attributes(size=3)
+update something with attributes(pos=NN)
+update different with attributes(size=3)
+update different with attributes(pos=NN)
+update move with attributes(size=27)
+update move with attributes(pos=NN)
+update smiled with attributes(size=6)
+update smiled with attributes(pos=JJ)
+update sure with attributes(size=3)
+update sure with attributes(pos=NN)
+update freely with attributes(size=9)
+update freely with attributes(pos=JJ)
+update left with attributes(size=3)
+update left with attributes(pos=NN)
+update go with attributes(size=9)
+update go with attributes(pos=NN)
+update backward with attributes(size=3)
+update backward with attributes(pos=VB)
+update forward with attributes(size=3)
+update forward with attributes(pos=NN)
+update enough with attributes(size=3)
+update enough with attributes(pos=NN)
+update men with attributes(size=3)
+update men with attributes(pos=NN)
+update done with attributes(size=3)
+update done with attributes(pos=NN)
+update gravitation with attributes(size=6)
+update gravitation with attributes(pos=NN)
+update limits with attributes(size=3)
+update limits with attributes(pos=NN)
+update exactly with attributes(size=3)
+update exactly with attributes(pos=NN)
+update balloons with attributes(size=6)
+update balloons with attributes(pos=VB)
+update save with attributes(size=3)
+update save with attributes(pos=VB)
+update jumping with attributes(size=3)
+update jumping with attributes(pos=NN)
+update inequalities with attributes(size=3)
+update inequalities with attributes(pos=NN)
+update freedom with attributes(size=3)
+update freedom with attributes(pos=JJ)
+update vertical with attributes(size=3)
+update vertical with attributes(pos=NN)
+update still with attributes(size=6)
+update still with attributes(pos=JJ)
+update little with attributes(size=3)
+update little with attributes(pos=NN)
+update easier with attributes(size=6)
+update easier with attributes(pos=VB)
+update far with attributes(size=3)
+update far with attributes(pos=VB)
+update get with attributes(size=6)
+update get with attributes(pos=NN)
+update away with attributes(size=6)
+update away with attributes(pos=DT)
+update present with attributes(size=6)
+update present with attributes(pos=NN)
+update dear with attributes(size=3)
+update dear with attributes(pos=NN)
+update sir with attributes(size=3)
+update sir with attributes(pos=NN)
+update whole with attributes(size=3)
+update whole with attributes(pos=NN)
+update world with attributes(size=3)
+update world with attributes(pos=NN)
+update gone with attributes(size=3)
+update gone with attributes(pos=NN)
+update getting with attributes(size=6)
+update getting with attributes(pos=NN)
+update mental with attributes(size=3)
+update mental with attributes(pos=NN)
+update existences with attributes(size=3)
+update existences with attributes(pos=NN)
+update immaterial with attributes(size=3)
+update immaterial with attributes(pos=JJ)
+update passing with attributes(size=3)
+update passing with attributes(pos=VB)
+update uniform with attributes(size=3)
+update uniform with attributes(pos=JJ)
+update velocity with attributes(size=3)
+update velocity with attributes(pos=NN)
+update cradle with attributes(size=3)
+update cradle with attributes(pos=NNS)
+update grave with attributes(size=3)
+update grave with attributes(pos=NN)
+update travel with attributes(size=15)
+update travel with attributes(pos=NN)
+update began with attributes(size=9)
+update began with attributes(pos=NN)
+update fifty with attributes(size=3)
+update fifty with attributes(pos=NN)
+update miles with attributes(size=3)
+update miles with attributes(pos=NN)
+update earth with attributes(size=3)
+update earth with attributes(pos=VB)
+update great with attributes(size=9)
+update great with attributes(pos=NN)
+update difficulty with attributes(size=3)
+update difficulty with attributes(pos=NN)
+update interrupted with attributes(size=3)
+update interrupted with attributes(pos=NN)
+update germ with attributes(size=3)
+update germ with attributes(pos=NN)
+update discovery with attributes(size=3)
+update discovery with attributes(pos=NN)
+update recalling with attributes(size=3)
+update recalling with attributes(pos=NN)
+update incident with attributes(size=3)
+update incident with attributes(pos=NN)
+update vividly with attributes(size=3)
+update vividly with attributes(pos=NN)
+update back with attributes(size=15)
+update back with attributes(pos=VB)
+update instant with attributes(size=3)
+update instant with attributes(pos=NN)
+update occurrence with attributes(size=3)
+update occurrence with attributes(pos=JJ)
+update become with attributes(size=3)
+update become with attributes(pos=NN)
+update absent-minded with attributes(size=3)
+update absent-minded with attributes(pos=DT)
+update jump with attributes(size=3)
+update jump with attributes(pos=NN)
+update means with attributes(size=3)
+update means with attributes(pos=NN)
+update staying with attributes(size=6)
+update staying with attributes(pos=NN)
+update savage with attributes(size=6)
+update savage with attributes(pos=VB)
+update animal with attributes(size=3)
+update animal with attributes(pos=DT)
+update six with attributes(size=3)
+update six with attributes(pos=NN)
+update feet with attributes(size=3)
+update feet with attributes(pos=JJ)
+update civilised with attributes(size=3)
+update civilised with attributes(pos=NN)
+update better with attributes(size=3)
+update better with attributes(pos=NN)
+update respect with attributes(size=3)
+update respect with attributes(pos=NN)
+update balloon with attributes(size=3)
+update balloon with attributes(pos=VB)
+update hope with attributes(size=3)
+update hope with attributes(pos=NN)
+update ultimately with attributes(size=3)
+update ultimately with attributes(pos=JJ)
+update able with attributes(size=3)
+update able with attributes(pos=DT)
+update stop with attributes(size=3)
+update stop with attributes(pos=NN)
+update accelerate with attributes(size=3)
+update accelerate with attributes(pos=DT)
+update drift with attributes(size=3)
+update drift with attributes(pos=NN)
+update turn with attributes(size=3)
+update turn with attributes(pos=NN)
+update oh with attributes(size=3)
+update oh with attributes(pos=NN)
+update reason with attributes(size=6)
+update reason with attributes(pos=NN)
+update show with attributes(size=3)
+update show with attributes(pos=NN)
+update black with attributes(size=3)
+update black with attributes(pos=NN)
+update white with attributes(size=3)
+update white with attributes(pos=NN)
+update argument with attributes(size=3)
+update argument with attributes(pos=DT)
+update never with attributes(size=6)
+update never with attributes(pos=JJ)
+update convince with attributes(size=3)
+update convince with attributes(pos=NNS)
+update possibly with attributes(size=3)
+update possibly with attributes(pos=NN)
+update investigations with attributes(size=3)
+update investigations with attributes(pos=NN)
+update long with attributes(size=6)
+update long with attributes(pos=NN)
+update vague with attributes(size=3)
+update vague with attributes(pos=NN)
+update inkling with attributes(size=3)
+update inkling with attributes(pos=NN)
+update machine with attributes(size=3)
+update machine with attributes(pos=VB)
+update exclaimed with attributes(size=3)
+update exclaimed with attributes(pos=NN)
+update indifferently with attributes(size=3)
+update indifferently with attributes(pos=NN)
+update driver with attributes(size=3)
+update driver with attributes(pos=NN)
+update determines with attributes(size=3)
+update determines with attributes(pos=NN)
+update contented with attributes(size=3)
+update contented with attributes(pos=NNS)
+update laughter with attributes(size=3)
+update laughter with attributes(pos=NN)
+update experimental with attributes(size=6)
+update experimental with attributes(pos=NN)
+update verification with attributes(size=6)
+update verification with attributes(pos=NN)
+update would with attributes(size=9)
+update would with attributes(pos=NN)
+update remarkably with attributes(size=3)
+update remarkably with attributes(pos=NN)
+update historian with attributes(size=3)
+update historian with attributes(pos=NN)
+update suggested with attributes(size=3)
+update suggested with attributes(pos=NN)
+update might with attributes(size=9)
+update might with attributes(pos=NN)
+update verify with attributes(size=6)
+update verify with attributes(pos=NN)
+update account with attributes(size=3)
+update account with attributes(pos=DT)
+update battle with attributes(size=3)
+update battle with attributes(pos=VB)
+update hastings with attributes(size=3)
+update hastings with attributes(pos=VB)
+update attract with attributes(size=3)
+update attract with attributes(pos=DT)
+update attention with attributes(size=3)
+update attention with attributes(pos=DT)
+update ancestors with attributes(size=3)
+update ancestors with attributes(pos=DT)
+update tolerance with attributes(size=3)
+update tolerance with attributes(pos=NN)
+update anachronisms with attributes(size=3)
+update anachronisms with attributes(pos=DT)
+update greek with attributes(size=6)
+update greek with attributes(pos=NN)
+update homer with attributes(size=3)
+update homer with attributes(pos=NN)
+update plato with attributes(size=3)
+update plato with attributes(pos=NN)
+update case with attributes(size=3)
+update case with attributes(pos=VB)
+update plough with attributes(size=3)
+update plough with attributes(pos=NN)
+update little-go with attributes(size=3)
+update little-go with attributes(pos=NN)
+update german with attributes(size=3)
+update german with attributes(pos=NN)
+update scholars with attributes(size=3)
+update scholars with attributes(pos=JJ)
+update improved with attributes(size=3)
+update improved with attributes(pos=JJ)
+update future with attributes(size=3)
+update future with attributes(pos=JJ)
+update invest with attributes(size=3)
+update invest with attributes(pos=NN)
+update money with attributes(size=3)
+update money with attributes(pos=NN)
+update leave with attributes(size=3)
+update leave with attributes(pos=NN)
+update accumulate with attributes(size=3)
+update accumulate with attributes(pos=DT)
+update interest with attributes(size=3)
+update interest with attributes(pos=NN)
+update hurry with attributes(size=3)
+update hurry with attributes(pos=NN)
+update ahead with attributes(size=3)
+update ahead with attributes(pos=DT)
+update discover with attributes(size=3)
+update discover with attributes(pos=NN)
+update erected with attributes(size=3)
+update erected with attributes(pos=NN)
+update strictly with attributes(size=3)
+update strictly with attributes(pos=NN)
+update communistic with attributes(size=3)
+update communistic with attributes(pos=NNS)
+update basis with attributes(size=3)
+update basis with attributes(pos=VB)
+update wild with attributes(size=3)
+update wild with attributes(pos=NN)
+update extravagant with attributes(size=3)
+update extravagant with attributes(pos=NN)
+update theories with attributes(size=3)
+update theories with attributes(pos=NN)
+update seemed with attributes(size=3)
+update seemed with attributes(pos=NN)
+update talked with attributes(size=3)
+update talked with attributes(pos=VB)
+update until— with attributes(size=3)
+update until— with attributes(pos=JJ)
+update cried with attributes(size=6)
+update cried with attributes(pos=JJ)
+update going with attributes(size=3)
+update going with attributes(pos=NN)
+update experiment with attributes(size=6)
+update experiment with attributes(pos=NN)
+update brain-weary with attributes(size=3)
+update brain-weary with attributes(pos=NN)
+update let with attributes(size=3)
+update let with attributes(pos=NN)
+update anyhow with attributes(size=3)
+update anyhow with attributes(pos=DT)
+update humbug with attributes(size=3)
+update humbug with attributes(pos=NN)
+update round with attributes(size=3)
+update round with attributes(pos=NN)
+update smiling with attributes(size=3)
+update smiling with attributes(pos=JJ)
+update faintly with attributes(size=3)
+update faintly with attributes(pos=VB)
+update hands with attributes(size=3)
+update hands with attributes(pos=VB)
+update deep with attributes(size=3)
+update deep with attributes(pos=NN)
+update trousers with attributes(size=3)
+update trousers with attributes(pos=NN)
+update pockets with attributes(size=3)
+update pockets with attributes(pos=NN)
+update walked with attributes(size=3)
+update walked with attributes(pos=VB)
+update slowly with attributes(size=3)
+update slowly with attributes(pos=NN)
+update room with attributes(size=3)
+update room with attributes(pos=NN)
+update slippers with attributes(size=3)
+update slippers with attributes(pos=JJ)
+update shuffling with attributes(size=3)
+update shuffling with attributes(pos=NN)
+update passage with attributes(size=3)
+update passage with attributes(pos=VB)
+update laboratory with attributes(size=3)
+update laboratory with attributes(pos=NN)
+update looked with attributes(size=3)
+update looked with attributes(pos=NN)
+update wonder with attributes(size=3)
+update wonder with attributes(pos=NN)
+update sleight-of-hand with attributes(size=3)
+update sleight-of-hand with attributes(pos=NN)
+update trick with attributes(size=3)
+update trick with attributes(pos=NN)
+update tell with attributes(size=3)
+update tell with attributes(pos=NN)
+update conjuror with attributes(size=3)
+update conjuror with attributes(pos=NNS)
+update seen with attributes(size=3)
+update seen with attributes(pos=NN)
+update burslem with attributes(size=3)
+update burslem with attributes(pos=NN)
+update finished with attributes(size=3)
+update finished with attributes(pos=NN)
+update preface with attributes(size=3)
+update preface with attributes(pos=NN)
+update came with attributes(size=3)
+update came with attributes(pos=VB)
+update anecdote with attributes(size=2)
+update anecdote with attributes(pos=DT)
+update collapsed with attributes(size=1)
+update collapsed with attributes(pos=NNS)
