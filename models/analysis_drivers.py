@@ -34,25 +34,21 @@ class AnalysisDriver():
         elif self.model == 'bow':
             self.bag_of_words_run()
 
-
     def skip_gram_run(self):
         sg = SkipGram(self.wp.sen_word_token, self.wp.word_list, self.wp.word2int, self.wp.int2word)
         sg.run()
 
         tsne_model = TSNEVisualizations()
-        tsne_model.run(sg.vectors, self.wp.word_list, self.wp.word2int, '1', sizes=self.word_count)
+        tsne_model.run(sg.vectors, self.wp.word_list, self.wp.word2int, sizes=self.word_count,
+                       separates=self.wp.list_of_list, keywords=self.wp.keywords)
 
     def glove_run(self):
         g = Glove(self.wp.sen_word_token, self.wp.vocab_list, self.wp.word_list, self.wp.word2int, self.wp.int2word)
         g.run()
 
-        list_of_list = []
-        for single_keyword in range(0, self.wp.categories_num):
-            list_of_list.append([])
-
         print(g.embedding_matrix)
         tsne_model = TSNEVisualizations()
-        tsne_model.run(g.embedding_matrix, self.wp.word_list, self.wp.word2int, '1', sizes=self.word_count, separates=list_of_list, keywords=self.wp.keywords)
+        tsne_model.run(g.embedding_matrix, self.wp.word_list, self.wp.word2int, sizes=self.word_count, separates=self.wp.list_of_list, keywords=self.wp.keywords)
 
     def bag_of_words_run(self):
         bow = BagOfWords()

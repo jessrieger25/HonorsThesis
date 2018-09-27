@@ -113,8 +113,6 @@ class PositionalRelations:
                 if end >= len(self.text):
                     end = len(self.text) - 1
                 occurances.append({ind: self.text[start:end]})
-
-                # Clusters with time_1
         return occurances
 
     def structural_relations(self, main_word, other_word, book):

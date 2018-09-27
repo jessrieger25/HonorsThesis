@@ -26,6 +26,11 @@ class WordPrep():
         self.int2word = dictionaries[1]
         self.keywords = self.create_keyword_list()
 
+        self.list_of_list = []
+        for single_keyword in range(0, self.categories_num):
+            self.list_of_list.append([])
+        self.list_of_list.append([])
+
     def create_keyword_list(self):
         with open('/Users/Jess/PycharmProjects/Honors_Thesis_2/text_parsing/source_text/keywords.txt', 'r') as words:
             keywords_file = words.readlines()
@@ -38,19 +43,11 @@ class WordPrep():
         return self.keywords
 
     def create_token_sentences(self):
-        sen_word_token = []
         # Data prep
         custom_sent_tokenizer = PunktSentenceTokenizer(self.corpus_raw)
         tokenized_sentences = custom_sent_tokenizer.tokenize(self.corpus_raw)
 
-        for sen in tokenized_sentences:
-            temp = nltk.word_tokenize(sen)
-            new_temp = []
-            for one in temp:
-                if one not in self.eng_stopwords and one not in [".", "!", "?"]:
-                    new_temp.append(one)
-            sen_word_token.append(new_temp)
-        return sen_word_token
+        return tokenized_sentences
 
     def create_vocab_set(self):
 
@@ -62,8 +59,12 @@ class WordPrep():
 
     def create_word_list(self):
         for sentence in self.sen_word_token:
-            for word_index, word in enumerate(sentence):
-                self.word_list.append(word)
+            temp = nltk.word_tokenize(sentence)
+            new_temp = []
+            for one in temp:
+                if one not in self.eng_stopwords and one not in [".", "!", "?"]:
+                    new_temp.append(one)
+            self.word_list.append(new_temp)
         return self.word_list
 
     def make_int_dictionary(self):
