@@ -2,6 +2,7 @@ import numpy as np
 import tensorflow as tf
 from sklearn.metrics.pairwise import euclidean_distances
 from .word_prep import WordPrep
+import nltk
 
 
 class SkipGram:
@@ -24,12 +25,11 @@ class SkipGram:
 
     def make_training_window_tuples(self):
         # Vectorization
-        for sentence in self.sen_word_token:
-            for word_index, word in enumerate(sentence):
-                for nb_word in sentence[
-                               max(word_index - self.WINDOW_SIZE, 0): min(word_index + self.WINDOW_SIZE, len(sentence)) + 1]:
-                    if nb_word != word:
-                        self.window_tuples.append([word, nb_word])
+        for word_index in range(0, len(self.words)):
+            for nb_word in self.words[
+                           max(word_index - self.WINDOW_SIZE, 0): min(word_index + self.WINDOW_SIZE, len(self.words)) + 1]:
+                if nb_word != self.words[word_index]:
+                    self.window_tuples.append([self.words[word_index], nb_word])
 
     # function to convert numbers to one hot vectors
     def to_one_hot(self, data_point_index, vocab_size):
@@ -67,7 +67,7 @@ class SkipGram:
         cross_entropy_loss = tf.reduce_mean(-tf.reduce_sum(self.y_label * tf.log(prediction), reduction_indices=[1]))
         # define the training step:
         train_step = tf.train.GradientDescentOptimizer(0.1).minimize(cross_entropy_loss)
-        n_iters = 10000
+        n_iters = 1000
         # train for n_iter iterations
         for _ in range(n_iters):
             sess.run(train_step, feed_dict={self.x: self.x_train, self.y_label: self.y_train})
@@ -79,22 +79,24 @@ class SkipGram:
         print('----------')
 
         self.vectors = sess.run(W1 + b1)
+        print(len(self.vectors))
+        print(len(self.words))
         print(self.vectors)
 
     def random_analysis(self):
         print(self.int2word[self.find_closest(self.word2int['time'])])
-        print(self.int2word[self.find_closest(self.word2int['fire'])])
-
-        weights = self.vectors
-
-        distance_matrix = euclidean_distances(weights)
-        print(distance_matrix.shape)
-
-        similar_words = {
-        search_term: [self.int2word[idx] for idx in distance_matrix[self.word2int[search_term] - 1].argsort()[1:6] + 1]
-        for search_term in ['fire', 'traveller', 'time']}
-
-        print(similar_words)
+        # print(self.int2word[self.find_closest(self.word2int['fire'])])
+        #
+        # weights = self.vectors
+        #
+        # distance_matrix = euclidean_distances(weights)
+        # print(distance_matrix.shape)
+        #
+        # similar_words = {
+        # search_term: [self.int2word[idx] for idx in distance_matrix[self.word2int[search_term] - 1].argsort()[1:6] + 1]
+        # for search_term in ['fire', 'traveller', 'time']}
+        #
+        # print(similar_words)
 
     def euclidean_dist(self, vec1, vec2):
         return np.sqrt(np.sum((vec1-vec2)**2))

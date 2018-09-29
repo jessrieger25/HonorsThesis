@@ -4,6 +4,11 @@ from models.glove import Glove
 from models.word_prep import WordPrep
 from models.bag_of_words import BagOfWords
 from nltk.corpus import stopwords
+import numpy as np
+import json
+from models.watson_api.natural_lang_understanding import NLU
+from models.watson_api.tone import ToneAnalyzer
+from models.watson_api.lstm_keras import LSTMKeras
 
 
 class AnalysisDriver():
@@ -81,6 +86,35 @@ class AnalysisDriver():
                                                                N_TOPICS=10,
                                                                N_TOP_WORDS=4)
 
+    def watson_sentiment_analysis(self):
+        target_labels = np.ndarray([len(self.wp.sen_word_token), 13], dtype='float')
+        nlu_analysis = []
+
+        # From already gen file
+        with open("/Users/Jess/PycharmProjects/Honors_Thesis_2/watson_analysis/result_jsons/nlu_results.txt",
+                  "r") as text:
+            nlu = json.load(text)
+
+        for ind in range(0, len(self.wp.sen_word_token)):
+            # NLU
+            analysis = NLU().analyze_text(self.wp.sen_word_token[ind])
+            nlu_analysis.append(NLU().make_vector(analysis))
+            print(analysis)
+
+        tone_results = ToneAnalyzer().analyze_text(self.wp.sen_word_token)
+
+        tone_vecs = ToneAnalyzer().make_vector(tone_results)
+        if len(tone_vecs) != len(nlu_analysis):
+            raise Exception
+
+        for ind in range(0, len(tone_vecs)):
+            combined_vec = []
+            combined_vec.extend(NLU().make_vector(nlu[ind]))
+            combined_vec.extend(tone_vecs[ind])
+            np.append(target_labels, [combined_vec], axis=0)
+
+        print(target_labels)
+        LSTMKeras(self.wp.sen_word_token, target_labels).run()
 
 AnalysisDriver(["/Users/Jess/PycharmProjects/Honors_Thesis_2/time_machine_skip_gram.txt"])
 

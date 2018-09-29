@@ -9,7 +9,7 @@ class WordPrep():
     def __init__(self, corpus_raw):
 
         # blank variables
-        self.vocab_list = []
+        self.vocab_list = set()
         self.word_list = []
         self.word2int = {}
         self.int2word = {}
@@ -19,8 +19,8 @@ class WordPrep():
         self.categories_num = 1
         self.eng_stopwords = stopwords.words('english')
         self.sen_word_token = self.create_token_sentences()
-        self.vocab_list = self.create_vocab_set()
         self.word_list = self.create_word_list()
+        self.vocab_list = self.create_vocab_set()
         dictionaries = self.make_int_dictionary()
         self.word2int = dictionaries[0]
         self.int2word = dictionaries[1]
@@ -51,27 +51,26 @@ class WordPrep():
 
     def create_vocab_set(self):
 
-        for one in self.sen_word_token:
-            for internal in one:
-                self.vocab_list.append(internal)
+        for one in self.word_list:
+            self.vocab_list.add(one)
 
         return self.vocab_list
 
     def create_word_list(self):
         for sentence in self.sen_word_token:
             temp = nltk.word_tokenize(sentence)
-            new_temp = []
             for one in temp:
-                if one not in self.eng_stopwords and one not in [".", "!", "?"]:
-                    new_temp.append(one)
-            self.word_list.append(new_temp)
+                # if one not in self.eng_stopwords and one not in [".", "!", "?"]:
+                self.word_list.append(one)
         return self.word_list
 
     def make_int_dictionary(self):
         for i, word in enumerate(self.vocab_list):
             self.word2int[word] = i
             self.int2word[i] = word
-
+        print(self.word2int)
+        print(self.vocab_list)
+        print(self.int2word)
         return self.word2int, self.int2word
 
     def word_count(self):
