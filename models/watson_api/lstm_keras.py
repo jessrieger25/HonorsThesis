@@ -54,6 +54,8 @@ class LSTMKeras:
         # evaluate the model
         loss, accuracy, mean_absolute_error = model.evaluate(padded_docs, self.labels, verbose=0)
 
+        # WILL HAVE TO ADD TSNE ONCE HAVE ACTUAL DATA
+        print(model.layers)
         print("Loss: ", loss, ", accuracy: ", accuracy, ", mean_absolute_error: ", mean_absolute_error)
 
 
