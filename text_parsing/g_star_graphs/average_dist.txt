@@ -1,3 +1,0 @@
-new graph
-add vertex time with attributes(size=0)
-add vertex said with attributes(size=24.3)

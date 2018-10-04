@@ -28,7 +28,7 @@ class TSNEVisualizations():
         different from a second, reference probability distribution
         """
 
-    def run(self, vectors, words, word2int, sizes={}, separates=[], keywords={}):
+    def run(self, vectors, words, word2int, sizes={}, separates=[], keywords={}, type='Analysis'):
 
         np.set_printoptions(suppress=True)
         vectors = self.model.fit_transform(vectors)
@@ -47,46 +47,54 @@ class TSNEVisualizations():
         plt.axis([min, max, min, max])
 
         size_list = list()
+        separates_copy = separates
+
         for word in words:
             print(vectors[word2int[word]][1])
 
             if word in keywords:
 
                 separates[keywords[word]-1].append(vectors[word2int[word]])
+                separates_copy[keywords[word]-1].append(word)
             else:
                 separates[len(separates)-1].append(vectors[word2int[word]])
+                separates_copy[keywords[word] - 1].append(word)
 
             size_list.append(sizes[word])
             ax.annotate(word, (vectors[word2int[word]][0], vectors[word2int[word]][1]))
 
+
         plt.show()
-        fig.savefig('/Users/Jess/PycharmProjects/Honors_Thesis_2/graphics/tsne_' + datetime.utcnow().isoformat('T') + '.png', dpi=350)
+        fig.savefig('/Users/Jess/PycharmProjects/Honors_Thesis_2/graphics_time_machine/tsne_' + datetime.utcnow().isoformat('T') + '.png', dpi=350)
 
         # Help to display later
         # from IPython.display import Image
         # Image('my_figure.png')
 
-        self.scatterplot(vectors[:, 0], vectors[:, 1], x_label='x', y_label='y', title='Scatter Plot of Time Machine Text', sizes=size_list, lists=separates)
+        self.scatterplot(vectors[:, 0], vectors[:, 1], x_label='x', y_label='y', sizes=size_list, lists=separates, list_of_labels=separates_copy, type=type)
 
-    def scatterplot(self, x_data, y_data, x_label="", y_label="", title="", color="r", yscale_log=False, sizes=[], lists=[]):
-        colors = ['r', 'y', 'g', 'o']
+    def scatterplot(self, x_data, y_data, x_label="", y_label="", sizes=[], lists=[], list_of_labels=[], type='Analysis'):
+        colors = ['#eb871b', 'r', 'y', 'g', 'c', 'm', '#b816e0']
         fig, ax = plt.subplots()
 
-        for one in range(0, len(lists)):
+        for one in range(0, len(lists)-1):
             x = []
             y = []
-            for vec in lists[one]:
-                x.append(vec[0])
-                y.append(vec[1])
+            for ind in range(0, len(lists[one])):
+                x.append(lists[one][ind][0])
+                y.append(lists[one][ind][1])
             plt.scatter(x, y, label='words', color=colors[one], s=sizes, alpha=0.75)
+            for i, txt in enumerate(list_of_labels[one]):
+                ax.annotate(txt, (x[i], y[i]))
+
 
         # Could also plt scatter with all x and y data
 
         #, marker="o"
         plt.xlabel(x_label)
         plt.ylabel(y_label)
-        plt.title(title)
+        plt.title('Scatter Plot of the ' + type + ' Model')
         plt.legend()
         plt.show()
-        fig.savefig('/Users/Jess/PycharmProjects/Honors_Thesis_2/graphics/tsne_scatter_' + datetime.utcnow().isoformat('T') + '.png', dpi=350)
+        fig.savefig('/Users/Jess/PycharmProjects/Honors_Thesis_2/graphics_time_machine/tsne_scatter_' + datetime.utcnow().isoformat('T') + '_' + type + '.png', dpi=450)
 

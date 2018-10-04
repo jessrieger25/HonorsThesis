@@ -32,7 +32,7 @@ class WordPrep():
         self.list_of_list.append([])
 
     def create_keyword_list(self):
-        with open('/Users/Jess/PycharmProjects/Honors_Thesis_2/text_parsing/source_text/keywords.txt', 'r') as words:
+        with open('/Users/Jess/PycharmProjects/Honors_Thesis_2/text_parsing/word_lists/keywords.txt', 'r') as words:
             keywords_file = words.readlines()
 
         for word in keywords_file:

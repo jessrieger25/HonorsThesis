@@ -38,6 +38,8 @@ class AnalysisDriver():
             self.glove_run()
         elif self.model == 'bow':
             self.bag_of_words_run()
+        elif self.model == 'w':
+            self.watson_sentiment_analysis()
 
     def skip_gram_run(self):
         sg = SkipGram(self.wp.sen_word_token, self.wp.word_list, self.wp.word2int, self.wp.int2word)
@@ -45,7 +47,7 @@ class AnalysisDriver():
 
         tsne_model = TSNEVisualizations()
         tsne_model.run(sg.vectors, self.wp.word_list, self.wp.word2int, sizes=self.word_count,
-                       separates=self.wp.list_of_list, keywords=self.wp.keywords)
+                       separates=self.wp.list_of_list, keywords=self.wp.keywords, type='Skip Gram')
 
     def glove_run(self):
         g = Glove(self.wp.sen_word_token, self.wp.vocab_list, self.wp.word_list, self.wp.word2int, self.wp.int2word)
@@ -53,7 +55,7 @@ class AnalysisDriver():
 
         print(g.embedding_matrix)
         tsne_model = TSNEVisualizations()
-        tsne_model.run(g.embedding_matrix, self.wp.word_list, self.wp.word2int, sizes=self.word_count, separates=self.wp.list_of_list, keywords=self.wp.keywords)
+        tsne_model.run(g.embedding_matrix, self.wp.word_list, self.wp.word2int, sizes=self.word_count, separates=self.wp.list_of_list, keywords=self.wp.keywords, type='Glove')
 
     def bag_of_words_run(self):
         bow = BagOfWords()
@@ -116,8 +118,9 @@ class AnalysisDriver():
         print(target_labels)
         LSTMKeras(self.wp.sen_word_token, target_labels).run()
 
-AnalysisDriver(["/Users/Jess/PycharmProjects/Honors_Thesis_2/time_machine_skip_gram.txt"])
+# AnalysisDriver(["/Users/Jess/PycharmProjects/Honors_Thesis_2/time_machine_skip_gram.txt"])
 
+AnalysisDriver(["/Users/Jess/PycharmProjects/Honors_Thesis_2/ficino_used/book_1_part_1.txt"])
 
 
 

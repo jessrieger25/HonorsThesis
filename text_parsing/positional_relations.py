@@ -9,20 +9,20 @@ class PositionalRelations:
     def __init__(self):
 
         self.keywords = []
-        with open('/Users/Jess/PycharmProjects/Honors_Thesis_2/text_parsing/source_text/keywords.txt', 'r') as words:
+        with open('/Users/Jess/PycharmProjects/Honors_Thesis_2/text_parsing/word_lists/keywords.txt', 'r') as words:
             keywords_file = words.readlines()
 
         for word in keywords_file:
-            self.keywords.append(word.lower())
+            self.keywords.append(word.lower().strip())
 
         self.ignored = []
-        with open('/Users/Jess/PycharmProjects/Honors_Thesis_2/text_parsing/source_text/ignored.txt', 'r') as ignored:
+        with open('/Users/Jess/PycharmProjects/Honors_Thesis_2/text_parsing/word_lists/ignored.txt', 'r') as ignored:
             ignored_list = ignored.readlines()
 
         self.eng_stopwords = stopwords.words('english')
         self.eng_stopwords.extend(ignored_list)
 
-        self.source_files = ['/Users/Jess/PycharmProjects/Honors_Thesis_2/TimeMachine1.txt']
+        self.source_files = ['/Users/Jess/PycharmProjects/Honors_Thesis_2/ficino_used/book_1_part_1.txt']
 
         self.text = []
         self.text = self.text_to_wordlist(self.source_files)
@@ -71,7 +71,8 @@ class PositionalRelations:
             if len(distances) != 0:
                 sum = 0
                 for ind in range(0, len(distances)):
-                    sum += abs(distances[ind][tracked] - distances[ind][other_word])
+                    if other_word in distances[ind]:
+                        sum += abs(distances[ind][tracked] - distances[ind][other_word])
                 self.average_distances[other_word] = sum / len(distances)
             else:
                 self.average_distances[other_word] = 0
@@ -98,7 +99,7 @@ class PositionalRelations:
                         temp[self.text[surrounding_ind]] = surrounding_ind
                         found_in_range.append(temp)
 
-        CreateGraph().within_range_graph(found_in_range, tracked)
+        CreateGraph().within_range_graph(found_in_range, tracked, num)
 
         return found_in_range
 

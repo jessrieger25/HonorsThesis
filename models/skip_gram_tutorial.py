@@ -33,12 +33,12 @@ class SkipGram:
 
     # function to convert numbers to one hot vectors
     def to_one_hot(self, data_point_index, vocab_size):
-        temp = np.zeros(len(self.words))
+        temp = np.zeros(vocab_size)
         temp[data_point_index] = 1
         return temp
 
     def prepare_training_data_skipgram(self):
-        vocab_size = len(self.words)
+        vocab_size = len(self.word2int)
         for data_word in self.window_tuples:
             self.x_train.append(self.to_one_hot(self.word2int[data_word[0]], vocab_size))
             self.y_train.append(self.to_one_hot(self.word2int[data_word[1]], vocab_size))
@@ -51,7 +51,7 @@ class SkipGram:
         self.y_label = tf.placeholder(tf.float32, shape=(None, vocab_size))
 
     def make_skipgram(self):
-        vocab_size = len(self.words)
+        vocab_size = len(self.word2int)
         W1 = tf.Variable(tf.random_normal([vocab_size, self.EMBEDDING_DIM]))
         b1 = tf.Variable(tf.random_normal([self.EMBEDDING_DIM]))  # bias
         hidden_representation = tf.add(tf.matmul(self.x, W1), b1)

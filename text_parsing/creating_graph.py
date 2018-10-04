@@ -1,11 +1,11 @@
 class CreateGraph:
 
-    def within_range_graph(self, relational_dict, keyword):
+    def within_range_graph(self, relational_dict, keyword, range):
         vertices = {}
         edges = []
         final_graph = []
 
-        with open('/Users/Jess/PycharmProjects/Honors_Thesis_2/text_parsing/g_star_graphs/within_range.txt', 'w') as g_star:
+        with open('/Users/Jess/PycharmProjects/Honors_Thesis_2/text_parsing/g_star_graphs/within_range_' + keyword + '_' + str(range) + '.txt', 'w') as g_star:
             g_star.write('new graph\n')
 
             graph_count = []
@@ -30,7 +30,7 @@ class CreateGraph:
 
     def average_distances(self, relational_dict, keyword):
 
-        with open('/Users/Jess/PycharmProjects/Honors_Thesis_2/text_parsing/g_star_graphs/average_dist.txt', 'w') as g_star:
+        with open('/Users/Jess/PycharmProjects/Honors_Thesis_2/text_parsing/g_star_graphs/average_dist_' + keyword + '.txt', 'w') as g_star:
             g_star.write('new graph\n')
             g_star.write('add vertex ' + keyword.strip() + ' with attributes(size=' + str(1000) + ')\n')
 

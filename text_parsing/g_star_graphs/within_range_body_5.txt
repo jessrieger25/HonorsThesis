@@ -1,0 +1,58 @@
+new graph
+add vertex body with attributes(size=1000)
+add vertex mind
+add edge body - mind
+add vertex rest
+add edge body - rest
+add vertex form
+add edge body - form
+add vertex act
+add edge body - act
+add vertex nature
+add edge body - nature
+add vertex plato
+add edge body - plato
+add vertex matter
+add edge body - matter
+add vertex quantity
+add edge body - quantity
+add vertex united
+add edge body - united
+add vertex force
+add edge body - force
+add vertex motion
+add edge body - motion
+add vertex order
+add edge body - order
+add vertex power
+add edge body - power
+add vertex infinite
+add edge body - infinite
+add vertex plurality
+add edge body - plurality
+add vertex quality
+add edge body - quality
+add vertex natural
+add edge body - natural
+add vertex part
+add edge body - part
+add vertex whole
+add edge body - whole
+add vertex soul
+add edge body - soul
+add vertex fire
+add edge body - fire
+add vertex principle
+add edge body - principle
+add vertex imperfect
+add edge body - imperfect
+add vertex species
+add edge body - species
+add vertex necessity
+add edge body - necessity
+add vertex genus
+add edge body - genus
+add vertex angel
+add edge body - angel
+add vertex eye
+add edge body - eye
