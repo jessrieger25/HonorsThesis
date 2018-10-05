@@ -58,7 +58,7 @@ class TSNEVisualizations():
                 separates_copy[keywords[word]-1].append(word)
             else:
                 separates[len(separates)-1].append(vectors[word2int[word]])
-                separates_copy[keywords[word] - 1].append(word)
+                # separates_copy[keywords[word] - 1].append(word)
 
             size_list.append(sizes[word])
             ax.annotate(word, (vectors[word2int[word]][0], vectors[word2int[word]][1]))

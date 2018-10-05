@@ -42,8 +42,14 @@ class AnalysisDriver():
             self.watson_sentiment_analysis()
 
     def skip_gram_run(self):
-        sg = SkipGram(self.wp.sen_word_token, self.wp.word_list, self.wp.word2int, self.wp.int2word)
-        sg.run()
+        # sg = SkipGram(self.wp.sen_word_token, self.wp.word_list, self.wp.word2int, self.wp.int2word)
+        # sg.run()
+
+        temp = [[1,2,3], [3, 4, 5]]
+
+        with open("/Users/Jess/PycharmProjects/Honors_Thesis_2/models/output.txt", 'w') as f:
+            # f.write(sg.vectors)
+            f.write(temp)
 
         tsne_model = TSNEVisualizations()
         tsne_model.run(sg.vectors, self.wp.word_list, self.wp.word2int, sizes=self.word_count,
@@ -52,6 +58,9 @@ class AnalysisDriver():
     def glove_run(self):
         g = Glove(self.wp.sen_word_token, self.wp.vocab_list, self.wp.word_list, self.wp.word2int, self.wp.int2word)
         g.run()
+
+        with open("/Users/Jess/PycharmProjects/Honors_Thesis_2/models/output.txt", 'w') as f:
+            f.write(g.embedding_matrix)
 
         print(g.embedding_matrix)
         tsne_model = TSNEVisualizations()
