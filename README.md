@@ -56,6 +56,10 @@ This tutorial is meant to be used with Python 3 and pip3. You could adjust it to
 
 Run: `pip3 install -r requirements.txt`
 
+Set Python Path: export PYTHONPATH = /path/to/HonorsThesis/folder
+
+This should be the path to the main directory of the project.
+
 If you are still seeing errors based on packages, you may need to pip install other dependencies.
 
 ##### Model Analysis

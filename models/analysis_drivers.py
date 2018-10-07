@@ -56,8 +56,8 @@ class AnalysisDriver():
         g = Glove(self.wp.sen_word_token, self.wp.vocab_list, self.wp.word_list, self.wp.word2int, self.wp.int2word)
         g.run()
 
-        with open("/Users/Jess/PycharmProjects/Honors_Thesis_2/models/output.txt", 'w') as f:
-            f.write(g.embedding_matrix)
+        with open("/Users/Jess/PycharmProjects/Honors_Thesis_2/models/output2.txt", 'w') as f:
+            f.write(str(g.embedding_matrix.tostring()))
 
         print(g.embedding_matrix)
         tsne_model = TSNEVisualizations()
