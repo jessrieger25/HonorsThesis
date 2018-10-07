@@ -67,7 +67,7 @@ you want to analyze.
 
 *Run:*
 
-- Run analysis_drivers.py
+- Run analysis_drivers.py: `python3 -m models/analysis_drivers.py`
 - In response to the prompt in the console, type:
     * s: skip gram model
     * g: glove model
@@ -104,7 +104,7 @@ the embedding matrix of GloVe uses their pre-known vector representations of the
 
 *Run:*
 
-- Run the driver.py file.
+- Run the driver.py file: `python3 -m test_parsing/driver.py`
 - Enter the command for the analysis type to run:
     * wr: within range
     * a: average distance

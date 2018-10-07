@@ -45,12 +45,12 @@ class AnalysisDriver():
         sg = SkipGram(self.wp.sen_word_token, self.wp.word_list, self.wp.word2int, self.wp.int2word)
         sg.run()
 
-        with open("/Users/Jess/PycharmProjects/Honors_Thesis_2/models/output.txt", 'w') as f:
-            f.write(sg.vectors)
-
         tsne_model = TSNEVisualizations()
         tsne_model.run(sg.vectors, self.wp.word_list, self.wp.word2int, sizes=self.word_count,
                        separates=self.wp.list_of_list, keywords=self.wp.keywords, type='Skip Gram')
+
+        with open("/Users/Jess/PycharmProjects/Honors_Thesis_2/models/output.txt", 'w') as f:
+            f.write(sg.vectors.tostring())
 
     def glove_run(self):
         g = Glove(self.wp.sen_word_token, self.wp.vocab_list, self.wp.word_list, self.wp.word2int, self.wp.int2word)
