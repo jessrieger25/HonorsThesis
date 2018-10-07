@@ -52,7 +52,9 @@ Honors_Thesis_2
 
 ##### Setup
 
-Run: `pip install -r requirements.txt`
+This tutorial is meant to be used with Python 3 and pip3. You could adjust it to use Python 2 as well.
+
+Run: `pip3 install -r requirements.txt`
 
 If you are still seeing errors based on packages, you may need to pip install other dependencies.
 
@@ -67,7 +69,7 @@ you want to analyze.
 
 *Run:*
 
-- Run analysis_drivers.py: `python3 -m models/analysis_drivers.py`
+- Run analysis_drivers.py: `python3 models/analysis_drivers.py`
 - In response to the prompt in the console, type:
     * s: skip gram model
     * g: glove model
@@ -104,7 +106,7 @@ the embedding matrix of GloVe uses their pre-known vector representations of the
 
 *Run:*
 
-- Run the driver.py file: `python3 -m test_parsing/driver.py`
+- Run the driver.py file: `python3 test_parsing/driver.py`
 - Enter the command for the analysis type to run:
     * wr: within range
     * a: average distance
