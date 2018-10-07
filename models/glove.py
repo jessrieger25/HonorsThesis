@@ -1,5 +1,4 @@
 from numpy import asarray
-from .word_prep import WordPrep
 from numpy import zeros
 
 

@@ -8,7 +8,7 @@ import numpy as np
 import json
 from models.watson_api.natural_lang_understanding import NLU
 from models.watson_api.tone import ToneAnalyzer
-from models.watson_api.lstm_keras import LSTMKeras
+from models.lstm_keras import LSTMKeras
 
 
 class AnalysisDriver():
@@ -38,18 +38,15 @@ class AnalysisDriver():
             self.glove_run()
         elif self.model == 'bow':
             self.bag_of_words_run()
-        elif self.model == 'w':
-            self.watson_sentiment_analysis()
+        # elif self.model == 'w':
+        #     self.watson_sentiment_analysis()
 
     def skip_gram_run(self):
-        # sg = SkipGram(self.wp.sen_word_token, self.wp.word_list, self.wp.word2int, self.wp.int2word)
-        # sg.run()
-
-        temp = [[1,2,3], [3, 4, 5]]
+        sg = SkipGram(self.wp.sen_word_token, self.wp.word_list, self.wp.word2int, self.wp.int2word)
+        sg.run()
 
         with open("/Users/Jess/PycharmProjects/Honors_Thesis_2/models/output.txt", 'w') as f:
-            # f.write(sg.vectors)
-            f.write(temp)
+            f.write(sg.vectors)
 
         tsne_model = TSNEVisualizations()
         tsne_model.run(sg.vectors, self.wp.word_list, self.wp.word2int, sizes=self.word_count,
@@ -129,7 +126,7 @@ class AnalysisDriver():
 
 # AnalysisDriver(["/Users/Jess/PycharmProjects/Honors_Thesis_2/time_machine_skip_gram.txt"])
 
-AnalysisDriver(["/Users/Jess/PycharmProjects/Honors_Thesis_2/ficino_used/book_1_part_1.txt"])
+AnalysisDriver(["/Users/Jess/PycharmProjects/Honors_Thesis_2/ficino/book_1_part_1.txt"])
 
 
 

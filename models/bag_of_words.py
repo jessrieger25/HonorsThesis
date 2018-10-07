@@ -2,39 +2,19 @@ import matplotlib as mpl
 
 mpl.use('GTK')
 import numpy as np  # linear algebra
-import pandas as pd  # data processing, CSV file I/O (e.g. pd.read_csv)
 import nltk
-import json
-import re as re
-import time
 import progressbar
-import sqlalchemy
 import warnings
-import matplotlib.pyplot as plt
 from six.moves import zip, range
 import sklearn
 
-import os
-
 warnings.filterwarnings('ignore')
 
-
-
 print(sklearn.__version__)
-from sklearn.model_selection import train_test_split
-from sqlalchemy import create_engine
-
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.decomposition import LatentDirichletAllocation
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import precision_recall_curve, roc_auc_score, auc
-from sklearn import preprocessing
 from collections import Counter, OrderedDict
-from nltk.corpus import stopwords
-from nltk import SnowballStemmer
-from nltk.tokenize import sent_tokenize
 
-from wordcloud import WordCloud
 
 class BagOfWords:
 

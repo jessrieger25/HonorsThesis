@@ -22,7 +22,7 @@ class PositionalRelations:
         self.eng_stopwords = stopwords.words('english')
         self.eng_stopwords.extend(ignored_list)
 
-        self.source_files = ['/Users/Jess/PycharmProjects/Honors_Thesis_2/ficino_used/book_1_part_1.txt']
+        self.source_files = ['/Users/Jess/PycharmProjects/Honors_Thesis_2/ficino/book_1_part_1.txt']
 
         self.text = []
         self.text = self.text_to_wordlist(self.source_files)

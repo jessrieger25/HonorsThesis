@@ -1,0 +1,12 @@
+###### requirements.txt ######
+
+###### Requirements without Version Specifiers ######
+watson-developer-cloud
+nltk
+numpy
+progressbar
+matplotlib
+sklearn
+keras
+tensorflow
+
