@@ -54,7 +54,7 @@ Honors_Thesis_2
 
 This tutorial is meant to be used with Python 3 and pip3. You could adjust it to use Python 2 as well, but please don't.
 
-Download and install Python from https://www.python.org/ .
+Download and install Python 3.6 from https://www.python.org/ .
 It will likely include a back level version of pip3. To upgrade to the latest version of pip, 
 run: `python -m pip install --upgrade pip`
 
