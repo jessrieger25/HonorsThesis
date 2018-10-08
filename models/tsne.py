@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import scipy
 from sklearn import preprocessing
 from datetime import datetime
+import copy
 
 
 class TSNEVisualizations():
@@ -47,7 +48,7 @@ class TSNEVisualizations():
         plt.axis([min, max, min, max])
 
         size_list = list()
-        separates_copy = separates
+        separates_copy = copy.deepcopy(separates)
 
         for word in words:
             print(vectors[word2int[word]][1])

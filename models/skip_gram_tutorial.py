@@ -84,7 +84,8 @@ class SkipGram:
         print(self.vectors)
 
     def random_analysis(self):
-        print(self.int2word[self.find_closest(self.word2int['time'])])
+        print("Hi")
+        # print(self.int2word[self.find_closest(self.word2int['time'])])
         # print(self.int2word[self.find_closest(self.word2int['fire'])])
         #
         # weights = self.vectors
