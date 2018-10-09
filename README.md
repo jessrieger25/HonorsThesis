@@ -64,6 +64,15 @@ Set Python Path: export PYTHONPATH = /path/to/HonorsThesis/folder
 
 This should be the path to the main directory of the project.
 
+You'll need to download some NLTK resources, so fire up IDLE, the default Python IDE.
+Enter the following commands:
+```
+import nltk
+nltk.download('stopwords')`
+nltk.download('punkt')
+```
+Then exit IDLE.
+
 If you are still seeing errors based on packages, you may need to pip install other dependencies.
 
 ##### Model Analysis
