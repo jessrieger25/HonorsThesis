@@ -54,7 +54,7 @@ Honors_Thesis_2
 
 This tutorial is meant to be used with Python 3 and pip3. You could adjust it to use Python 2 as well, but please don't.
 
-Download and install Python from https://www.python.org/ .
+Download and install Python 3.6 from https://www.python.org/ .
 It will likely include a back level version of pip3. To upgrade to the latest version of pip, 
 run: `python -m pip install --upgrade pip`
 
@@ -63,6 +63,15 @@ Then, to install the rest of the requirements, run: `pip3 install -r requirement
 Set Python Path: export PYTHONPATH = /path/to/HonorsThesis/folder
 
 This should be the path to the main directory of the project.
+
+You'll need to download some NLTK resources, so fire up IDLE, the default Python IDE.
+Enter the following commands:
+```
+import nltk
+nltk.download('stopwords')`
+nltk.download('punkt')
+```
+Then exit IDLE.
 
 If you are still seeing errors based on packages, you may need to pip install other dependencies.
 
