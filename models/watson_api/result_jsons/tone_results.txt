@@ -1,1 +1,147 @@
-{"document_tone": {"tones": [{"score": 0.6165, "tone_id": "sadness", "tone_name": "Sadness"}, {"score": 0.829888, "tone_id": "analytical", "tone_name": "Analytical"}]}, "sentences_tone": [{"sentence_id": 0, "text": "Team, I know that times are tough!", "tones": [{"score": 0.801827, "tone_id": "analytical", "tone_name": "Analytical"}]}, {"sentence_id": 1, "text": "Product sales have been disappointing for the past three quarters.", "tones": [{"score": 0.771241, "tone_id": "sadness", "tone_name": "Sadness"}, {"score": 0.687768, "tone_id": "analytical", "tone_name": "Analytical"}]}, {"sentence_id": 2, "text": "We have a competitive product, but we need to do a better job of selling it!", "tones": [{"score": 0.506763, "tone_id": "analytical", "tone_name": "Analytical"}]}]}
+{
+  "document_tone": {
+    "tones": [
+      {
+        "score": 0.678254,
+        "tone_id": "joy",
+        "tone_name": "Joy"
+      },
+      {
+        "score": 0.617098,
+        "tone_id": "sadness",
+        "tone_name": "Sadness"
+      },
+      {
+        "score": 0.62273,
+        "tone_id": "analytical",
+        "tone_name": "Analytical"
+      },
+      {
+        "score": 0.610746,
+        "tone_id": "tentative",
+        "tone_name": "Tentative"
+      }
+    ]
+  },
+  "sentences_tone": [
+    {
+      "sentence_id": 0,
+      "text": "Were the soul not immortal, no creature would be more miserable than man.",
+      "tones": [
+        {
+          "score": 0.72841,
+          "tone_id": "sadness",
+          "tone_name": "Sadness"
+        }
+      ]
+    },
+    {
+      "sentence_id": 1,
+      "text": "Since man's mind is never at rest, his body is frail and he is totally without resources, the life he leads on earth is harsher than that of the beasts.",
+      "tones": [
+
+      ]
+    },
+    {
+      "sentence_id": 2,
+      "text": "Had nature set exactly the same term to his life as she has to the other creatures, no animal would be more miserable than man.",
+      "tones": [
+        {
+          "score": 0.758379,
+          "tone_id": "confident",
+          "tone_name": "Confident"
+        }
+      ]
+    },
+    {
+      "sentence_id": 3,
+      "text": "But man by his worship of God comes closer to God than all other mortal things, and God is the author of happiness.",
+      "tones": [
+        {
+          "score": 0.895462,
+          "tone_id": "joy",
+          "tone_name": "Joy"
+        },
+        {
+          "score": 0.560944,
+          "tone_id": "confident",
+          "tone_name": "Confident"
+        }
+      ]
+    },
+    {
+      "sentence_id": 4,
+      "text": "So it is utterly impossible that man should be the most unhappy of all.",
+      "tones": [
+        {
+          "score": 0.582163,
+          "tone_id": "sadness",
+          "tone_name": "Sadness"
+        },
+        {
+          "score": 0.751512,
+          "tone_id": "confident",
+          "tone_name": "Confident"
+        }
+      ]
+    },
+    {
+      "sentence_id": 5,
+      "text": "However, only after the death of the body can man become any happier.",
+      "tones": [
+        {
+          "score": 0.738434,
+          "tone_id": "joy",
+          "tone_name": "Joy"
+        },
+        {
+          "score": 0.73677,
+          "tone_id": "analytical",
+          "tone_name": "Analytical"
+        },
+        {
+          "score": 0.716301,
+          "tone_id": "tentative",
+          "tone_name": "Tentative"
+        }
+      ]
+    },
+    {
+      "sentence_id": 6,
+      "text": "It seems therefore to follow of necessity that once our souls leave chis prison, some other light awaits them. 1 Our human minds, \"immured in darkness and a sightless dungeon,'' 2 may look in vain for that light, and we are often driven to doubt our own di\u00advine provenance.",
+      "tones": [
+        {
+          "score": 0.674029,
+          "tone_id": "sadness",
+          "tone_name": "Sadness"
+        },
+        {
+          "score": 0.676622,
+          "tone_id": "analytical",
+          "tone_name": "Analytical"
+        },
+        {
+          "score": 0.742675,
+          "tone_id": "tentative",
+          "tone_name": "Tentative"
+        }
+      ]
+    },
+    {
+      "sentence_id": 7,
+      "text": "But I pray that as heavenly souls longing with desire for our heavenly home we may cast off the bonds of our ter\u00adrestrial chains; cast them off as swiftly as possible, so that, uplifted on Platonic wings and with God as our guide, we may By unhin\u00addered to our ethereal abode, where we will straightway look with joy on the excellence of our own human nature.",
+      "tones": [
+        {
+          "score": 0.825194,
+          "tone_id": "joy",
+          "tone_name": "Joy"
+        },
+        {
+          "score": 0.5266,
+          "tone_id": "analytical",
+          "tone_name": "Analytical"
+        }
+      ]
+    }
+  ]
+}

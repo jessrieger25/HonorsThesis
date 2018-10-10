@@ -1,6 +1,7 @@
 from nltk.tokenize import PunktSentenceTokenizer
 from nltk.corpus import stopwords
 import nltk
+import os
 from text_parsing.creating_graph import CreateGraph
 
 
@@ -9,20 +10,20 @@ class PositionalRelations:
     def __init__(self):
 
         self.keywords = []
-        with open('/Users/Jess/PycharmProjects/Honors_Thesis_2/text_parsing/word_lists/keywords.txt', 'r') as words:
+        with open(os.path.abspath("./word_lists/keywords.txt"), 'r') as words:
             keywords_file = words.readlines()
 
         for word in keywords_file:
             self.keywords.append(word.lower().strip())
 
         self.ignored = []
-        with open('/Users/Jess/PycharmProjects/Honors_Thesis_2/text_parsing/word_lists/ignored.txt', 'r') as ignored:
+        with open(os.path.abspath("./word_lists/ignored.txt"), 'r') as ignored:
             ignored_list = ignored.readlines()
 
         self.eng_stopwords = stopwords.words('english')
         self.eng_stopwords.extend(ignored_list)
 
-        self.source_files = ['/Users/Jess/PycharmProjects/Honors_Thesis_2/ficino/book_1_part_1.txt']
+        self.source_files = [os.path.abspath("../ficino/book_1_part_1.txt")]
 
         self.text = []
         self.text = self.text_to_wordlist(self.source_files)

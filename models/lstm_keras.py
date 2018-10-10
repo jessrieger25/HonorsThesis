@@ -54,6 +54,6 @@ class LSTMKeras:
         # WILL HAVE TO ADD TSNE ONCE HAVE ACTUAL DATA
         print(model.layers)
         print("Loss: ", loss, ", accuracy: ", accuracy, ", mean_absolute_error: ", mean_absolute_error)
-
+        return model.layers[0].get_weights()
 
 

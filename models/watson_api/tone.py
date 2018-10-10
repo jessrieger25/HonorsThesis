@@ -23,10 +23,6 @@ class ToneAnalyzer:
         )
 
     def analyze_text(self, text):
-        text = 'Team, I know that times are tough! Product ' \
-               'sales have been disappointing for the past three ' \
-               'quarters. We have a competitive product, but we ' \
-               'need to do a better job of selling it!'
 
         tone_analysis = self.tone_analyzer.tone(
             {'text': text},

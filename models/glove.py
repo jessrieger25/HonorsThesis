@@ -1,5 +1,6 @@
 from numpy import asarray
 from numpy import zeros
+import os
 
 
 class Glove():
@@ -16,7 +17,7 @@ class Glove():
 
         # load the whole embedding into memory
         embeddings_index = dict()
-        f = open('/Users/Jess/PycharmProjects/Honors_Thesis_2/models/glove_text/glove.6B.100d.txt')
+        f = open(os.path.abspath("./glove_text/glove.6B.100d.txt"))
         for line in f:
             values = line.split()
             word = values[0]

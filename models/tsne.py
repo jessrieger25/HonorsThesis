@@ -2,8 +2,7 @@
 from sklearn.manifold import TSNE
 import numpy as np
 import matplotlib.pyplot as plt
-import scipy
-from sklearn import preprocessing
+import os
 from datetime import datetime
 import copy
 
@@ -32,6 +31,8 @@ class TSNEVisualizations():
     def run(self, vectors, words, word2int, sizes={}, separates=[], keywords={}, type='Analysis'):
 
         np.set_printoptions(suppress=True)
+        print("vectors", vectors)
+        print(len(vectors))
         vectors = self.model.fit_transform(vectors)
 
         print(vectors)
@@ -66,7 +67,7 @@ class TSNEVisualizations():
 
 
         plt.show()
-        fig.savefig('/Users/Jess/PycharmProjects/Honors_Thesis_2/graphics_time_machine/tsne_' + datetime.utcnow().isoformat('T') + '.png', dpi=350)
+        fig.savefig(os.path.abspath("../graphics_ficino/tsne_" + datetime.utcnow().isoformat('T') + '.png'), dpi=350)
 
         # Help to display later
         # from IPython.display import Image
@@ -97,5 +98,5 @@ class TSNEVisualizations():
         plt.title('Scatter Plot of the ' + type + ' Model')
         plt.legend()
         plt.show()
-        fig.savefig('/Users/Jess/PycharmProjects/Honors_Thesis_2/graphics_time_machine/tsne_scatter_' + datetime.utcnow().isoformat('T') + '_' + type + '.png', dpi=450)
+        fig.savefig(os.path.abspath("../graphics_ficino/tsne_scatter_" + datetime.utcnow().isoformat('T') + '_' + type + '.png'), dpi=450)
 
