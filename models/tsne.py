@@ -5,12 +5,17 @@ import matplotlib.pyplot as plt
 import os
 from datetime import datetime
 import copy
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import animation
 
 
 class TSNEVisualizations():
 
     def __init__(self):
         self.model = TSNE(n_components=2, random_state=0, n_iter=10000, init='pca')
+        self.model3D = TSNE(n_components=3, random_state=0, n_iter=10000, init='pca')
+        self.colors = ['#eb871b', 'r', 'y', 'g', 'c', 'm', '#b816e0']
+
 
         """
         t-SNE [1] is a tool to visualize high-dimensional data. It converts similarities between data points to joint 
@@ -33,37 +38,39 @@ class TSNEVisualizations():
         np.set_printoptions(suppress=True)
         print("vectors", vectors)
         print(len(vectors))
-        vectors = self.model.fit_transform(vectors)
+        vectors2D = self.model.fit_transform(vectors)
+        vectors3D = self.model3D.fit_transform(vectors)
 
-        print(vectors)
+
         max = 0
         min = 0
 
         for word in words:
-            if vectors[word2int[word]][1] > max:
-                max = vectors[word2int[word]][1]
-            elif vectors[word2int[word]][1] < min:
-                min = vectors[word2int[word]][1]
+            if vectors2D[word2int[word]][1] > max:
+                max = vectors2D[word2int[word]][1]
+            elif vectors2D[word2int[word]][1] < min:
+                min = vectors2D[word2int[word]][1]
 
         fig, ax = plt.subplots()
         plt.axis([min, max, min, max])
 
         size_list = list()
         separates_copy = copy.deepcopy(separates)
+        separates_3D = copy.deepcopy(separates)
 
         for word in words:
-            print(vectors[word2int[word]][1])
+            print(vectors2D[word2int[word]][1])
 
             if word in keywords:
 
-                separates[keywords[word]-1].append(vectors[word2int[word]])
+                separates[keywords[word]-1].append(vectors2D[word2int[word]])
+                separates_3D[keywords[word]-1].append(vectors3D[word2int[word]])
                 separates_copy[keywords[word]-1].append(word)
             else:
-                separates[len(separates)-1].append(vectors[word2int[word]])
-                # separates_copy[keywords[word] - 1].append(word)
+                separates[len(separates)-1].append(vectors2D[word2int[word]])
 
             size_list.append(sizes[word])
-            ax.annotate(word, (vectors[word2int[word]][0], vectors[word2int[word]][1]))
+            ax.annotate(word, (vectors2D[word2int[word]][0], vectors2D[word2int[word]][1]))
 
 
         plt.show()
@@ -73,10 +80,12 @@ class TSNEVisualizations():
         # from IPython.display import Image
         # Image('my_figure.png')
 
-        self.scatterplot(vectors[:, 0], vectors[:, 1], x_label='x', y_label='y', sizes=size_list, lists=separates, list_of_labels=separates_copy, type=type)
+        self.scatterplot(vectors2D[:, 0], vectors2D[:, 1], x_label='x', y_label='y', sizes=size_list, lists=separates, list_of_labels=separates_copy, type=type)
+
+        self.threeD_plot(vectors3D[:, 0], vectors3D[:, 1], vectors3D[:, 2], separates_3D)
+
 
     def scatterplot(self, x_data, y_data, x_label="", y_label="", sizes=[], lists=[], list_of_labels=[], type='Analysis'):
-        colors = ['#eb871b', 'r', 'y', 'g', 'c', 'm', '#b816e0']
         fig, ax = plt.subplots()
 
         for one in range(0, len(lists)-1):
@@ -85,7 +94,7 @@ class TSNEVisualizations():
             for ind in range(0, len(lists[one])):
                 x.append(lists[one][ind][0])
                 y.append(lists[one][ind][1])
-            plt.scatter(x, y, label='words', color=colors[one], s=sizes, alpha=0.75)
+            plt.scatter(x, y, label='words', color=self.colors[one], s=sizes, alpha=0.75)
             for i, txt in enumerate(list_of_labels[one]):
                 ax.annotate(txt, (x[i], y[i]))
 
@@ -100,3 +109,29 @@ class TSNEVisualizations():
         plt.show()
         fig.savefig(os.path.abspath("../graphics_ficino/tsne_scatter_" + datetime.utcnow().isoformat('T') + '_' + type + '.png'), dpi=450)
 
+    def threeD_plot(self, x_data, y_data, z_data, lists):
+
+        fig = plt.figure()
+        ax = fig.add_subplot(111, projection='3d')
+        # for one in range(0, len(lists)-1):
+        #     x = []
+        #     y = []
+        #     z = []
+        #     for ind in range(0, len(lists[one])):
+        #         x.append(lists[one][ind][0])
+        #         y.append(lists[one][ind][1])
+        #         z.append(lists[one][ind][2])
+        #     ax.scatter(x, y, z, label='words', color=self.colors[one], alpha=0.75, marker='.')
+
+        ax.scatter(x_data, y_data, z_data, label='words', alpha=0.75, marker='.')
+
+        ax.set_xlabel('x')
+        ax.set_ylabel('y')
+
+        def rotate(angle):
+            ax.view_init(azim=angle)
+
+        rot_animation = animation.FuncAnimation(fig, rotate, frames=np.arange(0, 362, 1), interval=100)
+        rot_animation.save('data_rotation_' + datetime.utcnow().isoformat('T') + '.gif', dpi=80, writer='imagemagick')
+
+        plt.show()

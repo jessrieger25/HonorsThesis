@@ -9,10 +9,10 @@ from keras.layers import LSTM
 
 class LSTMKeras:
 
-    def __init__(self, sentence_tokens, sentiment_vecs):
-        self.sent = sentence_tokens # docs in the tutorial.
+    def __init__(self, sentence_tokens, sentiment_vecs, vocab):
+        self.sent = sentence_tokens
         self.labels = sentiment_vecs
-        self.vocab_size = 50
+        self.vocab_size = len(vocab)
         self.max_len = self.max_length()
 
     # Must get the max length of a sentence!

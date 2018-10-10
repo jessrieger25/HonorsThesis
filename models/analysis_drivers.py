@@ -118,7 +118,7 @@ class AnalysisDriver():
             np.append(target_labels, [combined_vec], axis=0)
 
         print(target_labels)
-        embedding_layer = LSTMKeras(sentence_list, target_labels).run()
+        embedding_layer = LSTMKeras(self.wp.sen_word_token, target_labels, self.wp.vocab_list).run()
 
         tsne_model = TSNEVisualizations()
         tsne_model.run(embedding_layer[0], self.wp.word_list, self.wp.word2int, sizes=self.word_count,
