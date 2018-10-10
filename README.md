@@ -75,6 +75,17 @@ Then exit IDLE.
 
 If you are still seeing errors based on packages, you may need to pip install other dependencies.
 
+##### GloVe 
+
+This project requires the pretrained vectors from the GloVe project.
+
+*Steps to setup:*
+
+- Visit: https://www.kaggle.com/rtatman/glove-global-vectors-for-word-representation
+- Download all files
+- Create a folder called `glove_text` in the `models` folder
+- Place the files in the newly created folder: `models/glove_text`
+ 
 ##### Model Analysis
 
 *Setup:* 
