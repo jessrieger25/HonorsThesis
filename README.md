@@ -58,13 +58,28 @@ Download and install Python 3.6 from https://www.python.org/ .
 It will likely include a back level version of pip3. To upgrade to the latest version of pip, 
 run: `python -m pip install --upgrade pip`
 
-Then, to install the rest of the requirements, run: `pip3 install -r requirements.txt`
+*Python Requirements:*
+
+To install all python requirements, run: `pip3 install -r requirements.txt`
 
 Set Python Path: export PYTHONPATH = /path/to/HonorsThesis/folder
 
 This should be the path to the main directory of the project.
 
+*GloVe Requirements:*
+
+This project requires the pretrained vectors from the Stanford GloVe project.
+
+To install: 
+- Visit: https://www.kaggle.com/rtatman/glove-global-vectors-for-word-representation
+- Download all files
+- Create a folder called `glove_text` in the `models` folder
+- Place the files in the newly created folder: `models/glove_text`
+
+*NLTK Requirements:*
+
 You'll need to download some NLTK resources, so fire up IDLE, the default Python IDE.
+
 Enter the following commands:
 ```
 import nltk
@@ -73,18 +88,15 @@ nltk.download('punkt')
 ```
 Then exit IDLE.
 
-If you are still seeing errors based on packages, you may need to pip install other dependencies.
+*Other Dependencies:*
 
-##### GloVe 
+- imagemagick
+- ffmpeg
 
-This project requires the pretrained vectors from the GloVe project.
+On mac, these can be installed using `brew install <name>`
 
-*Steps to setup:*
+If you are still seeing errors based on packages, you may need to pip3 install other dependencies.
 
-- Visit: https://www.kaggle.com/rtatman/glove-global-vectors-for-word-representation
-- Download all files
-- Create a folder called `glove_text` in the `models` folder
-- Place the files in the newly created folder: `models/glove_text`
  
 ##### Model Analysis
 
