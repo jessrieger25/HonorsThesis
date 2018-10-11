@@ -42,4 +42,13 @@ Shows average distance of provided keywords from body.
 ###### 179.0 - Within Range - Body - 5
 
 Shows the keywords that appear within 5 words of body.
+
+###### 180.0 - Average Distance - Matter
+
+ Shows average distance of provided keywords from matter.
+ 
+###### 181.0 - Within Range - Matter - 5
+
+Shows the keywords that appear within 5 words of Matter.
+ 
  
