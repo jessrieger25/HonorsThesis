@@ -37,10 +37,13 @@ class WordPrep():
             keywords_file = words.readlines()
 
         for word in keywords_file:
+            print('going through', word)
             if word == "\n":
                 self.categories_num += 1
+                print("increment")
             else:
                 self.keywords[word.strip().lower()] = self.categories_num
+                print(self.keywords)
         return self.keywords
 
     def create_token_sentences(self):

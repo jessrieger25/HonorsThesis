@@ -113,17 +113,15 @@ class TSNEVisualizations():
 
         fig = plt.figure()
         ax = fig.add_subplot(111, projection='3d')
-        # for one in range(0, len(lists)-1):
-        #     x = []
-        #     y = []
-        #     z = []
-        #     for ind in range(0, len(lists[one])):
-        #         x.append(lists[one][ind][0])
-        #         y.append(lists[one][ind][1])
-        #         z.append(lists[one][ind][2])
-        #     ax.scatter(x, y, z, label='words', color=self.colors[one], alpha=0.75, marker='.')
-
-        ax.scatter(x_data, y_data, z_data, label='words', alpha=0.75, marker='.')
+        for one in range(0, len(lists)):
+            x = []
+            y = []
+            z = []
+            for ind in range(0, len(lists[one])):
+                x.append(lists[one][ind][0])
+                y.append(lists[one][ind][1])
+                z.append(lists[one][ind][2])
+            ax.scatter(x, y, z, label='words', color=self.colors[one], alpha=0.75, marker='.')
 
         ax.set_xlabel('x')
         ax.set_ylabel('y')
@@ -132,6 +130,6 @@ class TSNEVisualizations():
             ax.view_init(azim=angle)
 
         rot_animation = animation.FuncAnimation(fig, rotate, frames=np.arange(0, 362, 1), interval=100)
-        rot_animation.save('data_rotation_' + datetime.utcnow().isoformat('T') + '.gif', dpi=80, writer='imagemagick')
+        rot_animation.save('../graphics_ficino/data_rotation_' + datetime.utcnow().isoformat('T') + '.gif', dpi=80, writer='imagemagick')
 
         plt.show()

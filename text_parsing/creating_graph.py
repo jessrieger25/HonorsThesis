@@ -1,23 +1,27 @@
+import os
+from text_parsing.keyword_manager import KeywordManager
+
 class CreateGraph:
+
+    def __init__(self):
+        self.keyword_manager = KeywordManager()
 
     def within_range_graph(self, relational_dict, keyword, range):
 
-        with open(os.path.abspath("./g_star_graphs/within_range_" + keyword + '_' + str(range) + '.txt'), 'w') as g_star:
+        with open(os.path.abspath("../g_star_graphs/within_range_" + keyword + '_' + str(range) + '.txt'), 'w') as g_star:
             g_star.write('new graph\n')
 
-            graph_count = []
             vertices = []
             edges = []
 
             g_star.write('add vertex ' + keyword.strip() + ' with attributes(size=' + str(1000) + ')\n')
             vertices.append(keyword)
             for relation in relational_dict:
-                print(relation)
                 edge = []
                 for relation_key, ind in relation.items():
-                    print(relation_key)
                     if relation_key not in vertices:
-                        g_star.write('add vertex ' + relation_key + '\n')
+                        color = KeywordManager().category_colors[KeywordManager().keywords_list[relation_key]]
+                        g_star.write('add vertex ' + relation_key + ' with attributes(color=' + color + ')\n')
                         vertices.append(relation_key)
                     edge.append(relation_key)
                 if edge not in edges:
@@ -27,10 +31,19 @@ class CreateGraph:
 
     def average_distances(self, relational_dict, keyword):
 
-        with open(os.path.abspath("./g_star_graphs/average_dist_" + keyword + '.txt'), 'w') as g_star:
+        with open(os.path.abspath("../g_star_graphs/average_dist_" + keyword + '.txt'), 'w') as g_star:
             g_star.write('new graph\n')
-            g_star.write('add vertex ' + keyword.strip() + ' with attributes(size=' + str(1000) + ')\n')
+            g_star.write('add vertex ' + keyword.strip() + ' with attributes(size=' + str(1000) + 'color=black)\n')
+
+            max = 0
 
             for word, count in relational_dict.items():
+                if count > max:
+                    max = count
 
-                g_star.write('add vertex ' + word.strip() + ' with attributes(size=' + str(count).strip() + ')\n')
+            for word, count in relational_dict.items():
+                print("keywords", self.keyword_manager.keywords_list)
+                print('word', word + "hi")
+                if word != '':
+                    print(word)
+                    g_star.write('add vertex ' + word.strip() + ' with attributes(size=' + str(abs(count-max)*.6).strip() + ', color=' + KeywordManager().category_colors[KeywordManager().keywords_list[word.strip()]] + ')\n')

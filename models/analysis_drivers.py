@@ -32,7 +32,7 @@ class AnalysisDriver():
         self.word_count = self.wp.word_count()
         self.eng_stopwords = stopwords.words('english')
 
-        self.model = input("What model would you like to run? s = skipgram, g = glove")
+        self.model = input("What model would you like to run? s = skipgram, g = glove, w = watson")
         if self.model == "s":
             self.skip_gram_run()
         if self.model == 'g':
@@ -148,7 +148,7 @@ class AnalysisDriver():
 
 # AnalysisDriver(["os.path.abspath("../time_machine_used/time_machine_skip_gram.txt")])
 
-AnalysisDriver([os.path.abspath("../ficino/short_tester.txt")])
+AnalysisDriver([os.path.abspath("../ficino/book_1_part_1.txt")])
 
 
 
