@@ -1,4 +1,4 @@
-from .skip_gram_tutorial import SkipGram
+from models.skip_gram_tutorial import SkipGram
 from models.tsne import TSNEVisualizations
 from models.glove import Glove
 from models.word_prep import WordPrep
