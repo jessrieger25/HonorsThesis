@@ -7,6 +7,7 @@ from nltk.corpus import stopwords
 import numpy as np
 import json
 import os
+import sys
 from models.watson_api.natural_lang_understanding import NLU
 from models.watson_api.tone import ToneAnalyzer
 from models.lstm_keras import LSTMKeras
@@ -32,7 +33,9 @@ class AnalysisDriver():
         self.word_count = self.wp.word_count()
         self.eng_stopwords = stopwords.words('english')
 
-        self.model = input("What model would you like to run? s = skipgram, g = glove, w = watson")
+
+        #"What model would you like to run? s = skipgram, g = glove, w = watson"
+        self.model = sys.argv[0]
         if self.model == "s":
             self.skip_gram_run()
         if self.model == 'g':
