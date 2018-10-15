@@ -1,6 +1,4 @@
 import matplotlib as mpl
-
-mpl.use('GTK')
 import numpy as np  # linear algebra
 import nltk
 import progressbar
