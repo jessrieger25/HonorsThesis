@@ -62,9 +62,12 @@ run: `python -m pip install --upgrade pip`
 
 To install all python requirements, run: `pip3 install -r requirements.txt`
 
-Set Python Path: export PYTHONPATH = /path/to/HonorsThesis/folder
+Then set the Python Path environment variable to the main directory of the project. E.g.,  
+`export PYTHONPATH = /path/to/HonorsThesis/folder`
 
-This should be the path to the main directory of the project.
+in Unix. Or, in Windows:
+
+`set PythonPath=D:\Research\JR-HonorsThesis-master`
 
 *GloVe Requirements:*
 
@@ -83,7 +86,7 @@ You'll need to download some NLTK resources, so fire up IDLE, the default Python
 Enter the following commands:
 ```
 import nltk
-nltk.download('stopwords')`
+nltk.download('stopwords')
 nltk.download('punkt')
 ```
 Then exit IDLE.
@@ -93,9 +96,10 @@ Then exit IDLE.
 - imagemagick
 - ffmpeg
 
-On mac, these can be installed using `brew install <name>`
+On Mac, these can be installed using `brew install <name>`.
+On Windows, download imagemagick from `https://imagemagick.org/script/download.php#windows`. The install should give you an option to install ffmpeg as well.
 
-If you are still seeing errors based on packages, you may need to pip3 install other dependencies.
+If, after all of this, you are still seeing errors based on packages, you may need to pip3 install other dependencies.
 
  
 ##### Model Analysis
