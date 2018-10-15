@@ -23,8 +23,10 @@ class AnalysisDriver():
                 for line in time.readlines():
                     self.corpus_raw += line.replace('\n', " ")
 
+        print("BEFORE CORPUS")
         # Initialize word dictionaries
         self.wp = WordPrep(self.corpus_raw)
+        print("AFTER CORPUS")
 
         # Convert to Lower
         self.corpus_raw = self.corpus_raw.lower()

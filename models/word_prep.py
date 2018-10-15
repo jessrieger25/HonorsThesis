@@ -19,14 +19,19 @@ class WordPrep():
         self.corpus_raw = corpus_raw
         self.categories_num = 1
         self.eng_stopwords = stopwords.words('english')
+        print("Creating sentences")
         self.sen_word_token = self.create_token_sentences()
+        print("Creating wordlist")
         self.word_list = self.create_word_list()
+        print("Creating vocabset")
         self.vocab_list = self.create_vocab_set()
+        print("Creating int dic")
         dictionaries = self.make_int_dictionary()
         self.word2int = dictionaries[0]
         self.int2word = dictionaries[1]
 
         self.keyword_categories = []
+        print("Creating keyword")
         self.keywords = self.create_keyword_list()
 
         self.list_of_list = []
