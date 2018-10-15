@@ -15,10 +15,10 @@ from models.lstm_keras import LSTMKeras
 class AnalysisDriver():
 
     def __init__(self, file_list):
+        self.corpus_raw = ""
         for file in file_list:
             # Load data
-            self.corpus_raw = ""
-            with open(file, "r") as time:
+            with open(file, "r",  encoding="utf8", errors='ignore') as time:
                 for line in time.readlines():
                     self.corpus_raw += line.replace('\n', " ")
 
@@ -43,20 +43,20 @@ class AnalysisDriver():
             self.watson_sentiment_analysis()
 
     def skip_gram_run(self):
-        sg = SkipGram(self.wp.sen_word_token, self.wp.word_list, self.wp.word2int, self.wp.int2word)
+        sg = SkipGram(self.wp.word_list, self.wp.word2int, self.wp.keywords)
         sg.run()
 
+        self.word_count = self.wp.word_count()
         tsne_model = TSNEVisualizations()
         tsne_model.run(sg.vectors, self.wp.word_list, self.wp.word2int, sizes=self.word_count,
-                       separates=self.wp.list_of_list, keywords=self.wp.keywords, type='Skip Gram')
+                       separates=self.wp.list_of_list, keywords=self.wp.keywords, keyword_categories=self.wp.keyword_categories, type='Skip Gram')
 
     def glove_run(self):
         g = Glove(self.wp.sen_word_token, self.wp.vocab_list, self.wp.word_list, self.wp.word2int, self.wp.int2word)
         g.run()
 
-        print(g.embedding_matrix)
         tsne_model = TSNEVisualizations()
-        tsne_model.run(g.embedding_matrix, self.wp.word_list, self.wp.word2int, sizes=self.word_count, separates=self.wp.list_of_list, keywords=self.wp.keywords, type='Glove')
+        tsne_model.run(g.embedding_matrix, self.wp.word_list, self.wp.word2int, sizes=self.word_count, separates=self.wp.list_of_list, keywords=self.wp.keywords, keyword_categories=self.wp.keyword_categories, type='Glove')
 
     def bag_of_words_run(self):
         bow = BagOfWords()
@@ -117,12 +117,11 @@ class AnalysisDriver():
             combined_vec.extend(tone_vecs[ind])
             np.append(target_labels, [combined_vec], axis=0)
 
-        print(target_labels)
         embedding_layer = LSTMKeras(self.wp.sen_word_token, target_labels, self.wp.vocab_list).run()
 
         tsne_model = TSNEVisualizations()
         tsne_model.run(embedding_layer[0], self.wp.word_list, self.wp.word2int, sizes=self.word_count,
-                       separates=self.wp.list_of_list, keywords=self.wp.keywords, type='Watson')
+                       separates=self.wp.list_of_list, keywords=self.wp.keywords, keyword_categories=self.wp.keyword_categories, type='Watson')
 
     def run_tone_analysis(self):
         print("Running tone analysis")
@@ -148,7 +147,12 @@ class AnalysisDriver():
 
 # AnalysisDriver(["os.path.abspath("../time_machine_used/time_machine_skip_gram.txt")])
 
-AnalysisDriver([os.path.abspath("../ficino/book_1_part_1.txt")])
+AnalysisDriver([os.path.abspath("../ficino/book_1_part_1.txt"),
+                os.path.abspath("../ficino/book_2.txt"),
+                os.path.abspath("../ficino/book_5.txt"),
+                os.path.abspath("../ficino/book_6.txt"),
+                os.path.abspath("../ficino/book_9_and_10.txt"),
+                os.path.abspath("../ficino/book_12.txt")])
 
 
 

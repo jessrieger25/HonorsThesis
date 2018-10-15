@@ -16,7 +16,6 @@ class TSNEVisualizations():
         self.model3D = TSNE(n_components=3, random_state=0, n_iter=10000, init='pca')
         self.colors = ['#eb871b', 'r', 'y', 'g', 'c', 'm', '#b816e0']
 
-
         """
         t-SNE [1] is a tool to visualize high-dimensional data. It converts similarities between data points to joint 
         probabilities and tries to minimize the Kullback-Leibler divergence between the joint probabilities of the 
@@ -33,11 +32,10 @@ class TSNEVisualizations():
         different from a second, reference probability distribution
         """
 
-    def run(self, vectors, words, word2int, sizes={}, separates=[], keywords={}, type='Analysis'):
+    def run(self, vectors, words, word2int, sizes={}, separates=[], keywords={}, keyword_categories = [], type='Analysis'):
 
         np.set_printoptions(suppress=True)
-        print("vectors", vectors)
-        print(len(vectors))
+
         vectors2D = self.model.fit_transform(vectors)
         vectors3D = self.model3D.fit_transform(vectors)
 
@@ -59,7 +57,6 @@ class TSNEVisualizations():
         separates_3D = copy.deepcopy(separates)
 
         for word in words:
-            print(vectors2D[word2int[word]][1])
 
             if word in keywords:
 
@@ -72,20 +69,21 @@ class TSNEVisualizations():
             size_list.append(sizes[word])
             ax.annotate(word, (vectors2D[word2int[word]][0], vectors2D[word2int[word]][1]))
 
+        # Taken out for running on VM
+        # plt.show()
 
-        plt.show()
-        fig.savefig(os.path.abspath("../graphics_ficino/tsne_" + datetime.utcnow().isoformat('T') + '.png'), dpi=350)
+        fig.savefig(os.path.abspath("../graphics_ficino/" + type + "_" + datetime.utcnow().isoformat('T') + '.png'), dpi=350)
 
         # Help to display later
         # from IPython.display import Image
         # Image('my_figure.png')
 
-        self.scatterplot(vectors2D[:, 0], vectors2D[:, 1], x_label='x', y_label='y', sizes=size_list, lists=separates, list_of_labels=separates_copy, type=type)
+        self.scatterplot(vectors2D[:, 0], vectors2D[:, 1], x_label='x', y_label='y', sizes=size_list, lists=separates, list_of_labels=separates_copy, keyword_categories=keyword_categories, type=type)
 
-        self.threeD_plot(vectors3D[:, 0], vectors3D[:, 1], vectors3D[:, 2], separates_3D)
+        self.threeD_plot(vectors3D[:, 0], vectors3D[:, 1], vectors3D[:, 2], separates_3D, keyword_categories)
 
 
-    def scatterplot(self, x_data, y_data, x_label="", y_label="", sizes=[], lists=[], list_of_labels=[], type='Analysis'):
+    def scatterplot(self, x_data, y_data, x_label="", y_label="", sizes=[], lists=[], list_of_labels=[], keyword_categories= [], type='Analysis'):
         fig, ax = plt.subplots()
 
         for one in range(0, len(lists)-1):
@@ -94,22 +92,24 @@ class TSNEVisualizations():
             for ind in range(0, len(lists[one])):
                 x.append(lists[one][ind][0])
                 y.append(lists[one][ind][1])
-            plt.scatter(x, y, label='words', color=self.colors[one], s=sizes, alpha=0.75)
+            plt.scatter(x, y, label=keyword_categories[one], color=self.colors[one], s=sizes, alpha=0.75)
             for i, txt in enumerate(list_of_labels[one]):
                 ax.annotate(txt, (x[i], y[i]))
 
 
         # Could also plt scatter with all x and y data
 
-        #, marker="o"
         plt.xlabel(x_label)
         plt.ylabel(y_label)
         plt.title('Scatter Plot of the ' + type + ' Model')
         plt.legend()
-        plt.show()
-        fig.savefig(os.path.abspath("../graphics_ficino/tsne_scatter_" + datetime.utcnow().isoformat('T') + '_' + type + '.png'), dpi=450)
 
-    def threeD_plot(self, x_data, y_data, z_data, lists):
+        # Taken out for running on VM
+        # plt.show()
+
+        fig.savefig(os.path.abspath("../graphics_ficino/" + type + "_scatter_" + datetime.utcnow().isoformat('T') + '_' +  '.png'), dpi=450)
+
+    def threeD_plot(self, x_data, y_data, z_data, lists, keyword_categories):
 
         fig = plt.figure()
         ax = fig.add_subplot(111, projection='3d')
@@ -121,10 +121,11 @@ class TSNEVisualizations():
                 x.append(lists[one][ind][0])
                 y.append(lists[one][ind][1])
                 z.append(lists[one][ind][2])
-            ax.scatter(x, y, z, label='words', color=self.colors[one], alpha=0.75, marker='.')
+            ax.scatter(x, y, z, label=keyword_categories[one], color=self.colors[one], alpha=0.75, marker='.')
 
         ax.set_xlabel('x')
         ax.set_ylabel('y')
+        ax.legend()
 
         def rotate(angle):
             ax.view_init(azim=angle)
@@ -132,4 +133,5 @@ class TSNEVisualizations():
         rot_animation = animation.FuncAnimation(fig, rotate, frames=np.arange(0, 362, 1), interval=100)
         rot_animation.save('../graphics_ficino/data_rotation_' + datetime.utcnow().isoformat('T') + '.gif', dpi=80, writer='imagemagick')
 
-        plt.show()
+        # Taken out for running on VM
+        # plt.show()

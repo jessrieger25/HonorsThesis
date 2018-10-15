@@ -7,12 +7,14 @@ import nltk
 
 class SkipGram:
 
-    def __init__(self, sen_word, words, word2int, int2word):
-
-        self.sen_word_token = sen_word
-        self.words = words
-        self.int2word = int2word
-        self.word2int = word2int
+    def __init__(self, words, word2int, keywords):
+        self.keywords = self.adjust_keywords(keywords)
+        self.word2int = self.convert_phrases(word2int)
+        self.words = self.group_phrases(words)
+        print("after change")
+        print(self.words)
+        print(self.word2int)
+        print(self.keywords)
 
         # Training variables
         self.window_tuples = []
@@ -22,6 +24,54 @@ class SkipGram:
 
         # Model Variables
         self.EMBEDDING_DIM = 3  # you can choose your own number
+
+    def group_phrases(self, word_list):
+        for keyword in self.keywords:
+            if "_" in keyword:
+                keyword_split = keyword.split("_")
+                first_word = keyword_split[0]
+                num_words = len(keyword_split)
+                index = 0
+                while index < len(word_list):
+                    if index != 0:
+                        index = index + 1
+
+                    try:
+                        found_index = word_list[index:].index(first_word)
+                        index = index + found_index
+                        new_string = word_list[index]
+                        found = True
+                        if index + num_words < len(word_list):
+                            for num in range(0, num_words):
+                                if keyword_split[num] != word_list[index + num]:
+                                    found = False
+                                    break
+                                elif num != 0:
+                                    new_string += "_" + word_list[index + num]
+                            if found is True:
+                                word_list[index] = new_string
+                                for other_indices in range(index + 1, index + num_words):
+                                    word_list.pop(other_indices)
+                    except ValueError as e:
+                        index = len(word_list) + 1
+
+        return word_list
+
+    def convert_phrases(self, word2int_dict):
+        new_dictionary = {}
+        for keyword in self.keywords:
+            if "_" in keyword:
+                word2int_dict[keyword] = len(word2int_dict)
+        return word2int_dict
+
+    def adjust_keywords(self, keywords):
+        new_keywords = {}
+        for keyword, index in keywords.items():
+            new_keyword = keyword
+            if " " in keyword:
+                new_keyword = keyword.replace(" ", "_")
+            new_keywords[new_keyword] = keywords[keyword]
+        return new_keywords
 
     def make_training_window_tuples(self):
         # Vectorization
@@ -40,8 +90,8 @@ class SkipGram:
     def prepare_training_data_skipgram(self):
         vocab_size = len(self.word2int)
         for data_word in self.window_tuples:
-            self.x_train.append(self.to_one_hot(self.word2int[data_word[0]], vocab_size))
-            self.y_train.append(self.to_one_hot(self.word2int[data_word[1]], vocab_size))
+            self.x_train.append(self.to_one_hot(self.word2int[data_word[0].lower().strip()], vocab_size))
+            self.y_train.append(self.to_one_hot(self.word2int[data_word[1].lower().strip()], vocab_size))
 
         # convert them to numpy arrays
         self.x_train = np.asarray(self.x_train)
@@ -79,9 +129,6 @@ class SkipGram:
         print('----------')
 
         self.vectors = sess.run(W1 + b1)
-        print(len(self.vectors))
-        print(len(self.words))
-        print(self.vectors)
 
     def random_analysis(self):
         print("Hi")

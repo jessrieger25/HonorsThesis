@@ -1,3 +1,4 @@
+Category: Metaphysics
 Matter
 Body
 Prime matter
@@ -61,6 +62,7 @@ Matter within
 Component
 genus
 
+Category: Theology
 God
 Maker
 Infinite
@@ -85,6 +87,7 @@ Best possible way
 Heaven
 Angel
 
+Category: Psychology
 Act
 Immortal
 Immortality
@@ -110,6 +113,7 @@ Proof
 Necessity 
 Skill 
 
+Category: Ethics
 Virtue
 Pleasure
 Good
@@ -123,6 +127,7 @@ Freedom
 Freedom of the will
 Best
 
+Category: Ontology
 Being
 Will
 Intuition
@@ -131,6 +136,7 @@ Knowledge
 Intuition
 Pure minds
 
+Category: Figures & Influence
 Plato
 Plotinus
 Socrates

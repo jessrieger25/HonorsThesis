@@ -25,6 +25,8 @@ class WordPrep():
         dictionaries = self.make_int_dictionary()
         self.word2int = dictionaries[0]
         self.int2word = dictionaries[1]
+
+        self.keyword_categories = []
         self.keywords = self.create_keyword_list()
 
         self.list_of_list = []
@@ -37,13 +39,15 @@ class WordPrep():
             keywords_file = words.readlines()
 
         for word in keywords_file:
-            print('going through', word)
             if word == "\n":
                 self.categories_num += 1
-                print("increment")
+            elif 'Category: ' in word:
+                category = word.split(':')
+                self.keyword_categories.append(category[1].strip())
             else:
                 self.keywords[word.strip().lower()] = self.categories_num
-                print(self.keywords)
+
+        self.keyword_categories.append('uncategorized')
         return self.keywords
 
     def create_token_sentences(self):
@@ -65,16 +69,14 @@ class WordPrep():
             temp = nltk.word_tokenize(sentence)
             for one in temp:
                 # if one not in self.eng_stopwords and one not in [".", "!", "?"]:
-                self.word_list.append(one)
+                self.word_list.append(one.lower().strip())
         return self.word_list
 
     def make_int_dictionary(self):
         for i, word in enumerate(self.vocab_list):
-            self.word2int[word] = i
-            self.int2word[i] = word
-        print(self.word2int)
-        print(self.vocab_list)
-        print(self.int2word)
+            cleaned_word = word.lower().strip()
+            self.word2int[cleaned_word] = i
+            self.int2word[i] = cleaned_word
         return self.word2int, self.int2word
 
     def word_count(self):
