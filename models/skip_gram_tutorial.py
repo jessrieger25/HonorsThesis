@@ -8,6 +8,7 @@ import nltk
 class SkipGram:
 
     def __init__(self, words, word2int, keywords):
+        print("Check 0")
         self.keywords = self.adjust_keywords(keywords)
         print("Check 1")
         self.word2int = self.convert_phrases(word2int)

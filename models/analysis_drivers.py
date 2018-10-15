@@ -150,8 +150,8 @@ class AnalysisDriver():
 
 # AnalysisDriver(["os.path.abspath("../time_machine_used/time_machine_skip_gram.txt")])
 
-AnalysisDriver([os.path.abspath("../ficino/book_1_part_1.txt")])
-                # os.path.abspath("../ficino/book_2.txt"),
+AnalysisDriver([os.path.abspath("../ficino/book_1_part_1.txt"),
+                os.path.abspath("../ficino/book_2.txt")])
                 # os.path.abspath("../ficino/book_5.txt"),
                 # os.path.abspath("../ficino/book_6.txt"),
                 # os.path.abspath("../ficino/book_9_and_10.txt"),
