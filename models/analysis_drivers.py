@@ -17,6 +17,7 @@ class AnalysisDriver():
 
     def __init__(self, file_list):
         self.corpus_raw = ""
+        print("BEFORE ANYTHING")
         for file in file_list:
             # Load data
             with open(file, "r",  encoding="utf8", errors='ignore') as time:
