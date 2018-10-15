@@ -35,7 +35,7 @@ class AnalysisDriver():
 
 
         #"What model would you like to run? s = skipgram, g = glove, w = watson"
-        self.model = sys.argv[0]
+        self.model = sys.argv[1]
         if self.model == "s":
             self.skip_gram_run()
         if self.model == 'g':

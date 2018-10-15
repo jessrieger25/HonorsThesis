@@ -9,12 +9,11 @@ class SkipGram:
 
     def __init__(self, words, word2int, keywords):
         self.keywords = self.adjust_keywords(keywords)
+        print("Check 1")
         self.word2int = self.convert_phrases(word2int)
+        print("Check 2")
         self.words = self.group_phrases(words)
-        print("after change")
-        print(self.words)
-        print(self.word2int)
-        print(self.keywords)
+        print("Check 3")
 
         # Training variables
         self.window_tuples = []
@@ -88,6 +87,7 @@ class SkipGram:
         return temp
 
     def prepare_training_data_skipgram(self):
+        print("training")
         vocab_size = len(self.word2int)
         for data_word in self.window_tuples:
             self.x_train.append(self.to_one_hot(self.word2int[data_word[0].lower().strip()], vocab_size))
@@ -102,6 +102,7 @@ class SkipGram:
 
     def make_skipgram(self):
         vocab_size = len(self.word2int)
+        print("Making gram")
         W1 = tf.Variable(tf.random_normal([vocab_size, self.EMBEDDING_DIM]))
         b1 = tf.Variable(tf.random_normal([self.EMBEDDING_DIM]))  # bias
         hidden_representation = tf.add(tf.matmul(self.x, W1), b1)

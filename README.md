@@ -113,11 +113,11 @@ you want to analyze.
 
 *Run:*
 
-- Run analysis_drivers.py: `python3 models/analysis_drivers.py`
-- In response to the prompt in the console, type:
-    * s: skip gram model
-    * g: glove model
-    * bow: Bag of Words Analysis
+- Run analysis_drivers.py: `python3 models/analysis_drivers.py <selected option>`
+- The <selected option> should be one of the following: 
+    * s for skip gram
+    * g for glove
+    * w for watson (DO NOT USE)
 - Wait for the model to complete. The runtime varies significanly. Some scripts make take upwards of 24 hours to run.
 
 *Interpretation:*
