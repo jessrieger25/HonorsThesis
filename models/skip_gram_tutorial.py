@@ -161,6 +161,7 @@ class SkipGram:
         self.make_training_window_tuples()
         print("after train windows")
         self.prepare_training_data_skipgram()
+        print("after training skipgram")
         self.make_skipgram()
         self.random_analysis()
 
