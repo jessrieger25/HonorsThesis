@@ -11,6 +11,7 @@ class SkipGram:
         self.keywords = self.adjust_keywords(keywords)
         self.word2int = self.convert_phrases(word2int)
         self.words = self.group_phrases(words)
+        self.vocab_size = len(self.word2int)
 
         # Training variables
         self.window_tuples = []
@@ -78,32 +79,30 @@ class SkipGram:
                     self.window_tuples.append([self.words[word_index], nb_word])
 
     # function to convert numbers to one hot vectors
-    def to_one_hot(self, data_point_index, vocab_size):
-        temp = np.zeros(vocab_size)
+    def to_one_hot(self, data_point_index):
+        temp = np.zeros(self.vocab_size)
         temp[data_point_index] = 1
         return temp
 
     def prepare_training_data_skipgram(self):
-        vocab_size = len(self.word2int)
         for data_word in self.window_tuples:
-            self.x_train.append(self.to_one_hot(self.word2int[data_word[0].lower().strip()], vocab_size))
-            self.y_train.append(self.to_one_hot(self.word2int[data_word[1].lower().strip()], vocab_size))
+            self.x_train.append(self.to_one_hot(self.word2int[data_word[0].lower().strip()]))
+            self.y_train.append(self.to_one_hot(self.word2int[data_word[1].lower().strip()]))
         print("after train")
         # convert them to numpy arrays
         self.x_train = np.asarray(self.x_train)
         self.y_train = np.asarray(self.y_train)
 
-        self.x = tf.placeholder(tf.float32, shape=(None, vocab_size))
-        self.y_label = tf.placeholder(tf.float32, shape=(None, vocab_size))
+        self.x = tf.placeholder(tf.float32, shape=(None, self.vocab_size))
+        self.y_label = tf.placeholder(tf.float32, shape=(None, self.vocab_size))
 
     def make_skipgram(self):
-        vocab_size = len(self.word2int)
-        W1 = tf.Variable(tf.random_normal([vocab_size, self.EMBEDDING_DIM]))
+        W1 = tf.Variable(tf.random_normal([self.vocab_size, self.EMBEDDING_DIM]))
         b1 = tf.Variable(tf.random_normal([self.EMBEDDING_DIM]))  # bias
         hidden_representation = tf.add(tf.matmul(self.x, W1), b1)
 
-        W2 = tf.Variable(tf.random_normal([self.EMBEDDING_DIM, vocab_size]))
-        b2 = tf.Variable(tf.random_normal([vocab_size]))
+        W2 = tf.Variable(tf.random_normal([self.EMBEDDING_DIM, self.vocab_size]))
+        b2 = tf.Variable(tf.random_normal([self.vocab_size]))
         prediction = tf.nn.softmax(tf.add(tf.matmul(hidden_representation, W2), b2))
 
         sess = tf.Session()
