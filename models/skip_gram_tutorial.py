@@ -160,7 +160,7 @@ class SkipGram:
         self.make_training_window_tuples()
         print("after train windows")
         print(self.window_tuples)
-        self.word2int = None
+        # self.word2int = None
         self.words = None
         self.keywords = None
         self.prepare_training_data_skipgram()
