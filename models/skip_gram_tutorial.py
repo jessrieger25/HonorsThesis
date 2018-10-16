@@ -87,7 +87,7 @@ class SkipGram:
         return temp
 
     def prepare_training_data_skipgram(self):
-        for ind in range(0, len(self.window_tuples)):
+        for ind in range(0, 28000):
             print(len(self.window_tuples))
             print(ind)
             data_word = self.window_tuples[ind]
