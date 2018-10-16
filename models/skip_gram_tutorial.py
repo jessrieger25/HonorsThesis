@@ -15,7 +15,7 @@ class SkipGram:
 
         # Training variables
         self.window_tuples = []
-        self.WINDOW_SIZE = 5
+        self.WINDOW_SIZE = 3
         self.x_train = []  # input word
         self.y_train = []  # output word
 
