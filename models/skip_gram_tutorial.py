@@ -87,8 +87,10 @@ class SkipGram:
         return temp
 
     def prepare_training_data_skipgram(self):
-        for data_word in self.window_tuples:
+        for ind in range(0, len(self.window_tuples)):
             print(len(self.window_tuples))
+            print(ind)
+            data_word = self.window_tuples[ind]
             self.x_train.append(self.to_one_hot(self.word2int[data_word[0].lower().strip()]))
             self.y_train.append(self.to_one_hot(self.word2int[data_word[1].lower().strip()]))
 
