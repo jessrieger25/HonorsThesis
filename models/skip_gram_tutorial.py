@@ -2,6 +2,8 @@ import numpy as np
 import tensorflow as tf
 from sklearn.metrics.pairwise import euclidean_distances
 from .word_prep import WordPrep
+import objgraph
+import random
 import nltk
 
 
@@ -88,6 +90,8 @@ class SkipGram:
         for data_word in self.window_tuples:
             self.x_train.append(self.to_one_hot(self.word2int[data_word[0].lower().strip()]))
             self.y_train.append(self.to_one_hot(self.word2int[data_word[1].lower().strip()]))
+            objgraph.show_most_common_types()
+
         print("after train")
         # convert them to numpy arrays
         self.x_train = np.asarray(self.x_train)
@@ -95,6 +99,18 @@ class SkipGram:
 
         self.x = tf.placeholder(tf.float32, shape=(None, self.vocab_size))
         self.y_label = tf.placeholder(tf.float32, shape=(None, self.vocab_size))
+
+    def obj_analysis(self):
+        d = {}
+
+        d['k'] = l
+
+
+        # objgraph.show_backrefs(random.choice(objgraph.by_type('Foo')),
+        #                        filename="foo_refs.png"
+        #                        )
+        #
+        # objgraph.show_refs(d, filename='sample-graph.png')
 
     def make_skipgram(self):
         W1 = tf.Variable(tf.random_normal([self.vocab_size, self.EMBEDDING_DIM]))
