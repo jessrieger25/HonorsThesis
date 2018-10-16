@@ -88,9 +88,9 @@ class SkipGram:
 
     def prepare_training_data_skipgram(self):
         for data_word in self.window_tuples:
+            print(len(self.window_tuples))
             self.x_train.append(self.to_one_hot(self.word2int[data_word[0].lower().strip()]))
             self.y_train.append(self.to_one_hot(self.word2int[data_word[1].lower().strip()]))
-            objgraph.show_most_common_types()
 
         print("after train")
         # convert them to numpy arrays
