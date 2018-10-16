@@ -8,13 +8,9 @@ import nltk
 class SkipGram:
 
     def __init__(self, words, word2int, keywords):
-        print("Check 0")
         self.keywords = self.adjust_keywords(keywords)
-        print("Check 1")
         self.word2int = self.convert_phrases(word2int)
-        print("Check 2")
         self.words = self.group_phrases(words)
-        print("Check 3")
 
         # Training variables
         self.window_tuples = []
@@ -88,12 +84,11 @@ class SkipGram:
         return temp
 
     def prepare_training_data_skipgram(self):
-        print("training")
         vocab_size = len(self.word2int)
         for data_word in self.window_tuples:
             self.x_train.append(self.to_one_hot(self.word2int[data_word[0].lower().strip()], vocab_size))
             self.y_train.append(self.to_one_hot(self.word2int[data_word[1].lower().strip()], vocab_size))
-
+        print("after train")
         # convert them to numpy arrays
         self.x_train = np.asarray(self.x_train)
         self.y_train = np.asarray(self.y_train)
@@ -103,7 +98,6 @@ class SkipGram:
 
     def make_skipgram(self):
         vocab_size = len(self.word2int)
-        print("Making gram")
         W1 = tf.Variable(tf.random_normal([vocab_size, self.EMBEDDING_DIM]))
         b1 = tf.Variable(tf.random_normal([self.EMBEDDING_DIM]))  # bias
         hidden_representation = tf.add(tf.matmul(self.x, W1), b1)
@@ -120,6 +114,7 @@ class SkipGram:
         # define the training step:
         train_step = tf.train.GradientDescentOptimizer(0.1).minimize(cross_entropy_loss)
         n_iters = 1000
+        print("Before iterations.")
         # train for n_iter iterations
         for _ in range(n_iters):
             sess.run(train_step, feed_dict={self.x: self.x_train, self.y_label: self.y_train})

@@ -80,7 +80,7 @@ class TSNEVisualizations():
 
         self.scatterplot(vectors2D[:, 0], vectors2D[:, 1], x_label='x', y_label='y', sizes=size_list, lists=separates, list_of_labels=separates_copy, keyword_categories=keyword_categories, type=type)
 
-        self.threeD_plot(vectors3D[:, 0], vectors3D[:, 1], vectors3D[:, 2], separates_3D, keyword_categories)
+        self.threeD_plot(vectors3D[:, 0], vectors3D[:, 1], vectors3D[:, 2], separates_3D, keyword_categories, type)
 
 
     def scatterplot(self, x_data, y_data, x_label="", y_label="", sizes=[], lists=[], list_of_labels=[], keyword_categories= [], type='Analysis'):
@@ -109,7 +109,7 @@ class TSNEVisualizations():
 
         fig.savefig(os.path.abspath("../graphics_ficino/" + type + "_scatter_" + datetime.utcnow().isoformat('T') + '_' +  '.png'), dpi=450)
 
-    def threeD_plot(self, x_data, y_data, z_data, lists, keyword_categories):
+    def threeD_plot(self, x_data, y_data, z_data, lists, keyword_categories, type):
 
         fig = plt.figure()
         ax = fig.add_subplot(111, projection='3d')
@@ -131,7 +131,7 @@ class TSNEVisualizations():
             ax.view_init(azim=angle)
 
         rot_animation = animation.FuncAnimation(fig, rotate, frames=np.arange(0, 362, 1), interval=100)
-        rot_animation.save('../graphics_ficino/data_rotation_' + datetime.utcnow().isoformat('T') + '.gif', dpi=80, writer='imagemagick')
+        rot_animation.save('../graphics_ficino/data_rotation_' + datetime.utcnow().isoformat('T') + '_' + type + '.gif', dpi=80, writer='imagemagick')
 
         # Taken out for running on VM
         # plt.show()
