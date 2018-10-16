@@ -160,6 +160,9 @@ class SkipGram:
     def run(self):
         self.make_training_window_tuples()
         print("after train windows")
+        self.word2int = None
+        self.words = None
+        self.keywords = None
         self.prepare_training_data_skipgram()
         print("after training skipgram")
         self.make_skipgram()
