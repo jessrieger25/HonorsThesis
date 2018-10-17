@@ -86,15 +86,11 @@ class SkipGram:
         temp[data_point_index] = 1
         return temp
 
-    def prepare_training_data_skipgram(self):
-        for ind in range(0, 280000):
-            print(len(self.window_tuples))
-            print(ind)
-            data_word = self.window_tuples[ind]
+    def prepare_training_data_skipgram(self, tuple_group):
+        for data_word in tuple_group:
             self.x_train.append(self.to_one_hot(self.word2int[data_word[0].lower().strip()]))
             self.y_train.append(self.to_one_hot(self.word2int[data_word[1].lower().strip()]))
 
-        print("after train")
         # convert them to numpy arrays
         self.x_train = np.asarray(self.x_train)
         self.y_train = np.asarray(self.y_train)
@@ -102,36 +98,8 @@ class SkipGram:
         self.x = tf.placeholder(tf.float32, shape=(None, self.vocab_size))
         self.y_label = tf.placeholder(tf.float32, shape=(None, self.vocab_size))
 
-    def obj_analysis(self):
-        d = {}
-
-        d['k'] = l
-
-
-        # objgraph.show_backrefs(random.choice(objgraph.by_type('Foo')),
-        #                        filename="foo_refs.png"
-        #                        )
-        #
-        # objgraph.show_refs(d, filename='sample-graph.png')
-
-    def make_skipgram(self):
-        W1 = tf.Variable(tf.random_normal([self.vocab_size, self.EMBEDDING_DIM]))
-        b1 = tf.Variable(tf.random_normal([self.EMBEDDING_DIM]))  # bias
-        hidden_representation = tf.add(tf.matmul(self.x, W1), b1)
-
-        W2 = tf.Variable(tf.random_normal([self.EMBEDDING_DIM, self.vocab_size]))
-        b2 = tf.Variable(tf.random_normal([self.vocab_size]))
-        prediction = tf.nn.softmax(tf.add(tf.matmul(hidden_representation, W2), b2))
-
-        sess = tf.Session()
-        init = tf.global_variables_initializer()
-        sess.run(init)  # make sure you do this!
-        # define the loss function:
-        cross_entropy_loss = tf.reduce_mean(-tf.reduce_sum(self.y_label * tf.log(prediction), reduction_indices=[1]))
-        # define the training step:
-        train_step = tf.train.GradientDescentOptimizer(0.1).minimize(cross_entropy_loss)
+    def make_skipgram(self, sess, train_step, cross_entropy_loss, W1, b1):
         n_iters = 1000
-        print("Before iterations.")
         # train for n_iter iterations
         for _ in range(n_iters):
             sess.run(train_step, feed_dict={self.x: self.x_train, self.y_label: self.y_train})
@@ -176,14 +144,25 @@ class SkipGram:
 
     def run(self):
         self.make_training_window_tuples()
-        print("after train windows")
-        print(self.window_tuples)
-        # self.word2int = None
-        self.words = None
-        self.keywords = None
-        self.prepare_training_data_skipgram()
-        print("after training skipgram")
-        self.make_skipgram()
+        W1 = tf.Variable(tf.random_normal([self.vocab_size, self.EMBEDDING_DIM]))
+        b1 = tf.Variable(tf.random_normal([self.EMBEDDING_DIM]))  # bias
+        hidden_representation = tf.add(tf.matmul(self.x, W1), b1)
+
+        W2 = tf.Variable(tf.random_normal([self.EMBEDDING_DIM, self.vocab_size]))
+        b2 = tf.Variable(tf.random_normal([self.vocab_size]))
+        prediction = tf.nn.softmax(tf.add(tf.matmul(hidden_representation, W2), b2))
+
+        sess = tf.Session()
+        init = tf.global_variables_initializer()
+        sess.run(init)  # make sure you do this!
+        # define the loss function:
+        cross_entropy_loss = tf.reduce_mean(-tf.reduce_sum(self.y_label * tf.log(prediction), reduction_indices=[1]))
+        # define the training step:
+        train_step = tf.train.GradientDescentOptimizer(0.1).minimize(cross_entropy_loss)
+        print("Before iterations.")
+        for index in range(0, len(self.window_tuples), 6000):
+            self.prepare_training_data_skipgram(self.window_tuples[index:index+5999])
+            self.make_skipgram(sess, train_step, cross_entropy_loss, W1, b1)
         self.random_analysis()
 
 

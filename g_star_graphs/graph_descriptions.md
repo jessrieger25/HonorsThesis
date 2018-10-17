@@ -51,4 +51,10 @@ Shows the keywords that appear within 5 words of body.
 
 Shows the keywords that appear within 5 words of Matter.
  
+ ###### 182.0 - Average Distance - Matter
  
+ Books 1-12. Larger = closer
+ 
+ ###### 183.0 - Average Distance - Body
+ 
+ Books 1-12. Larger = closer
