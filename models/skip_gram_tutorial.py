@@ -95,9 +95,6 @@ class SkipGram:
         self.x_train = np.asarray(self.x_train)
         self.y_train = np.asarray(self.y_train)
 
-        self.x = tf.placeholder(tf.float32, shape=(None, self.vocab_size))
-        self.y_label = tf.placeholder(tf.float32, shape=(None, self.vocab_size))
-
     def make_skipgram(self, sess, train_step, cross_entropy_loss, W1, b1):
         n_iters = 1000
         # train for n_iter iterations
@@ -144,6 +141,8 @@ class SkipGram:
 
     def run(self):
         self.make_training_window_tuples()
+        self.x = tf.placeholder(tf.float32, shape=(None, self.vocab_size))
+        self.y_label = tf.placeholder(tf.float32, shape=(None, self.vocab_size))
         W1 = tf.Variable(tf.random_normal([self.vocab_size, self.EMBEDDING_DIM]))
         b1 = tf.Variable(tf.random_normal([self.EMBEDDING_DIM]))  # bias
         hidden_representation = tf.add(tf.matmul(self.x, W1), b1)
