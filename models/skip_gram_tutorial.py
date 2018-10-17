@@ -87,7 +87,10 @@ class SkipGram:
         return temp
 
     def prepare_training_data_skipgram(self, tuple_group):
+
         for data_word in tuple_group:
+            self.x_train = []  # input word
+            self.y_train = []  # output word
             self.x_train.append(self.to_one_hot(self.word2int[data_word[0].lower().strip()]))
             self.y_train.append(self.to_one_hot(self.word2int[data_word[1].lower().strip()]))
 
