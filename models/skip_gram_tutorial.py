@@ -96,7 +96,7 @@ class SkipGram:
         self.y_train = np.asarray(self.y_train)
 
     def make_skipgram(self, sess, train_step, cross_entropy_loss, W1, b1):
-        n_iters = 1000
+        n_iters = 10
         # train for n_iter iterations
         for _ in range(n_iters):
             sess.run(train_step, feed_dict={self.x: self.x_train, self.y_label: self.y_train})
@@ -160,6 +160,7 @@ class SkipGram:
         train_step = tf.train.GradientDescentOptimizer(0.1).minimize(cross_entropy_loss)
         print("Before iterations.")
         for index in range(0, len(self.window_tuples), 6000):
+            print("Next group")
             self.prepare_training_data_skipgram(self.window_tuples[index:index+5999])
             self.make_skipgram(sess, train_step, cross_entropy_loss, W1, b1)
         self.random_analysis()
