@@ -151,7 +151,7 @@ class SkipGram:
         self.y_label = tf.placeholder(tf.float32, shape=(None, self.vocab_size))
         self.W1 = tf.Variable(tf.random_normal([self.vocab_size, self.EMBEDDING_DIM]))
         self.b1 = tf.Variable(tf.random_normal([self.EMBEDDING_DIM]))  # bias
-        hidden_representation = tf.add(tf.matmul(self.x, W1), b1)
+        hidden_representation = tf.add(tf.matmul(self.x, self.W1), self.b1)
 
         W2 = tf.Variable(tf.random_normal([self.EMBEDDING_DIM, self.vocab_size]))
         b2 = tf.Variable(tf.random_normal([self.vocab_size]))
