@@ -14,6 +14,7 @@ class SkipGram:
         self.word2int = self.convert_phrases(word2int)
         self.words = self.group_phrases(words)
         self.vocab_size = len(self.word2int)
+        self.vectors = []
 
         # Training variables
         self.window_tuples = []
@@ -98,19 +99,21 @@ class SkipGram:
         self.x_train = np.asarray(self.x_train)
         self.y_train = np.asarray(self.y_train)
 
-    def make_skipgram(self, sess, train_step, cross_entropy_loss, W1, b1):
+    def make_skipgram(self, sess, train_step, cross_entropy_loss):
         n_iters = 10
         # train for n_iter iterations
         for _ in range(n_iters):
             sess.run(train_step, feed_dict={self.x: self.x_train, self.y_label: self.y_train})
             print('loss is : ', sess.run(cross_entropy_loss, feed_dict={self.x: self.x_train, self.y_label: self.y_train}))
 
-        print(sess.run(W1))
+        print(sess.run(self.W1))
         print('----------')
-        print(sess.run(b1))
+        print(sess.run(self.b1))
         print('----------')
 
-        self.vectors = sess.run(W1 + b1)
+        self.vectors = sess.run(self.W1 + self.b1)
+        print("length")
+        print(len(self.vectors))
 
     def random_analysis(self):
         print("Hi")
@@ -146,8 +149,8 @@ class SkipGram:
         self.make_training_window_tuples()
         self.x = tf.placeholder(tf.float32, shape=(None, self.vocab_size))
         self.y_label = tf.placeholder(tf.float32, shape=(None, self.vocab_size))
-        W1 = tf.Variable(tf.random_normal([self.vocab_size, self.EMBEDDING_DIM]))
-        b1 = tf.Variable(tf.random_normal([self.EMBEDDING_DIM]))  # bias
+        self.W1 = tf.Variable(tf.random_normal([self.vocab_size, self.EMBEDDING_DIM]))
+        self.b1 = tf.Variable(tf.random_normal([self.EMBEDDING_DIM]))  # bias
         hidden_representation = tf.add(tf.matmul(self.x, W1), b1)
 
         W2 = tf.Variable(tf.random_normal([self.EMBEDDING_DIM, self.vocab_size]))
@@ -165,7 +168,7 @@ class SkipGram:
         for index in range(0, len(self.window_tuples), 6000):
             print("Next group")
             self.prepare_training_data_skipgram(self.window_tuples[index:index+5999])
-            self.make_skipgram(sess, train_step, cross_entropy_loss, W1, b1)
+            self.make_skipgram(sess, train_step, cross_entropy_loss)
         self.random_analysis()
 
 
