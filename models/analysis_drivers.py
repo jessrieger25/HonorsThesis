@@ -50,7 +50,6 @@ class AnalysisDriver():
 
     def skip_gram_run(self):
         sg = SkipGram(self.wp.word_list, self.wp.word2int, self.wp.keywords)
-        self.wp = None
         sg.run()
 
         self.word_count = self.wp.word_count()
