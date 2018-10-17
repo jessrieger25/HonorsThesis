@@ -111,7 +111,7 @@ class SkipGram:
         print(sess.run(self.b1))
         print('----------')
 
-        self.vectors = sess.run(self.W1 + self.b1)
+        self.vectors += sess.run(self.W1 + self.b1)
         print("length")
         print(len(self.vectors))
 
