@@ -100,7 +100,7 @@ class SkipGram:
         self.y_train = np.asarray(self.y_train)
 
     def make_skipgram(self, sess, train_step, cross_entropy_loss):
-        n_iters = 10
+        n_iters = 1000
         # train for n_iter iterations
         for _ in range(n_iters):
             sess.run(train_step, feed_dict={self.x: self.x_train, self.y_label: self.y_train})

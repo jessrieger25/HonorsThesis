@@ -80,7 +80,31 @@ class TSNEVisualizations():
 
         self.scatterplot(vectors2D[:, 0], vectors2D[:, 1], x_label='x', y_label='y', sizes=size_list, lists=separates, list_of_labels=separates_copy, keyword_categories=keyword_categories, type=type)
 
+        self.scatter_without_size(vectors2D[:, 0], vectors2D[:, 1], x_label='x', y_label='y', lists=separates, list_of_labels=separates_copy, keyword_categories=keyword_categories, type=type)
+
         self.threeD_plot(vectors3D[:, 0], vectors3D[:, 1], vectors3D[:, 2], separates_3D, keyword_categories, type)
+
+    def scatter_without_size(self,  x_data, y_data, x_label="", y_label="", lists=[], list_of_labels=[], keyword_categories= [], type='Analysis'):
+        fig, ax = plt.subplots()
+
+        for one in range(0, len(lists) - 1):
+            x = []
+            y = []
+            for ind in range(0, len(lists[one])):
+                x.append(lists[one][ind][0])
+                y.append(lists[one][ind][1])
+            plt.scatter(x, y, label=keyword_categories[one], color=self.colors[one], alpha=0.75)
+            for i, txt in enumerate(list_of_labels[one]):
+                ax.annotate(txt, (x[i], y[i]))
+
+        # Could also plt scatter with all x and y data
+
+        plt.xlabel(x_label)
+        plt.ylabel(y_label)
+        plt.title('Scatter Plot of the ' + type + ' Model')
+        plt.legend()
+
+        fig.savefig(os.path.abspath("../graphics_ficino/" + type + "_scatter_wo_size_" + datetime.utcnow().isoformat('T') +  '.png'), dpi=450)
 
 
     def scatterplot(self, x_data, y_data, x_label="", y_label="", sizes=[], lists=[], list_of_labels=[], keyword_categories= [], type='Analysis'):
@@ -107,7 +131,7 @@ class TSNEVisualizations():
         # Taken out for running on VM
         # plt.show()
 
-        fig.savefig(os.path.abspath("../graphics_ficino/" + type + "_scatter_" + datetime.utcnow().isoformat('T') + '_' +  '.png'), dpi=450)
+        fig.savefig(os.path.abspath("../graphics_ficino/" + type + "_scatter_" + datetime.utcnow().isoformat('T') +  '.png'), dpi=450)
 
     def threeD_plot(self, x_data, y_data, z_data, lists, keyword_categories, type):
 
