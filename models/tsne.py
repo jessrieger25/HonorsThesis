@@ -36,6 +36,8 @@ class TSNEVisualizations():
 
         np.set_printoptions(suppress=True)
 
+        print(np.isfinite(vectors).all())
+
         vectors2D = self.model.fit_transform(vectors)
         vectors3D = self.model3D.fit_transform(vectors)
 
