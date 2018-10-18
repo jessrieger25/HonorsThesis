@@ -79,10 +79,8 @@ class TSNEVisualizations():
         # Image('my_figure.png')
 
         self.scatterplot(vectors2D[:, 0], vectors2D[:, 1], x_label='x', y_label='y', sizes=size_list, lists=separates, list_of_labels=separates_copy, keyword_categories=keyword_categories, type=type)
-
-        self.scatter_without_size(vectors2D[:, 0], vectors2D[:, 1], x_label='x', y_label='y', lists=separates, list_of_labels=separates_copy, keyword_categories=keyword_categories, type=type)
-
         self.threeD_plot(vectors3D[:, 0], vectors3D[:, 1], vectors3D[:, 2], separates_3D, keyword_categories, type)
+        self.scatter_without_size(vectors2D[:, 0], vectors2D[:, 1], x_label='x', y_label='y', lists=separates, list_of_labels=separates_copy, keyword_categories=keyword_categories, type=type)
 
     def scatter_without_size(self,  x_data, y_data, x_label="", y_label="", lists=[], list_of_labels=[], keyword_categories= [], type='Analysis'):
         fig, ax = plt.subplots()
