@@ -32,6 +32,7 @@ class Glove():
     def make_keyword_embedding(self):
         f = open(os.path.abspath("../text_parsing/word_lists/keywords.txt"))
         for line in f:
+            print(line)
             if ":" not in line and line != '\n':
                 word = line.strip().lower()
                 embedding_vector = self.embeddings_index.get(word)
