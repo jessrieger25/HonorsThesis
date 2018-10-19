@@ -45,8 +45,9 @@ class Glove():
 
         # create a weight matrix for words in training docs
         for ind in range(0, len(self.words)):
-            embedding_vector = self.embeddings_index.get(self.words[ind])
-            if embedding_vector is not None:
+            if self.words[ind] in self.keyword_embedding:
+
+                embedding_vector = self.keyword_embedding[self.words[ind]]
                 self.embedding_matrix[ind] = embedding_vector
 
     def run(self):
