@@ -58,7 +58,7 @@ class AnalysisDriver():
                        separates=self.wp.list_of_list, keywords=self.wp.keywords, keyword_categories=self.wp.keyword_categories, type='Skip Gram')
 
     def glove_run(self):
-        g = Glove(self.wp.sen_word_token, self.wp.vocab_list, self.wp.word_list, self.wp.word2int, self.wp.int2word)
+        g = Glove(self.wp.sen_word_token, self.wp.vocab_list, self.wp.word_list, self.wp.word2int, self.wp.int2word, self.wp.keywords)
         g.run()
 
         tsne_model = TSNEVisualizations()
