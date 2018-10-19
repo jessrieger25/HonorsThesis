@@ -32,7 +32,8 @@ class Glove():
 
     def make_keyword_embedding(self):
         print(self.keyword_list)
-        for word in self.keyword_list:
+        for word in self.keyword_list.items():
+            print(word)
             embedding_vector = self.embeddings_index.get(word)
             if embedding_vector is not None:
                 self.keyword_embedding[word] = embedding_vector
