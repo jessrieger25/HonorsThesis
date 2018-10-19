@@ -12,6 +12,8 @@ class Glove():
         self.vocab_size = len(self.vocab)
         self.embeddings_index = self.load_vecs()
         self.embedding_matrix = zeros((len(self.words), 100))
+        self.keyword_embedding = zeros((len(self.words), 100))
+        self.keyword_embedding = self.make_keyword_embedding()
 
     def load_vecs(self):
 
@@ -26,6 +28,18 @@ class Glove():
         f.close()
         print('Loaded %s word vectors.' % len(embeddings_index))
         return embeddings_index
+
+    def make_keyword_embedding(self):
+        f = open(os.path.abspath("../text_parsing/word_lists/keywords.txt"))
+        for line in f:
+            if ":" not in line:
+                word = line.strip().lower()
+                embedding_vector = self.embeddings_index.get(word)
+                if embedding_vector is not None:
+                    self.keyword_embedding[word] = embedding_vector
+        f.close()
+        print('Loaded %s word vectors.' % len(self.keyword_embedding))
+        return self.keyword_embedding
 
     def make_embedding_matrix(self):
 
