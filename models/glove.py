@@ -13,7 +13,7 @@ class Glove():
         self.embeddings_index = self.load_vecs()
         self.embedding_matrix = zeros((len(self.words), 100))
         self.keyword_list = keywords
-        self.keyword_embedding = zeros((len(self.keyword_list), 100))
+        self.keyword_embedding = {}
         self.make_keyword_embedding()
 
     def load_vecs(self):
@@ -31,12 +31,13 @@ class Glove():
         return embeddings_index
 
     def make_keyword_embedding(self):
+        print("making keyword embedding")
         print(self.keyword_list)
         for word in self.keyword_list.items():
             print(word)
-            embedding_vector = self.embeddings_index.get(word)
+            embedding_vector = self.embeddings_index.get(word[0])
             if embedding_vector is not None:
-                self.keyword_embedding[word] = embedding_vector
+                self.keyword_embedding[word[0]] = embedding_vector
 
         print('Loaded %s word vectors.' % len(self.keyword_embedding))
         return self.keyword_embedding
@@ -45,6 +46,8 @@ class Glove():
 
         # create a weight matrix for words in training docs
         for ind in range(0, len(self.words)):
+            print(self.words)
+            print(self.keyword_embedding)
             if self.words[ind] in self.keyword_embedding:
 
                 embedding_vector = self.keyword_embedding[self.words[ind]]

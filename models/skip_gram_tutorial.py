@@ -2,7 +2,6 @@ import numpy as np
 import tensorflow as tf
 from sklearn.metrics.pairwise import euclidean_distances
 from .word_prep import WordPrep
-import objgraph
 import random
 import nltk
 
