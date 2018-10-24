@@ -31,10 +31,7 @@ class Glove():
         return embeddings_index
 
     def make_keyword_embedding(self):
-        print("making keyword embedding")
-        print(self.keyword_list)
         for word in self.keyword_list.items():
-            print(word)
             embedding_vector = self.embeddings_index.get(word[0])
             if embedding_vector is not None:
                 self.keyword_embedding[word[0]] = embedding_vector
@@ -46,12 +43,8 @@ class Glove():
 
         # create a weight matrix for words in training docs
         for ind in range(0, len(self.words)):
-            print(self.words)
-            print(self.keyword_embedding)
             if self.words[ind] in self.keyword_embedding:
-
-                embedding_vector = self.keyword_embedding[self.words[ind]]
-                self.embedding_matrix[ind] = embedding_vector
+                self.embedding_matrix[ind] = self.keyword_embedding[self.words[ind]]
 
     def run(self):
         self.load_vecs()
