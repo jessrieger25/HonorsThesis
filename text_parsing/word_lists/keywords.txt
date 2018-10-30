@@ -1,4 +1,4 @@
-Category: Metaphysics
+Category: Metaphysics (yellow)
 Matter
 Body
 Prime matter
@@ -60,9 +60,9 @@ Chance
 Accident
 Matter within
 Component
-genus
+Genus
 
-Category: Theology
+Category: Theology (pink)
 God
 Maker
 Infinite
@@ -87,7 +87,7 @@ Best possible way
 Heaven
 Angel
 
-Category: Psychology
+Category: Psychology (purple)
 Act
 Immortal
 Immortality
@@ -113,7 +113,7 @@ Proof
 Necessity 
 Skill 
 
-Category: Ethics
+Category: Ethics: (turquoise)
 Virtue
 Pleasure
 Good
@@ -127,7 +127,7 @@ Freedom
 Freedom of the will
 Best
 
-Category: Ontology
+Category: Ontology (red)
 Being
 Will
 Intuition
@@ -136,7 +136,7 @@ Knowledge
 Intuition
 Pure minds
 
-Category: Figures & Influence
+Category: Figures & Influence (orange)
 Plato
 Plotinus
 Socrates
@@ -173,3 +173,4 @@ Statesman
 Protagoras
 Heraclitus 
 Xenocrates
+

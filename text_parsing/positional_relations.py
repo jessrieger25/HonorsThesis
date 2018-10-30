@@ -3,6 +3,7 @@ from nltk.corpus import stopwords
 import nltk
 import os
 from text_parsing.creating_graph import CreateGraph
+from models.word_prep import WordPrep
 
 
 class PositionalRelations:
@@ -24,7 +25,16 @@ class PositionalRelations:
         self.eng_stopwords = stopwords.words('english')
         self.eng_stopwords.extend(ignored_list)
 
-        self.source_files = [os.path.abspath("../ficino/book_1_part_1.txt"), os.path.abspath("../ficino/book_2.txt"), os.path.abspath("../ficino/book_5.txt"), os.path.abspath("../ficino/book_6.txt"), os.path.abspath("../ficino/book_9_and_10.txt"), os.path.abspath("../ficino/book_12.txt")]
+        self.source_files = [os.path.abspath("../ficino/book_1-4.txt")]
+
+        self.corpus_raw = ''
+        for file in self.source_files:
+            # Load data
+            with open(file, "r",  encoding="utf8", errors='ignore') as time:
+                for line in time.readlines():
+                    self.corpus_raw += line.replace('\n', " ")
+        self.wp = WordPrep(self.corpus_raw)
+        self.count = self.wp.word_count()
 
         self.text = []
         self.text = self.text_to_wordlist(self.source_files)
