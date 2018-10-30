@@ -14,7 +14,8 @@ class PositionalRelations:
             keywords_file = words.readlines()
 
         for word in keywords_file:
-            self.keywords.append(word.lower().strip())
+            if ":" not in word:
+                self.keywords.append(word.lower().strip())
 
         self.ignored = []
         with open(os.path.abspath("./word_lists/ignored.txt"), 'r') as ignored:
@@ -23,7 +24,7 @@ class PositionalRelations:
         self.eng_stopwords = stopwords.words('english')
         self.eng_stopwords.extend(ignored_list)
 
-        self.source_files = [os.path.abspath("../ficino/book_1_part_1.txt")]
+        self.source_files = [os.path.abspath("../ficino/book_1_part_1.txt"), os.path.abspath("../ficino/book_2.txt"), os.path.abspath("../ficino/book_5.txt"), os.path.abspath("../ficino/book_6.txt"), os.path.abspath("../ficino/book_9_and_10.txt"), os.path.abspath("../ficino/book_12.txt")]
 
         self.text = []
         self.text = self.text_to_wordlist(self.source_files)

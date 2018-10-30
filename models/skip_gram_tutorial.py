@@ -2,23 +2,22 @@ import numpy as np
 import tensorflow as tf
 from sklearn.metrics.pairwise import euclidean_distances
 from .word_prep import WordPrep
+import random
 import nltk
 
 
 class SkipGram:
 
     def __init__(self, words, word2int, keywords):
-        print("Check 0")
         self.keywords = self.adjust_keywords(keywords)
-        print("Check 1")
         self.word2int = self.convert_phrases(word2int)
-        print("Check 2")
         self.words = self.group_phrases(words)
-        print("Check 3")
+        self.vocab_size = len(self.word2int)
+        self.vectors = []
 
         # Training variables
         self.window_tuples = []
-        self.WINDOW_SIZE = 5
+        self.WINDOW_SIZE = 3
         self.x_train = []  # input word
         self.y_train = []  # output word
 
@@ -82,55 +81,37 @@ class SkipGram:
                     self.window_tuples.append([self.words[word_index], nb_word])
 
     # function to convert numbers to one hot vectors
-    def to_one_hot(self, data_point_index, vocab_size):
-        temp = np.zeros(vocab_size)
+    def to_one_hot(self, data_point_index):
+        temp = np.zeros(self.vocab_size)
         temp[data_point_index] = 1
         return temp
 
-    def prepare_training_data_skipgram(self):
-        print("training")
-        vocab_size = len(self.word2int)
-        for data_word in self.window_tuples:
-            self.x_train.append(self.to_one_hot(self.word2int[data_word[0].lower().strip()], vocab_size))
-            self.y_train.append(self.to_one_hot(self.word2int[data_word[1].lower().strip()], vocab_size))
+    def prepare_training_data_skipgram(self, tuple_group):
+
+        for data_word in tuple_group:
+            self.x_train = []  # input word
+            self.y_train = []  # output word
+            self.x_train.append(self.to_one_hot(self.word2int[data_word[0].lower().strip()]))
+            self.y_train.append(self.to_one_hot(self.word2int[data_word[1].lower().strip()]))
 
         # convert them to numpy arrays
         self.x_train = np.asarray(self.x_train)
         self.y_train = np.asarray(self.y_train)
 
-        self.x = tf.placeholder(tf.float32, shape=(None, vocab_size))
-        self.y_label = tf.placeholder(tf.float32, shape=(None, vocab_size))
-
-    def make_skipgram(self):
-        vocab_size = len(self.word2int)
-        print("Making gram")
-        W1 = tf.Variable(tf.random_normal([vocab_size, self.EMBEDDING_DIM]))
-        b1 = tf.Variable(tf.random_normal([self.EMBEDDING_DIM]))  # bias
-        hidden_representation = tf.add(tf.matmul(self.x, W1), b1)
-
-        W2 = tf.Variable(tf.random_normal([self.EMBEDDING_DIM, vocab_size]))
-        b2 = tf.Variable(tf.random_normal([vocab_size]))
-        prediction = tf.nn.softmax(tf.add(tf.matmul(hidden_representation, W2), b2))
-
-        sess = tf.Session()
-        init = tf.global_variables_initializer()
-        sess.run(init)  # make sure you do this!
-        # define the loss function:
-        cross_entropy_loss = tf.reduce_mean(-tf.reduce_sum(self.y_label * tf.log(prediction), reduction_indices=[1]))
-        # define the training step:
-        train_step = tf.train.GradientDescentOptimizer(0.1).minimize(cross_entropy_loss)
+    def make_skipgram(self, sess, train_step, cross_entropy_loss):
         n_iters = 1000
         # train for n_iter iterations
         for _ in range(n_iters):
             sess.run(train_step, feed_dict={self.x: self.x_train, self.y_label: self.y_train})
             print('loss is : ', sess.run(cross_entropy_loss, feed_dict={self.x: self.x_train, self.y_label: self.y_train}))
 
-        print(sess.run(W1))
+        print(sess.run(self.W1))
         print('----------')
-        print(sess.run(b1))
+        print(sess.run(self.b1))
         print('----------')
 
-        self.vectors = sess.run(W1 + b1)
+        self.vectors = sess.run(self.W1 + self.b1)
+        print(len(self.vectors))
 
     def random_analysis(self):
         print("Hi")
@@ -164,8 +145,31 @@ class SkipGram:
 
     def run(self):
         self.make_training_window_tuples()
-        self.prepare_training_data_skipgram()
-        self.make_skipgram()
+        self.x = tf.placeholder(tf.float32, shape=(None, self.vocab_size))
+        self.y_label = tf.placeholder(tf.float32, shape=(None, self.vocab_size))
+        self.W1 = tf.Variable(tf.random_normal([self.vocab_size, self.EMBEDDING_DIM]))
+        self.b1 = tf.Variable(tf.random_normal([self.EMBEDDING_DIM]))  # bias
+        hidden_representation = tf.add(tf.matmul(self.x, self.W1), self.b1)
+
+        W2 = tf.Variable(tf.random_normal([self.EMBEDDING_DIM, self.vocab_size]))
+        b2 = tf.Variable(tf.random_normal([self.vocab_size]))
+        prediction = tf.nn.softmax(tf.add(tf.matmul(hidden_representation, W2), b2))
+
+        sess = tf.Session()
+        init = tf.global_variables_initializer()
+        sess.run(init)  # make sure you do this!
+        # define the loss function:
+        cross_entropy_loss = tf.reduce_mean(-tf.reduce_sum(self.y_label * tf.log(prediction), reduction_indices=[1]))
+        # define the training step:
+        train_step = tf.train.GradientDescentOptimizer(0.1).minimize(cross_entropy_loss)
+        print("length", len(self.window_tuples))
+        for index in range(0, len(self.window_tuples), 1024):
+            print("Index: ", index)
+            if index + 1023 > len(self.window_tuples):
+                self.prepare_training_data_skipgram(self.window_tuples[index:])
+            else:
+                self.prepare_training_data_skipgram(self.window_tuples[index:index+1023])
+            self.make_skipgram(sess, train_step, cross_entropy_loss)
         self.random_analysis()
 
 

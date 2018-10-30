@@ -73,7 +73,6 @@ class WordPrep():
         for sentence in self.sen_word_token:
             temp = nltk.word_tokenize(sentence)
             for one in temp:
-                # if one not in self.eng_stopwords and one not in [".", "!", "?"]:
                 self.word_list.append(one.lower().strip())
         return self.word_list
 

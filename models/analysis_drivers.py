@@ -58,7 +58,7 @@ class AnalysisDriver():
                        separates=self.wp.list_of_list, keywords=self.wp.keywords, keyword_categories=self.wp.keyword_categories, type='Skip Gram')
 
     def glove_run(self):
-        g = Glove(self.wp.sen_word_token, self.wp.vocab_list, self.wp.word_list, self.wp.word2int, self.wp.int2word)
+        g = Glove(self.wp.sen_word_token, self.wp.vocab_list, self.wp.word_list, self.wp.word2int, self.wp.int2word, self.wp.keywords)
         g.run()
 
         tsne_model = TSNEVisualizations()
@@ -151,14 +151,14 @@ class AnalysisDriver():
         #             nlu.write(',')
         #     nlu.write(']')
 
-# AnalysisDriver(["os.path.abspath("../time_machine_used/time_machine_skip_gram.txt")])
-
+# AnalysisDriver([os.path.abspath("../ficino/short_tester.txt")])
+#
 AnalysisDriver([os.path.abspath("../ficino/book_1_part_1.txt"),
-                os.path.abspath("../ficino/book_2.txt")])
-                # os.path.abspath("../ficino/book_5.txt"),
-                # os.path.abspath("../ficino/book_6.txt"),
-                # os.path.abspath("../ficino/book_9_and_10.txt"),
-                # os.path.abspath("../ficino/book_12.txt")])
+                os.path.abspath("../ficino/book_2.txt"),
+                os.path.abspath("../ficino/book_5.txt"),
+                os.path.abspath("../ficino/book_6.txt"),
+                os.path.abspath("../ficino/book_9_and_10.txt"),
+                os.path.abspath("../ficino/book_12.txt")])
 
 
 
