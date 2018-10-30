@@ -29,5 +29,7 @@ class TextAnalysisDriver:
             word = input('What main word would you like to use?')
             other = input('What other word?')
             pprint.pprint(PositionalRelations().structural_relations(word, other, book))
+        if self.commands == 'c':
+            PositionalRelations().get_counts()
 
 TextAnalysisDriver()

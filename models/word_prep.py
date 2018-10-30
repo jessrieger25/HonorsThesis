@@ -40,9 +40,11 @@ class WordPrep():
         self.list_of_list.append([])
 
     def create_keyword_list(self):
+        self.categorized_keywords = []
         with open(os.path.abspath("../text_parsing/word_lists/keywords.txt"), 'r') as words:
             keywords_file = words.readlines()
 
+        single_category = []
         for word in keywords_file:
             if word == "\n":
                 self.categories_num += 1

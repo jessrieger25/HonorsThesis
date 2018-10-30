@@ -2,21 +2,16 @@ from nltk.tokenize import PunktSentenceTokenizer
 from nltk.corpus import stopwords
 import nltk
 import os
+import numpy as np
 from text_parsing.creating_graph import CreateGraph
 from models.word_prep import WordPrep
+import matplotlib.pyplot as plt
+from datetime import datetime
 
 
 class PositionalRelations:
 
     def __init__(self):
-
-        self.keywords = []
-        with open(os.path.abspath("./word_lists/keywords.txt"), 'r') as words:
-            keywords_file = words.readlines()
-
-        for word in keywords_file:
-            if ":" not in word:
-                self.keywords.append(word.lower().strip())
 
         self.ignored = []
         with open(os.path.abspath("./word_lists/ignored.txt"), 'r') as ignored:
@@ -35,6 +30,7 @@ class PositionalRelations:
                     self.corpus_raw += line.replace('\n', " ")
         self.wp = WordPrep(self.corpus_raw)
         self.count = self.wp.word_count()
+        self.keywords = self.wp.keywords
 
         self.text = []
         self.text = self.text_to_wordlist(self.source_files)
@@ -66,7 +62,7 @@ class PositionalRelations:
 
     def find_average_dist(self, tracked):
         distances = []
-        for other_word in self.keywords:
+        for other_word in self.keywords.items():
             for ind in range(0, len(self.text)):
                 if self.text[ind] == tracked:
                     num = ind
@@ -149,6 +145,44 @@ class PositionalRelations:
 
         return distances
 
+    def get_counts(self):
+        counts = []
+        used_keywords = []
+
+        current_category = 1
+        for word, category in self.keywords.items():
+            if word in self.count:
+                if current_category != category:
+                    print("Changing category")
+                    y_pos = np.arange(len(used_keywords))
+                    plt.bar(y_pos, counts, align='center', alpha=0.5)
+                    plt.xticks(y_pos, used_keywords, rotation='vertical')
+                    plt.ylabel('Usage')
+                    plt.title('Keyword Counts for Category: ' + str(current_category))
+                    plt.show()
+                    fig = plt.figure()
+                    fig.savefig(
+                        os.path.abspath("../graphics_ficino/word_count" + str(current_category) + "_" + datetime.utcnow().isoformat('T') + '.png'),
+                        dpi=350)
+
+                    counts = []
+                    used_keywords = []
+                    counts.append(self.count[word])
+                    used_keywords.append(word)
+                    current_category += 1
+
+                else:
+                    counts.append(self.count[word])
+                    used_keywords.append(word)
+
+        # y_pos = np.arange(len(used_keywords))
+        # print(y_pos)
+        # plt.bar(y_pos, counts, align='center', alpha=0.5)
+        # plt.xticks(y_pos, self.keywords)
+        # plt.ylabel('Usage')
+        # plt.title('Keyword Counts')
+        #
+        # plt.show()
 
 
 
