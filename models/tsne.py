@@ -66,6 +66,7 @@ class TSNEVisualizations():
                 separates_3D[keywords[word]-1].append(vectors3D[word2int[word]])
                 separates_copy[keywords[word]-1].append(word)
             else:
+                print(word)
                 separates[len(separates)-1].append(vectors2D[word2int[word]])
 
             size_list.append(sizes[word])
@@ -86,10 +87,10 @@ class TSNEVisualizations():
 
     def scatter_without_size(self,  x_data, y_data, x_label="", y_label="", lists=[], list_of_labels=[], keyword_categories= [], type='Analysis'):
         fig, ax = plt.subplots()
-
         for one in range(0, len(lists) - 1):
             x = []
             y = []
+            print(len(lists[one]))
             for ind in range(0, len(lists[one])):
                 x.append(lists[one][ind][0])
                 y.append(lists[one][ind][1])

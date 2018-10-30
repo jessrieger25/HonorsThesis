@@ -162,13 +162,11 @@ class SkipGram:
         cross_entropy_loss = tf.reduce_mean(-tf.reduce_sum(self.y_label * tf.log(prediction), reduction_indices=[1]))
         # define the training step:
         train_step = tf.train.GradientDescentOptimizer(0.1).minimize(cross_entropy_loss)
-        print("length", len(self.window_tuples))
         for index in range(0, len(self.window_tuples), 1024):
-            print("Index: ", index)
-            if index + 1023 > len(self.window_tuples):
+            if index + 1024 > len(self.window_tuples):
                 self.prepare_training_data_skipgram(self.window_tuples[index:])
             else:
-                self.prepare_training_data_skipgram(self.window_tuples[index:index+1023])
+                self.prepare_training_data_skipgram(self.window_tuples[index:index+1024])
             self.make_skipgram(sess, train_step, cross_entropy_loss)
         self.random_analysis()
 

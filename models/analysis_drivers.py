@@ -51,16 +51,16 @@ class AnalysisDriver():
     def skip_gram_run(self):
         sg = SkipGram(self.wp.word_list, self.wp.word2int, self.wp.keywords)
         sg.run()
-
+        print(len(sg.vectors))
         self.word_count = self.wp.word_count()
         tsne_model = TSNEVisualizations()
         tsne_model.run(sg.vectors, self.wp.word_list, self.wp.word2int, sizes=self.word_count,
                        separates=self.wp.list_of_list, keywords=self.wp.keywords, keyword_categories=self.wp.keyword_categories, type='Skip Gram')
 
     def glove_run(self):
-        g = Glove(self.wp.sen_word_token, self.wp.vocab_list, self.wp.word_list, self.wp.word2int, self.wp.int2word, self.wp.keywords)
+        g = Glove(self.wp.vocab_list, self.wp.word_list, self.wp.word2int, self.wp.int2word, self.wp.keywords)
         g.run()
-
+        print(len(g.embedding_matrix))
         tsne_model = TSNEVisualizations()
         tsne_model.run(g.embedding_matrix, self.wp.word_list, self.wp.word2int, sizes=self.word_count, separates=self.wp.list_of_list, keywords=self.wp.keywords, keyword_categories=self.wp.keyword_categories, type='Glove')
 
@@ -151,9 +151,9 @@ class AnalysisDriver():
         #             nlu.write(',')
         #     nlu.write(']')
 
-# AnalysisDriver([os.path.abspath("../ficino/short_tester.txt")])
+AnalysisDriver([os.path.abspath("../ficino/short_tester.txt")])
 #
-AnalysisDriver([os.path.abspath("../ficino/book_1-4.txt")])
+# AnalysisDriver([os.path.abspath("../ficino/book_1-4.txt")])
 
 
 

@@ -1,11 +1,11 @@
 Category: Metaphysics (yellow)
 Matter
 Body
-Prime matter
-Primary matter
-Secondary matter
+Prime_matter
+Primary_matter
+Secondary_matter
 Form 
-Substantial form
+Substantial_form
 Substance
 Motion
 Principle 
@@ -15,8 +15,8 @@ Quantity
 Cause
 Causation
 Change
-From within
-From the outside
+From_within
+From_the_outside
 Pregnant
 Ferment
 Element
@@ -44,7 +44,7 @@ Stability
 Motion
 Motionless 
 Species
-Independent existence
+Independent_existence
 Plurality 
 Source
 Emanate
@@ -55,10 +55,10 @@ World
 Natural
 Potent 
 Omniform
-Unadorned nature
+Unadorned_nature
 Chance
 Accident
-Matter within
+Matter_within
 Component
 Genus
 
@@ -68,7 +68,7 @@ Maker
 Infinite
 Mover 
 Finite
-Divine power
+Divine_power
 Absolute
 Creation
 Soul
@@ -76,14 +76,14 @@ Perfect
 Imperfect 
 Imperfect
 Superior 
-Higher nature
+Higher_nature
 Subordinate 
 Dominant
 Absolute
 Contingent 
 Numberless
 Love
-Best possible way
+Best_possible_way
 Heaven
 Angel
 
@@ -99,7 +99,7 @@ Hearing
 Touch
 Intellect
 Contemplation
-Effecting power
+Effecting_power
 Eye 
 Intelligible 
 Truth 
@@ -118,13 +118,13 @@ Virtue
 Pleasure
 Good
 Vice
-Highest freedom
+Highest_freedom
 Evil
 Bad 
 Impious
 Error
 Freedom
-Freedom of the will
+Freedom_of_the_will
 Best
 
 Category: Ontology (red)
@@ -134,7 +134,7 @@ Intuition
 Memory
 Knowledge
 Intuition
-Pure minds
+Pure_minds
 
 Category: Figures & Influence (orange)
 Plato
@@ -161,7 +161,7 @@ Avicenna
 Christian
 Stoicism
 Hermes
-Prisci theologi
+Prisci_theologi
 Dionysius
 Timaeus 
 Phaedo
