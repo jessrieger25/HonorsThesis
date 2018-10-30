@@ -14,7 +14,7 @@ class TSNEVisualizations():
     def __init__(self):
         self.model = TSNE(n_components=2, random_state=0, n_iter=10000, init='pca')
         self.model3D = TSNE(n_components=3, random_state=0, n_iter=10000, init='pca')
-        self.colors = ['#eb871b', 'r', 'y', 'g', 'c', 'm', '#b816e0']
+        self.colors = ['#eb871b', 'r', 'y', 'g', 'c', 'm', '#b816e0', '#eea5b7', '#15f15b']
 
         """
         t-SNE [1] is a tool to visualize high-dimensional data. It converts similarities between data points to joint 
@@ -134,7 +134,9 @@ class TSNEVisualizations():
         fig.savefig(os.path.abspath("../graphics_ficino/" + type + "_scatter_" + datetime.utcnow().isoformat('T') +  '.png'), dpi=450)
 
     def threeD_plot(self, x_data, y_data, z_data, lists, keyword_categories, type):
-
+        print("This is lengths")
+        print(len(lists))
+        print(len(keyword_categories))
         fig = plt.figure()
         ax = fig.add_subplot(111, projection='3d')
         for one in range(0, len(lists)):

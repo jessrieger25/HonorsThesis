@@ -37,7 +37,6 @@ class WordPrep():
         self.list_of_list = []
         for single_keyword in range(0, self.categories_num):
             self.list_of_list.append([])
-        self.list_of_list.append([])
 
     def create_keyword_list(self):
         self.categorized_keywords = []
