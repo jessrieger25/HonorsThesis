@@ -151,9 +151,9 @@ class AnalysisDriver():
         #             nlu.write(',')
         #     nlu.write(']')
 
-# AnalysisDriver([os.path.abspath("../ficino/short_tester.txt")])
+AnalysisDriver([os.path.abspath("../ficino/short_tester.txt")])
 #
-AnalysisDriver([os.path.abspath("../ficino/book_1-4.txt")])
+# AnalysisDriver([os.path.abspath("../ficino/book_1-4.txt")])
 
 
 
