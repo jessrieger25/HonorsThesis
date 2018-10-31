@@ -97,59 +97,66 @@ class AnalysisDriver():
 
     def watson_sentiment_analysis(self):
         target_labels = np.ndarray([len(self.wp.sen_word_token), 13], dtype='float')
-        nlu_analysis = []
 
-        # # Tone Analysis: DO NOT UNCOMMENT LIGHTLY
-        self.run_tone_analysis()
+        for group in range(0, len(self.wp.sen_word_token), 98):
+            corpus = ""
+            for sen in range(group, group+98):
+                sentence = self.wp.sen_word_token[sen]
+                for word in sentence:
+                    corpus += word
+            # Tone Analysis: DO NOT UNCOMMENT LIGHTLY
+            self.run_tone_analysis(corpus)
 
-        with open(os.path.abspath("./watson_api/result_jsons/tone_results.txt"), 'r') as tone:
-            tone_results = json.load(tone)
-        tone_vecs = ToneAnalyzer().make_vector(tone_results)
+            with open(os.path.abspath("./watson_api/result_jsons/tone_results.txt"), 'r') as tone:
+                tone_results = json.load(tone)
+            tone_vecs = ToneAnalyzer().make_vector(tone_results)
 
-        # # Call analysis: DO NOT UNCOMMENT LIGHTLY
-        # self.run_nlu(tone_results)
+            # Call analysis: DO NOT UNCOMMENT LIGHTLY
+            self.run_nlu(tone_results)
 
-        # From already gen file
-        with open(os.path.abspath("./watson_api/result_jsons/nlu_results.txt"),
-                  "r") as text:
-            nlu = json.load(text)
+            # From already gen file
+            with open(os.path.abspath("./watson_api/result_jsons/nlu_results.txt"),
+                      "r") as text:
+                nlu = json.load(text)
 
-        if len(tone_vecs) != len(nlu):
-            raise Exception
+            if len(tone_vecs) != len(nlu):
+                raise Exception
 
-        for ind in range(0, len(tone_vecs)):
-            combined_vec = []
-            combined_vec.extend(NLU().make_vector(nlu[ind]))
-            combined_vec.extend(tone_vecs[ind])
-            np.append(target_labels, [combined_vec], axis=0)
+            for ind in range(0, len(tone_vecs)):
+                combined_vec = []
+                combined_vec.extend(NLU().make_vector(nlu[ind]))
+                combined_vec.extend(tone_vecs[ind])
+                np.append(target_labels, [combined_vec], axis=0)
 
         embedding_layer = LSTMKeras(self.wp.sen_word_token, target_labels, self.wp.vocab_list).run()
-
+        print(embedding_layer[0])
         tsne_model = TSNEVisualizations()
         tsne_model.run(embedding_layer[0], self.wp.word_list, self.wp.word2int, sizes=self.word_count,
                        separates=self.wp.list_of_list, keywords=self.wp.keywords, keyword_categories=self.wp.keyword_categories, type='Watson')
 
-    def run_tone_analysis(self):
+    def run_tone_analysis(self, corpus):
         print("Running tone analysis")
-        # tone_results = ToneAnalyzer().analyze_text(self.wp.corpus_raw)
+        tone_results = ToneAnalyzer().analyze_text(corpus)
 
-        # with open(os.path.abspath("./watson_api/result_jsons/tone_results.txt"), 'w') as tone:
-        #     json.dump(tone_results, tone)
+        with open(os.path.abspath("./watson_api/result_jsons/tone_results.txt"), 'w') as tone:
+            json.dump(tone_results, tone)
 
     def run_nlu(self, tone_results):
         print("Running Natural Language Analysis")
         # NLU Analysis
-        # with open(os.path.abspath("./watson_api/result_jsons/nlu_results.txt"), 'w') as nlu:
-        #     nlu.write('[')
-        #     for ind in range(0, len(tone_results['sentences_tone'])):
-        #         # NLU
-        #         analysis = NLU().analyze_text(tone_results['sentences_tone'][ind]['text'])
-        #         nlu_analysis.append(NLU().make_vector(analysis))
-        #         print(analysis)
-        #         json.dump(analysis, nlu)
-        #         if ind != len(tone_results['sentences_tone'])-1:
-        #             nlu.write(',')
-        #     nlu.write(']')
+        nlu_analysis = []
+
+        with open(os.path.abspath("./watson_api/result_jsons/nlu_results.txt"), 'w') as nlu:
+            nlu.write('[')
+            for ind in range(0, len(tone_results['sentences_tone'])):
+                # NLU
+                analysis = NLU().analyze_text(tone_results['sentences_tone'][ind]['text'])
+                nlu_analysis.append(NLU().make_vector(analysis))
+                print(analysis)
+                json.dump(analysis, nlu)
+                if ind != len(tone_results['sentences_tone'])-1:
+                    nlu.write(',')
+            nlu.write(']')
 
 # AnalysisDriver([os.path.abspath("../ficino/short_tester.txt")])
 #
