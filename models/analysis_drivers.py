@@ -101,15 +101,24 @@ class AnalysisDriver():
         for group in range(0, len(self.wp.sen_word_token), 98):
             corpus = ""
             for sen in range(group, group+98):
-                sentence = self.wp.sen_word_token[sen]
-                for word in sentence:
-                    corpus += word
+                if sen < len(self.wp.sen_word_token):
+                    sentence = self.wp.sen_word_token[sen]
+                    for word in sentence:
+                        corpus += word
+                else:
+                    break
+
+            print("THis is corpus")
+            print(corpus)
             # Tone Analysis: DO NOT UNCOMMENT LIGHTLY
             self.run_tone_analysis(corpus)
 
             with open(os.path.abspath("./watson_api/result_jsons/tone_results.txt"), 'r') as tone:
                 tone_results = json.load(tone)
             tone_vecs = ToneAnalyzer().make_vector(tone_results)
+
+            print("This is tone results")
+            print(tone_results)
 
             # Call analysis: DO NOT UNCOMMENT LIGHTLY
             self.run_nlu(tone_results)
@@ -118,6 +127,9 @@ class AnalysisDriver():
             with open(os.path.abspath("./watson_api/result_jsons/nlu_results.txt"),
                       "r") as text:
                 nlu = json.load(text)
+
+            print("This is nlu")
+            print(nlu)
 
             if len(tone_vecs) != len(nlu):
                 raise Exception
