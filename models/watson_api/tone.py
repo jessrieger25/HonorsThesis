@@ -23,12 +23,28 @@ class ToneAnalyzer:
         )
 
     def analyze_text(self, text):
+        tone_analyzer = ToneAnalyzerV3(
+            version='2017-09-21',
+            iam_apikey='<my_api_key>'
+        )
 
-        tone_analysis = self.tone_analyzer.tone(
+        text = 'Team, I know that times are tough! Product ' \
+               'sales have been disappointing for the past three ' \
+               'quarters. We have a competitive product, but we ' \
+               'need to do a better job of selling it!'
+
+        tone_analysis = tone_analyzer.tone(
             {'text': text},
-            'application/json'
+            'application/json',
+            sentences=True
         ).get_result()
         print(json.dumps(tone_analysis, indent=2))
+        # tone_analysis = self.tone_analyzer.tone(
+        #     {'text': text},
+        #     'application/json',
+        #     sentences=True
+        # ).get_result()
+        # print(json.dumps(tone_analysis, indent=2))
         return tone_analysis
 
     def make_vector(self, returned_analysis):

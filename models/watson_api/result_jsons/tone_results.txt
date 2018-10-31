@@ -1,0 +1,1 @@
+{"document_tone": {"tones": [{"score": 0.599421, "tone_id": "analytical", "tone_name": "Analytical"}]}}
