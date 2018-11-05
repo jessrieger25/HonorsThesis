@@ -11,6 +11,8 @@ import sys
 from models.watson_api.natural_lang_understanding import NLU
 from models.watson_api.tone import ToneAnalyzer
 from models.lstm_keras import LSTMKeras
+import matplotlib.pyplot as plt
+from datetime import datetime
 
 
 class AnalysisDriver():
@@ -80,20 +82,48 @@ class AnalysisDriver():
         # Displaying the word counts
         print(word_counts)
 
-        # Call to create topics from the words present in the document.
-        processed_keywords, processed_doctopic = bow.create_topics(bag_of_words, features)
+        # Pie Chart Example
 
-        # Displaying results:
-        print(processed_doctopic.shape)
-        print(processed_keywords)
+        labels = []
+        sizes = []
+        for key, value in word_counts.items():
+            sizes.append((value / 51) * 100)
+            labels.append(key)
 
-        # Call with all parameters
-        # look for 10 topics, include 4 words in each. We can play with this to see where we get the best
-        # results.
-        processed_keywords, processed_doctopic = bow.create_topics(bag_of_words,
-                                                               features,
-                                                               N_TOPICS=10,
-                                                               N_TOP_WORDS=4)
+        # Pie chart, where the slices will be ordered and plotted counter-clockwise:
+
+        # Creating the list for the pie chart
+
+        explode_list = list()
+        for i in range(0, len(labels)):
+            if i == 2:
+                explode_list.append(0.1)
+            else:
+                explode_list.append(0)
+
+        explode = (explode_list)  # only "explode" the 2nd slice (i.e. 'Hogs')
+
+        fig1, ax1 = plt.subplots()
+        ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%', shadow=True, startangle=90)
+        ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+        fig1.savefig(os.path.abspath("../graphics_ficino/bow_" + datetime.utcnow().isoformat('T') +  '.png'), dpi=450)
+
+
+        # # Call to create topics from the words present in the document.
+        # processed_keywords, processed_doctopic = bow.create_topics(bag_of_words, features)
+        #
+        # # Displaying results:
+        # print(processed_doctopic.shape)
+        # print(processed_keywords)
+
+        # # Call with all parameters
+        # # look for 10 topics, include 4 words in each. We can play with this to see where we get the best
+        # # results.
+        # processed_keywords, processed_doctopic = bow.create_topics(bag_of_words,
+        #                                                        features,
+        #                                                        N_TOPICS=10,
+        #                                                        N_TOP_WORDS=4)
 
     def watson_sentiment_analysis(self):
         target_labels = np.ndarray([len(self.wp.sen_word_token), 13], dtype='float')
@@ -170,9 +200,9 @@ class AnalysisDriver():
                     nlu.write(',')
             nlu.write(']')
 
-AnalysisDriver([os.path.abspath("../ficino/short_tester.txt")])
+# AnalysisDriver([os.path.abspath("../ficino/short_tester.txt")])
 #
-# AnalysisDriver([os.path.abspath("../ficino/book_1-4.txt")])
+AnalysisDriver([os.path.abspath("../ficino/book_1-4.txt")])
 
 
 

@@ -25,7 +25,7 @@ class ToneAnalyzer:
     def analyze_text(self, text):
         tone_analyzer = ToneAnalyzerV3(
             version='2017-09-21',
-            iam_apikey='<my_api_key>'
+            iam_apikey='42akR3iVWG3M2p1JCOwmvM_U-W8anY6bdkg8M5ncH4jf'
         )
 
         text = 'Team, I know that times are tough! Product ' \
