@@ -17,7 +17,7 @@ class WordPrep():
         self.keywords = {}
 
         self.corpus_raw = corpus_raw
-        self.categories_num = 1
+        self.categories_num = 0
         self.eng_stopwords = stopwords.words('english')
         print("Creating sentences")
         self.sen_word_token = self.create_token_sentences()
@@ -35,7 +35,8 @@ class WordPrep():
         self.keywords = self.create_keyword_list()
 
         self.list_of_list = []
-        for single_keyword in range(0, self.categories_num):
+        print(self.categories_num)
+        for single_keyword in range(0, self.categories_num + 1):
             self.list_of_list.append([])
 
     def create_keyword_list(self):
@@ -51,6 +52,7 @@ class WordPrep():
                 category = word.split(':')
                 self.keyword_categories.append(category[1].strip())
             else:
+                print(word)
                 self.keywords[word.strip().lower()] = self.categories_num
 
         self.keyword_categories.append('uncategorized')

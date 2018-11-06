@@ -62,12 +62,12 @@ class TSNEVisualizations():
 
             if word in keywords:
 
-                separates[keywords[word]-1].append(vectors2D[word2int[word]])
-                separates_3D[keywords[word]-1].append(vectors3D[word2int[word]])
-                separates_copy[keywords[word]-1].append(word)
+                separates[keywords[word]].append(vectors2D[word2int[word]])
+                separates_3D[keywords[word]].append(vectors3D[word2int[word]])
+                separates_copy[keywords[word]].append(word)
             else:
                 print(word)
-                separates[len(separates)-1].append(vectors2D[word2int[word]])
+                separates[len(separates)].append(vectors2D[word2int[word]])
 
             size_list.append(sizes[word])
             ax.annotate(word, (vectors2D[word2int[word]][0], vectors2D[word2int[word]][1]))
@@ -86,6 +86,8 @@ class TSNEVisualizations():
         self.scatter_without_size(vectors2D[:, 0], vectors2D[:, 1], x_label='x', y_label='y', lists=separates, list_of_labels=separates_copy, keyword_categories=keyword_categories, type=type)
 
     def scatter_without_size(self,  x_data, y_data, x_label="", y_label="", lists=[], list_of_labels=[], keyword_categories= [], type='Analysis'):
+        print("Labels")
+        print(lists)
         fig, ax = plt.subplots()
         for one in range(0, len(lists) - 1):
             x = []
