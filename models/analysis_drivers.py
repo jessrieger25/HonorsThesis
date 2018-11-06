@@ -58,12 +58,12 @@ class AnalysisDriver():
         print(self.wp.keywords)
         print("three")
         print(self.wp.keyword_categories)
-        # sg.run()
-        # print(len(sg.vectors))
-        # self.word_count = self.wp.word_count()
-        # tsne_model = TSNEVisualizations()
-        # tsne_model.run(sg.vectors, self.wp.word_list, self.wp.word2int, sizes=self.word_count,
-        #                separates=self.wp.list_of_list, keywords=self.wp.keywords, keyword_categories=self.wp.keyword_categories, type='Skip Gram')
+        sg.run()
+        print(len(sg.vectors))
+        self.word_count = self.wp.word_count()
+        tsne_model = TSNEVisualizations()
+        tsne_model.run(sg.vectors, self.wp.word_list, self.wp.word2int, sizes=self.word_count,
+                       separates=self.wp.list_of_list, keywords=self.wp.keywords, keyword_categories=self.wp.keyword_categories, type='Skip Gram')
 
     def glove_run(self):
         g = Glove(self.wp.vocab_list, self.wp.word_list, self.wp.word2int, self.wp.int2word, self.wp.keywords)
