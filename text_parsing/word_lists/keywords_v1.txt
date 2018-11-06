@@ -1,4 +1,59 @@
-Category: Names (dark orange: #eb871b)
+Colors: ['#eb871b', 'r', 'y', 'g', 'c', 'm', '#b816e0', '#eea5b7', '#15f15b']
+
+Category: Metaphysics (yellow)
+Matter
+Body
+Prime_matter
+Primary_matter
+Secondary_matter
+Form
+Substantial_form
+Substance
+Motion
+Change
+From_within
+Quantity
+Quality
+Cohesion
+Nature
+Accident
+Bond
+Unity
+Cohesion
+Cause
+Stability
+Order
+God
+Maker
+Infinite
+Mover
+Finite
+Infinite
+Absolute
+Creation
+Soul
+Perfect
+Imperfect
+Superior
+Higher_nature
+Dominant
+Absolute
+Contingent
+Love
+Angel
+Immortal
+Immortality
+Intellect
+Mind
+Being
+Will
+Intuition
+Memory
+Knowledge
+Intuition
+Pure minds
+
+Category: Names
 Plato
 Plotinus
 Socrates
@@ -23,7 +78,7 @@ Avicenna
 Christian
 Stoicism
 Hermes
-Prisci theologi
+Prisci_theologi
 Dionysius
 Timaeus
 Phaedo
@@ -36,60 +91,13 @@ Protagoras
 Heraclitus
 Xenocrates
 
-
-Category: Metaphysics (r)
-Matter
-Body
-Prime matter
-Primary matter
-Secondary matter
-Form
-Substantial form
-Substance
-Motion
-Privation
-Quality
-Quantity
-Cause
-Change
-From within
-Pregnant
-Ferment
-Element
-Atom
-Bond
-Connection
-Fire
-Water
-Air
-Ice
-Earth
-Cohesion
-Nature
-Light
-Reflection
-Mirror
-Unity
-Order
-Stability
-Emanate
-Overflowing
-Power
-Force
-World
-Natural
-Potent
-Unadorned nature
-Chance
-Accident
-
-Category: Theology (y)
+Category: Theology (pink)
 God
 Maker
 Infinite
 Mover
 Finite
-Divine power
+Divine_power
 Absolute
 Creation
 Soul
@@ -97,16 +105,21 @@ Perfect
 Imperfect
 Imperfect
 Superior
-Higher nature
+Higher_nature
 Subordinate
 Dominant
 Absolute
+Contingent
+Numberless
 Love
+Best_possible_way
+Heaven
 Angel
+
+Category: Psychology (purple)
+Act
 Immortal
 Immortality
-
-Category: Psychology (g)
 Intellect
 Mind
 Perception
@@ -115,6 +128,8 @@ Hearing
 Touch
 Intellect
 Contemplation
+Effecting_power
+Eye
 Intelligible
 Truth
 Clarity
@@ -126,27 +141,31 @@ Devoid
 Proof
 Necessity
 Skill
-Will
-Intuition
-Memory
-Knowledge
-Intuition
-Pure minds
 
-Category: Ethics (c)
+Category: Ethics: (turquoise)
 Virtue
 Pleasure
 Good
 Vice
+Highest_freedom
 Evil
 Bad
 Impious
 Error
 Freedom
-Freedom of the will
+Freedom_of_the_will
 Best
 
-Category: Figures & Influence (m)
+Category: Ontology (red)
+Being
+Will
+Intuition
+Memory
+Knowledge
+Intuition
+Pure_minds
+
+Category: Figures & Influence (orange)
 Plato
 Plotinus
 Socrates
@@ -171,7 +190,7 @@ Avicenna
 Christian
 Stoicism
 Hermes
-Prisci theologi
+Prisci_theologi
 Dionysius
 Timaeus
 Phaedo
