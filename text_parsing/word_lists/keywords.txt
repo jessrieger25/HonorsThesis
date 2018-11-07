@@ -1,50 +1,11 @@
-Category: Names (dark orange: #eb871b)
-Plato
-Plotinus
-Socrates
-Aristotle
-Epicurus
-Epicurean
-Lucretius
-Aristotelian
-Peripatetic
-Stoic
-Skeptic
-Skepticism
-Stoicism
-Augustine
-Porphyry
-Proclus
-Stoic
-Democritean
-Zoroaster
-Hebrew
-Avicenna
-Christian
-Stoicism
-Hermes
-Prisci theologi
-Dionysius
-Timaeus
-Phaedo
-Phaedrus
-Republic
-Metaphysics
-Philebus
-Statesman
-Protagoras
-Heraclitus
-Xenocrates
-
-
-Category: Metaphysics (r)
+Category: Metaphysics
 Matter
 Body
-Prime matter
-Primary matter
-Secondary matter
+Prime_matter
+Primary_matter
+Secondary_matter
 Form
-Substantial form
+Substantial_form
 Substance
 Motion
 Privation
@@ -79,17 +40,17 @@ Force
 World
 Natural
 Potent
-Unadorned nature
+Unadorned_nature
 Chance
 Accident
 
-Category: Theology (y)
+Category: Theology
 God
 Maker
 Infinite
 Mover
 Finite
-Divine power
+Divine_power
 Absolute
 Creation
 Soul
@@ -97,7 +58,7 @@ Perfect
 Imperfect
 Imperfect
 Superior
-Higher nature
+Higher_nature
 Subordinate
 Dominant
 Absolute
@@ -106,7 +67,7 @@ Angel
 Immortal
 Immortality
 
-Category: Psychology (g)
+Category: Psychology
 Intellect
 Mind
 Perception
@@ -131,9 +92,9 @@ Intuition
 Memory
 Knowledge
 Intuition
-Pure minds
+Pure_minds
 
-Category: Ethics (c)
+Category: Ethics
 Virtue
 Pleasure
 Good
@@ -143,10 +104,10 @@ Bad
 Impious
 Error
 Freedom
-Freedom of the will
+Freedom_of_the_will
 Best
 
-Category: Figures & Influence (m)
+Category: Figures & Influence
 Plato
 Plotinus
 Socrates
@@ -171,7 +132,7 @@ Avicenna
 Christian
 Stoicism
 Hermes
-Prisci theologi
+Prisci_theologi
 Dionysius
 Timaeus
 Phaedo

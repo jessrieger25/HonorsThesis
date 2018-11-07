@@ -52,14 +52,8 @@ class AnalysisDriver():
 
     def skip_gram_run(self):
         sg = SkipGram(self.wp.word_list, self.wp.word2int, self.wp.keywords)
-        print("one")
-        print(self.wp.list_of_list)
-        print("two")
-        print(self.wp.keywords)
-        print("three")
-        print(self.wp.keyword_categories)
         sg.run()
-        print(len(sg.vectors))
+
         self.word_count = self.wp.word_count()
         tsne_model = TSNEVisualizations()
         tsne_model.run(sg.vectors, self.wp.word_list, self.wp.word2int, sizes=self.word_count,
@@ -141,11 +135,10 @@ class AnalysisDriver():
                     sentence = self.wp.sen_word_token[sen]
                     for word in sentence:
                         corpus += word
+                    corpus += "  "
                 else:
                     break
 
-            print("THis is corpus")
-            print(corpus)
             # Tone Analysis: DO NOT UNCOMMENT LIGHTLY
             self.run_tone_analysis(corpus)
 

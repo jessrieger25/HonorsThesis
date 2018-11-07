@@ -31,13 +31,10 @@ class WordPrep():
         self.int2word = dictionaries[1]
 
         self.keyword_categories = []
+        self.list_of_list = []
         print("Creating keyword")
         self.keywords = self.create_keyword_list()
 
-        self.list_of_list = []
-        print(self.categories_num)
-        for single_keyword in range(0, self.categories_num + 1):
-            self.list_of_list.append([])
 
     def create_keyword_list(self):
         self.categorized_keywords = []
@@ -51,11 +48,13 @@ class WordPrep():
             elif 'Category: ' in word:
                 category = word.split(':')
                 self.keyword_categories.append(category[1].strip())
+                self.list_of_list.append([])
             else:
                 print(word)
                 self.keywords[word.strip().lower()] = self.categories_num
 
         self.keyword_categories.append('uncategorized')
+        self.list_of_list.append([])
         return self.keywords
 
     def create_token_sentences(self):
