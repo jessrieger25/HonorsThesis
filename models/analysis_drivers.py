@@ -148,7 +148,7 @@ class AnalysisDriver():
 
                 self.run_tone_analysis(corpus, tone_num)
 
-                with open(os.path.abspath("./watson_api/result_jsons/tone_results_" + tone_num + ".txt"), 'r') as tone:
+                with open(os.path.abspath("./watson_api/result_jsons/tone_results_" + str(tone_num) + ".txt"), 'r') as tone:
                     tone_results = json.load(tone)
                 tone_vecs = ToneAnalyzer().make_vector(tone_results)
 
@@ -185,7 +185,7 @@ class AnalysisDriver():
         print("Running tone analysis")
         tone_results = ToneAnalyzer().analyze_text(corpus)
 
-        with open(os.path.abspath("./watson_api/result_jsons/tone_results_" + number + ".txt"), 'a') as tone:
+        with open(os.path.abspath("./watson_api/result_jsons/tone_results_" + str(number) + ".txt"), 'a') as tone:
             json.dump(tone_results, tone)
 
     def run_nlu(self, tone_results):
