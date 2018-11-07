@@ -159,12 +159,12 @@ class PositionalRelations:
     def plot_category(self, used_keywords, current_category, counts):
         y_pos = np.arange(len(used_keywords))
         plt.bar(y_pos, counts, align='center', alpha=0.5)
-        plt.xticks(y_pos, used_keywords, rotation='vertical')
+        plt.xticks(y_pos, used_keywords, fontsize=5, rotation=30)
         plt.ylabel('Usage')
         plt.title('Keyword Counts for Category: ' + str(current_category))
         plt.savefig(
             os.path.abspath("../graphics_ficino/word_count" + str(current_category) + "_" + datetime.utcnow().isoformat(
-                'T') + '.png'))
+                'T') + '_b1-4_kv2.png'))
         plt.show()
 
 

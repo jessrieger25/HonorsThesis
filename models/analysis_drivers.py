@@ -132,6 +132,8 @@ class AnalysisDriver():
         target_labels = np.ndarray([len(self.wp.sen_word_token), 13], dtype='float')
         tone_num = -1
         for group in range(0, len(self.wp.sen_word_token), 98):
+            print("This is group")
+            print(group)
             tone_num += 1
             corpus = ""
             for sen in range(group, group+98):
@@ -185,7 +187,7 @@ class AnalysisDriver():
         print("Running tone analysis")
         tone_results = ToneAnalyzer().analyze_text(corpus)
 
-        with open(os.path.abspath("./watson_api/result_jsons/tone_results_" + str(number) + ".txt"), 'a') as tone:
+        with open(os.path.abspath("./watson_api/result_jsons/tone_results_" + str(number) + ".txt"), 'w') as tone:
             json.dump(tone_results, tone)
 
     def run_nlu(self, tone_results):
