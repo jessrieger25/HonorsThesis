@@ -40,10 +40,13 @@ class CreateGraph:
             for word, count in relational_dict.items():
                 if count > max:
                     max = count
-
+            print("THIS IS KEYWORD LIST")
+            print(self.keyword_manager.keywords_list)
+            print(self.keyword_manager.keyword_categories)
+            print(self.keyword_manager.category_colors)
             for word, count in relational_dict.items():
                 print("keywords", self.keyword_manager.keywords_list)
                 print('word', word + "hi")
                 if word != '':
                     print(word)
-                    g_star.write('add vertex ' + word.strip() + ' with attributes(size=' + str(abs(count-max)*.8).strip() + ', color=' + KeywordManager().category_colors[KeywordManager().keywords_list[word.strip()]] + ')\n')
+                    g_star.write('add vertex ' + word.strip() + ' with attributes(size=' + str(abs(count-max)*.8).strip() + ', color=' + self.keyword_manager.category_colors[self.keyword_manager.keywords_list[word.strip()]] + ')\n')

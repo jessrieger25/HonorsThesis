@@ -32,48 +32,23 @@ class PositionalRelations:
         self.count = self.wp.word_count()
         self.keywords = self.wp.keywords
 
-        self.text = []
-        self.text = self.text_to_wordlist(self.source_files)
-
         self.average_distances = {}
         self.surrounding_words = []
 
-    def text_to_wordlist(self, file_list):
-        for file in file_list:
-
-            unmodified_string = ""
-            with open(file, "r") as single_chapter:
-                for line in single_chapter.readlines():
-                    unmodified_string += line.replace('\n', " ")
-
-            custom_sent_tokenizer = PunktSentenceTokenizer(unmodified_string)
-            tokenized_sentences = custom_sent_tokenizer.tokenize(unmodified_string)
-
-            words = []
-            for i in tokenized_sentences:
-                words += nltk.word_tokenize(i)
-
-            text_as_words = []
-            for i in words:
-                temp = i.lower()
-                if temp not in self.eng_stopwords:
-                    text_as_words.append(temp)
-            return text_as_words
-
     def find_average_dist(self, tracked):
         distances = []
-        for other_word in self.keywords.items():
-            for ind in range(0, len(self.text)):
-                if self.text[ind] == tracked:
+        for other_word, category in self.keywords.items():
+            for ind in range(0, len(self.wp.word_list)):
+                if self.wp.word_list[ind] == tracked:
                     num = ind
-                    while num >= 0 and self.text[num] != other_word:
+                    while num >= 0 and self.wp.word_list[num] != other_word:
                         num -= 1
                     if num >= 0:
                         distances.append({tracked: ind, other_word: num})
                     num = ind
-                    while num < len(self.text) and self.text[num] != other_word:
+                    while num < len(self.wp.word_list) and self.wp.word_list[num] != other_word:
                         num += 1
-                    if num < len(self.text) :
+                    if num < len(self.wp.word_list) :
                         distances.append({tracked: ind, other_word: num})
 
             if len(distances) != 0:
@@ -84,27 +59,28 @@ class PositionalRelations:
                 self.average_distances[other_word] = sum / len(distances)
             else:
                 self.average_distances[other_word] = 0
-
+        print("THis is average distances")
+        print(self.average_distances)
         CreateGraph().average_distances(self.average_distances, tracked)
 
         return self.average_distances
 
     def within_range(self, tracked, num):
         found_in_range = []
-        for ind in range(0, len(self.text)):
-            if self.text[ind] == tracked:
+        for ind in range(0, len(self.wp.word_list)):
+            if self.wp.word_list[ind] == tracked:
 
                 start = int(ind) - int(num)
                 end = int(ind) + int(num)
                 if start < 0:
                     start = 0
-                if end >= len(self.text):
-                    end = len(self.text) - 1
+                if end >= len(self.wp.word_list):
+                    end = len(self.wp.word_list) - 1
                 for surrounding_ind in range(start, end + 1):
 
-                    if self.text[surrounding_ind] in self.keywords and self.text[surrounding_ind] != tracked:
+                    if self.wp.word_list[surrounding_ind] in self.keywords and self.wp.word_list[surrounding_ind] != tracked:
                         temp = {tracked: ind}
-                        temp[self.text[surrounding_ind]] = surrounding_ind
+                        temp[self.wp.word_list[surrounding_ind]] = surrounding_ind
                         found_in_range.append(temp)
 
         CreateGraph().within_range_graph(found_in_range, tracked, num)
@@ -113,15 +89,15 @@ class PositionalRelations:
 
     def print_surrounding_window(self, word, number):
         occurances = []
-        for ind in range(0, len(self.text)):
-            if self.text[ind] == word:
+        for ind in range(0, len(self.wp.word_list)):
+            if self.wp.word_list[ind] == word:
                 start = ind - number
                 if start < 0:
                     start = 0
                 end = ind + number
-                if end >= len(self.text):
-                    end = len(self.text) - 1
-                occurances.append({ind: self.text[start:end]})
+                if end >= len(self.wp.word_list):
+                    end = len(self.wp.word_list) - 1
+                occurances.append({ind: self.wp.word_list[start:end]})
         return occurances
 
     def structural_relations(self, main_word, other_word, book):
@@ -151,20 +127,14 @@ class PositionalRelations:
 
         print(self.wp.keyword_categories)
         print(self.wp.keywords)
+        print(self.count)
 
         current_category = 0
         for word, category in self.keywords.items():
             if word in self.count:
                 if current_category != category:
                     print("Changing category")
-                    y_pos = np.arange(len(used_keywords))
-                    plt.bar(y_pos, counts, align='center', alpha=0.5)
-                    plt.xticks(y_pos, used_keywords, rotation='vertical')
-                    plt.ylabel('Usage')
-                    plt.title('Keyword Counts for Category: ' + str(current_category))
-                    plt.savefig(
-                        os.path.abspath("../graphics_ficino/word_count" + str(current_category) + "_" + datetime.utcnow().isoformat('T') + '.png'))
-                    plt.show()
+                    self.plot_category(used_keywords, current_category, counts)
                     counts = []
                     used_keywords = []
                     counts.append(self.count[word])
@@ -174,6 +144,8 @@ class PositionalRelations:
                 else:
                     counts.append(self.count[word])
                     used_keywords.append(word)
+        self.plot_category(used_keywords, current_category, counts)
+
 
         # y_pos = np.arange(len(used_keywords))
         # print(y_pos)
@@ -183,6 +155,17 @@ class PositionalRelations:
         # plt.title('Keyword Counts')
         #
         # plt.show()
+
+    def plot_category(self, used_keywords, current_category, counts):
+        y_pos = np.arange(len(used_keywords))
+        plt.bar(y_pos, counts, align='center', alpha=0.5)
+        plt.xticks(y_pos, used_keywords, rotation='vertical')
+        plt.ylabel('Usage')
+        plt.title('Keyword Counts for Category: ' + str(current_category))
+        plt.savefig(
+            os.path.abspath("../graphics_ficino/word_count" + str(current_category) + "_" + datetime.utcnow().isoformat(
+                'T') + '.png'))
+        plt.show()
 
 
 

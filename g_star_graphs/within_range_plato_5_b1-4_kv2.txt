@@ -1,0 +1,29 @@
+/* 194.0 - b1-4 - kv2 */
+new graph
+add vertex plato with attributes(size=1000)
+add vertex nature with attributes(color=yellow)
+add edge plato - nature
+add vertex body with attributes(color=yellow)
+add edge plato - body
+add vertex philebus with attributes(color=red)
+add edge plato - philebus
+add vertex will with attributes(color=purple)
+add edge plato - will
+add vertex timaeus with attributes(color=red)
+add edge plato - timaeus
+add vertex good with attributes(color=turquoise)
+add edge plato - good
+add vertex god with attributes(color=pink)
+add edge plato - god
+add vertex infinite with attributes(color=pink)
+add edge plato - infinite
+add vertex motion with attributes(color=yellow)
+add edge plato - motion
+add vertex phaedrus with attributes(color=red)
+add edge plato - phaedrus
+add vertex mind with attributes(color=purple)
+add edge plato - mind
+add vertex world with attributes(color=yellow)
+add edge plato - world
+add vertex statesman with attributes(color=red)
+add edge plato - statesman

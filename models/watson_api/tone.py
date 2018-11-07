@@ -32,7 +32,8 @@ class ToneAnalyzer:
         tone_analysis = tone_analyzer.tone(
             {'text': text},
             'application/json',
-            sentences=True
+            sentences=True,
+            content_language='en'
         ).get_result()
         print(json.dumps(tone_analysis, indent=2))
         return tone_analysis
