@@ -66,11 +66,13 @@ class TSNEVisualizations():
                 separates_3D[keywords[word]].append(vectors3D[word2int[word]])
                 separates_copy[keywords[word]].append(word)
             else:
-                print(word)
                 separates[len(separates)-1].append(vectors2D[word2int[word]])
 
             size_list.append(sizes[word])
             ax.annotate(word, (vectors2D[word2int[word]][0], vectors2D[word2int[word]][1]))
+
+        print("IMPORTANT!")
+        print(separates_copy)
 
         # Taken out for running on VM
         # plt.show()
