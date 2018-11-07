@@ -145,13 +145,8 @@ class AnalysisDriver():
 
             # Tone Analysis: DO NOT UNCOMMENT LIGHTLY
             if len(corpus) > 0:
-                begin = False
-                last = False
-                if group == 0:
-                    begin = True
-                if group > self.wp.sen_word_token - 98:
-                    last = True
-                self.run_tone_analysis(corpus, number)
+
+                self.run_tone_analysis(corpus, tone_num)
 
                 with open(os.path.abspath("./watson_api/result_jsons/tone_results_" + tone_num + ".txt"), 'r') as tone:
                     tone_results = json.load(tone)

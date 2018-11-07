@@ -1,4 +1,4 @@
-
+/* 195.0 - b1-4 - kv2 */
 new graph
 add vertex will with attributes(size=1000)
 add vertex world with attributes(color=yellow)
