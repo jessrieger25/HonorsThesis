@@ -25,7 +25,8 @@ class ToneAnalyzer:
     def analyze_text(self, text):
         tone_analyzer = ToneAnalyzerV3(
             version='2017-09-21',
-            iam_apikey='42akR3iVWG3M2p1JCOwmvM_U-W8anY6bdkg8M5ncH4jf'
+            iam_apikey='42akR3iVWG3M2p1JCOwmvM_U-W8anY6bdkg8M5ncH4jf',
+            url='https://gateway-wdc.watsonplatform.net/tone-analyzer/api'
         )
 
         text = 'Team, I know that times are tough! Product ' \
