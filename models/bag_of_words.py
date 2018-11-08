@@ -12,13 +12,13 @@ print(sklearn.__version__)
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.decomposition import LatentDirichletAllocation
 from collections import Counter, OrderedDict
+from nltk.corpus import stopwords
 
 
 class BagOfWords:
 
     def create_bag_of_words(self, sentences,
                             NGRAM_RANGE=(0, 1),
-                            stop_words=None,
                             stem=False,
                             MIN_DF=0.05,
                             MAX_DF=0.95,
@@ -26,6 +26,8 @@ class BagOfWords:
         ANALYZER = "word"  # unit of features are single words rather then phrases of words
         STRIP_ACCENTS = 'unicode'
         stemmer = nltk.SnowballStemmer("english")
+        stop_words = stopwords.words('english')
+
 
         if stem:
             tokenize = lambda x: [stemmer.stem(i) for i in x.split()]

@@ -146,16 +146,6 @@ class PositionalRelations:
                     used_keywords.append(word)
         self.plot_category(used_keywords, current_category, counts)
 
-
-        # y_pos = np.arange(len(used_keywords))
-        # print(y_pos)
-        # plt.bar(y_pos, counts, align='center', alpha=0.5)
-        # plt.xticks(y_pos, self.keywords)
-        # plt.ylabel('Usage')
-        # plt.title('Keyword Counts')
-        #
-        # plt.show()
-
     def plot_category(self, used_keywords, current_category, counts):
         y_pos = np.arange(len(used_keywords))
         plt.bar(y_pos, counts, align='center', alpha=0.5)

@@ -25,6 +25,11 @@ class SkipGram:
         self.EMBEDDING_DIM = 3  # you can choose your own number
 
     def group_phrases(self, word_list):
+        """
+
+        :param word_list: List of words (the raw text being used.)
+        :return: List of words with phrase keywords grouped together using "_".
+        """
         for keyword in self.keywords:
             if "_" in keyword:
                 keyword_split = keyword.split("_")
@@ -57,13 +62,22 @@ class SkipGram:
         return word_list
 
     def convert_phrases(self, word2int_dict):
-        new_dictionary = {}
+        """
+
+        :param word2int_dict: Word2Int dict that has the integer conversions for the vocab.
+        :return: word2int dict with the phrase keywords added to the end.
+        """
         for keyword in self.keywords:
             if "_" in keyword:
                 word2int_dict[keyword] = len(word2int_dict)
         return word2int_dict
 
     def adjust_keywords(self, keywords):
+        """
+
+        :param keywords: List of keywords being used.
+        :return: Keywords dict with phrases joined by "_".
+        """
         new_keywords = {}
         for keyword, index in keywords.items():
             new_keyword = keyword
@@ -73,6 +87,10 @@ class SkipGram:
         return new_keywords
 
     def make_training_window_tuples(self):
+        """
+
+        :return: Returns tuples of each word, paired with the words in the surrounding window.
+        """
         # Vectorization
         for word_index in range(0, len(self.words)):
             for nb_word in self.words[
@@ -87,7 +105,11 @@ class SkipGram:
         return temp
 
     def prepare_training_data_skipgram(self, tuple_group):
+        """
 
+        :param tuple_group: Group of tuples made in the training data creation.
+        :return: Input and output word lists for training iteration.
+        """
         for data_word in tuple_group:
             self.x_train = []  # input word
             self.y_train = []  # output word
@@ -99,6 +121,13 @@ class SkipGram:
         self.y_train = np.asarray(self.y_train)
 
     def make_skipgram(self, sess, train_step, cross_entropy_loss):
+        """
+
+        :param sess: The current tensorflow session
+        :param train_step: Gradient Descent Optimizer
+        :param cross_entropy_loss:
+        :return: None
+        """
         n_iters = 1000
         # train for n_iter iterations
         for _ in range(n_iters):
@@ -132,7 +161,6 @@ class SkipGram:
     def euclidean_dist(self, vec1, vec2):
         return np.sqrt(np.sum((vec1-vec2)**2))
 
-
     def find_closest(self, word_index):
         min_dist = 10000 # to act like positive infinity
         min_index = -1
@@ -144,6 +172,10 @@ class SkipGram:
         return min_index
 
     def run(self):
+        """
+        Drives the Skip gram model training.
+        :return:
+        """
         self.make_training_window_tuples()
         self.x = tf.placeholder(tf.float32, shape=(None, self.vocab_size))
         self.y_label = tf.placeholder(tf.float32, shape=(None, self.vocab_size))
@@ -168,7 +200,6 @@ class SkipGram:
             else:
                 self.prepare_training_data_skipgram(self.window_tuples[index:index+1024])
             self.make_skipgram(sess, train_step, cross_entropy_loss)
-        self.random_analysis()
 
 
 

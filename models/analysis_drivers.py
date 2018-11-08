@@ -3,7 +3,6 @@ from models.tsne import TSNEVisualizations
 from models.glove import Glove
 from models.word_prep import WordPrep
 from models.bag_of_words import BagOfWords
-from nltk.corpus import stopwords
 import numpy as np
 import json
 import os
@@ -14,32 +13,20 @@ from models.lstm_keras import LSTMKeras
 import matplotlib.pyplot as plt
 from datetime import datetime
 
+'''
+    Analysis Driver Class
 
+    This class drives the Skip Gram, Watson, and GloVe Analysis of the text. It calls the respective programs
+    and then invokes the TSNE script to graph the resulting matrix.
+    '''
 class AnalysisDriver():
 
     def __init__(self, file_list):
-        self.corpus_raw = ""
-        print("BEFORE ANYTHING")
-        for file in file_list:
-            # Load data
-            with open(file, "r",  encoding="utf8", errors='ignore') as time:
-                for line in time.readlines():
-                    self.corpus_raw += line.replace('\n', " ")
 
-        print("BEFORE CORPUS")
-        # Initialize word dictionaries
-        self.wp = WordPrep(self.corpus_raw)
-        print("AFTER CORPUS")
+        # Initialize the Word Prep class - creates keyword lists and tokenizes the text.
+        self.wp = WordPrep(file_list)
 
-        # Convert to Lower
-        self.corpus_raw = self.corpus_raw.lower()
-
-        # Text management variables
-        self.word_count = self.wp.word_count()
-        self.eng_stopwords = stopwords.words('english')
-
-
-        #"What model would you like to run? s = skipgram, g = glove, w = watson"
+        #"What model would you like to run? s = skipgram, g = glove, w = watson, bow = bag of words"
         self.model = sys.argv[1]
         if self.model == "s":
             self.skip_gram_run()
@@ -52,14 +39,10 @@ class AnalysisDriver():
 
     def skip_gram_run(self):
         sg = SkipGram(self.wp.word_list, self.wp.word2int, self.wp.keywords)
-        print(self.wp.word_list)
-        print(self.wp.word2int)
-        print(self.wp.keywords)
         sg.run()
 
-        self.word_count = self.wp.word_count()
         tsne_model = TSNEVisualizations()
-        tsne_model.run(sg.vectors, self.wp.word_list, self.wp.word2int, sizes=self.word_count,
+        tsne_model.run(sg.vectors, self.wp.word_list, self.wp.word2int, sizes=self.wp.word_count(),
                        separates=self.wp.list_of_list, keywords=self.wp.keywords, keyword_categories=self.wp.keyword_categories, type='Skip Gram')
 
     def glove_run(self):
@@ -67,13 +50,13 @@ class AnalysisDriver():
         g.run()
         print(len(g.embedding_matrix))
         tsne_model = TSNEVisualizations()
-        tsne_model.run(g.embedding_matrix, self.wp.word_list, self.wp.word2int, sizes=self.word_count, separates=self.wp.list_of_list, keywords=self.wp.keywords, keyword_categories=self.wp.keyword_categories, type='Glove')
+        tsne_model.run(g.embedding_matrix, self.wp.word_list, self.wp.word2int, sizes=self.wp.word_count(), separates=self.wp.list_of_list, keywords=self.wp.keywords, keyword_categories=self.wp.keyword_categories, type='Glove')
 
     def bag_of_words_run(self):
         bow = BagOfWords()
 
         # Basic call to create bag of words with english stop words removed.
-        bag_of_words, features = bow.create_bag_of_words(self.wp.sen_word_token, stop_words=self.eng_stopwords, stem=True)
+        bag_of_words, features = bow.create_bag_of_words(self.wp.tokenized_sentences, stem=True)
 
         # Diplaying the bag of words and the features
         print(bag_of_words)
@@ -129,16 +112,16 @@ class AnalysisDriver():
         #                                                        N_TOP_WORDS=4)
 
     def watson_sentiment_analysis(self):
-        target_labels = np.ndarray([len(self.wp.sen_word_token), 13], dtype='float')
+        target_labels = np.ndarray([len(self.wp.tokenized_sentences), 13], dtype='float')
         tone_num = -1
-        for group in range(0, len(self.wp.sen_word_token), 98):
+        for group in range(0, len(self.wp.tokenized_sentences), 98):
             print("This is group")
             print(group)
             tone_num += 1
             corpus = ""
             for sen in range(group, group+98):
-                if sen < len(self.wp.sen_word_token):
-                    sentence = self.wp.sen_word_token[sen]
+                if sen < len(self.wp.tokenized_sentences):
+                    sentence = self.wp.tokenized_sentences[sen]
                     for word in sentence:
                         corpus += word
                     corpus += "  "
@@ -177,10 +160,10 @@ class AnalysisDriver():
                     combined_vec.extend(tone_vecs[ind])
                     np.append(target_labels, [combined_vec], axis=0)
 
-            embedding_layer = LSTMKeras(self.wp.sen_word_token, target_labels, self.wp.vocab_list).run()
+            embedding_layer = LSTMKeras(self.wp.tokenized_sentences, target_labels, self.wp.vocab_list).run()
             print(embedding_layer[0])
             tsne_model = TSNEVisualizations()
-            tsne_model.run(embedding_layer[0], self.wp.word_list, self.wp.word2int, sizes=self.word_count,
+            tsne_model.run(embedding_layer[0], self.wp.word_list, self.wp.word2int, sizes=self.wp.word_count(),
                            separates=self.wp.list_of_list, keywords=self.wp.keywords, keyword_categories=self.wp.keyword_categories, type='Watson')
 
     def run_tone_analysis(self, corpus, number):
