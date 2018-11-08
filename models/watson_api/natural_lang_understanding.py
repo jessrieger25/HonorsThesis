@@ -12,13 +12,16 @@ class NLU():
         )
 
     def analyze_text(self, text):
-        response = self.natural_language_understanding.analyze(
-          text=text,
-          features=Features(
-            sentiment=SentimentOptions(),
-            emotion=EmotionOptions())).get_result()
+        if len(text) > 15:
+            response = self.natural_language_understanding.analyze(
+              text=text,
+              features=Features(
+                sentiment=SentimentOptions(),
+                emotion=EmotionOptions())).get_result()
 
-        print(json.dumps(response, indent=2))
+            print(json.dumps(response, indent=2))
+        else:
+            response = {"usage": {"text_units": 1, "text_characters": 65, "features": 2}, "sentiment": {"document": {"score": 0.0, "label": "neutral"}}, "language": "en", "emotion": {"document": {"emotion": {"sadness": 0.0, "joy": 0.0, "fear": 0.0, "disgust": 0.0, "anger": 0.0}}}}
         return response
 
     def make_vector(self, returned_analysis):
