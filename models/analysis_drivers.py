@@ -116,6 +116,8 @@ class AnalysisDriver():
         tone_num = -1
         for group in range(0, len(self.wp.tokenized_sentences), 98):
             print("This is group")
+            print(len(self.wp.tokenized_sentences))
+            print(group)
             print(group)
             tone_num += 1
             corpus = ""
