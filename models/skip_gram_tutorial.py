@@ -1,17 +1,15 @@
 import numpy as np
 import tensorflow as tf
-from sklearn.metrics.pairwise import euclidean_distances
-from .word_prep import WordPrep
-import random
-import nltk
+
+from models.utilities import group_phrases, convert_phrases, adjust_keywords
 
 
 class SkipGram:
 
     def __init__(self, words, word2int, keywords):
-        self.keywords = self.adjust_keywords(keywords)
-        self.word2int = self.convert_phrases(word2int)
-        self.words = self.group_phrases(words)
+        self.keywords = adjust_keywords(keywords)
+        self.word2int = convert_phrases(self.keywords, word2int)
+        self.words = group_phrases(self.keywords, words)
         self.vocab_size = len(self.word2int)
         self.vectors = []
 
@@ -23,68 +21,6 @@ class SkipGram:
 
         # Model Variables
         self.EMBEDDING_DIM = 3  # you can choose your own number
-
-    def group_phrases(self, word_list):
-        """
-
-        :param word_list: List of words (the raw text being used.)
-        :return: List of words with phrase keywords grouped together using "_".
-        """
-        for keyword in self.keywords:
-            if "_" in keyword:
-                keyword_split = keyword.split("_")
-                first_word = keyword_split[0]
-                num_words = len(keyword_split)
-                index = 0
-                while index < len(word_list):
-                    if index != 0:
-                        index = index + 1
-
-                    try:
-                        found_index = word_list[index:].index(first_word)
-                        index = index + found_index
-                        new_string = word_list[index]
-                        found = True
-                        if index + num_words < len(word_list):
-                            for num in range(0, num_words):
-                                if keyword_split[num] != word_list[index + num]:
-                                    found = False
-                                    break
-                                elif num != 0:
-                                    new_string += "_" + word_list[index + num]
-                            if found is True:
-                                word_list[index] = new_string
-                                for other_indices in range(index + 1, index + num_words):
-                                    word_list.pop(other_indices)
-                    except ValueError as e:
-                        index = len(word_list) + 1
-
-        return word_list
-
-    def convert_phrases(self, word2int_dict):
-        """
-
-        :param word2int_dict: Word2Int dict that has the integer conversions for the vocab.
-        :return: word2int dict with the phrase keywords added to the end.
-        """
-        for keyword in self.keywords:
-            if "_" in keyword:
-                word2int_dict[keyword] = len(word2int_dict)
-        return word2int_dict
-
-    def adjust_keywords(self, keywords):
-        """
-
-        :param keywords: List of keywords being used.
-        :return: Keywords dict with phrases joined by "_".
-        """
-        new_keywords = {}
-        for keyword, index in keywords.items():
-            new_keyword = keyword
-            if " " in keyword:
-                new_keyword = keyword.replace(" ", "_")
-            new_keywords[new_keyword] = keywords[keyword]
-        return new_keywords
 
     def make_training_window_tuples(self):
         """
