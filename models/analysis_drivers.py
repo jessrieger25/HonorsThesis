@@ -42,7 +42,7 @@ class AnalysisDriver():
         sg.run()
 
         tsne_model = TSNEVisualizations()
-        tsne_model.run(sg.vectors, self.wp.word_list, self.wp.word2int, sizes=self.wp.word_count(),
+        tsne_model.run(sg.vectors, self.wp.word_list, self.wp.word2int, sizes=self.wp.word_count(self.wp.word_list),
                        separates=self.wp.list_of_list, keywords=self.wp.keywords, keyword_categories=self.wp.keyword_categories, type='Skip Gram')
 
     def glove_run(self):
@@ -50,7 +50,7 @@ class AnalysisDriver():
         g.run()
         print(len(g.embedding_matrix))
         tsne_model = TSNEVisualizations()
-        tsne_model.run(g.embedding_matrix, self.wp.word_list, self.wp.word2int, sizes=self.wp.word_count(), separates=self.wp.list_of_list, keywords=self.wp.keywords, keyword_categories=self.wp.keyword_categories, type='Glove')
+        tsne_model.run(g.embedding_matrix, self.wp.word_list, self.wp.word2int, sizes=self.wp.word_count(self.wp.word_list), separates=self.wp.list_of_list, keywords=self.wp.keywords, keyword_categories=self.wp.keyword_categories, type='Glove')
 
     def bag_of_words_run(self):
         bow = BagOfWords()
@@ -163,7 +163,7 @@ class AnalysisDriver():
             embedding_layer = LSTMKeras(self.wp.tokenized_sentences, target_labels, self.wp.vocab_list).run()
             print(embedding_layer[0])
             tsne_model = TSNEVisualizations()
-            tsne_model.run(embedding_layer[0], self.wp.word_list, self.wp.word2int, sizes=self.wp.word_count(),
+            tsne_model.run(embedding_layer[0], self.wp.word_list, self.wp.word2int, sizes=self.wp.word_count(self.wp.word_list),
                            separates=self.wp.list_of_list, keywords=self.wp.keywords, keyword_categories=self.wp.keyword_categories, type='Watson')
 
     def run_tone_analysis(self, corpus, number):
