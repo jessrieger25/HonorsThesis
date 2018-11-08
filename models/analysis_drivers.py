@@ -122,13 +122,14 @@ class AnalysisDriver():
             tone_num += 1
             corpus = ""
             for sen in range(group, group+98):
+                print(sen)
                 if sen < len(self.wp.tokenized_sentences):
                     sentence = self.wp.tokenized_sentences[sen]
                     for word in sentence:
                         corpus += word
                     corpus += "  "
-                else:
-                    break
+                # else:
+                #     break
 
             # Tone Analysis: DO NOT UNCOMMENT LIGHTLY
             if len(corpus) > 0:
