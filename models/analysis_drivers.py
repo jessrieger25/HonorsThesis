@@ -141,10 +141,10 @@ class AnalysisDriver():
                 print(tone_results)
 
                 # Call analysis: DO NOT UNCOMMENT LIGHTLY
-                self.run_nlu(tone_results)
+                self.run_nlu(tone_results, tone_num)
 
                 # From already gen file
-                with open(os.path.abspath("./watson_api/result_jsons/nlu_results.txt"),
+                with open(os.path.abspath("./watson_api/result_jsons/nlu_results_" + str(tone_num) + ".txt"),
                           "r") as text:
                     nlu = json.load(text)
 
@@ -165,6 +165,7 @@ class AnalysisDriver():
             tsne_model = TSNEVisualizations()
             tsne_model.run(embedding_layer[0], self.wp.word_list, self.wp.word2int, sizes=self.wp.word_count(self.wp.word_list),
                            separates=self.wp.list_of_list, keywords=self.wp.keywords, keyword_categories=self.wp.keyword_categories, type='Watson')
+            print("Watson Done")
 
     def run_tone_analysis(self, corpus, number):
         print("Running tone analysis")
@@ -173,12 +174,12 @@ class AnalysisDriver():
         with open(os.path.abspath("./watson_api/result_jsons/tone_results_" + str(number) + ".txt"), 'w') as tone:
             json.dump(tone_results, tone)
 
-    def run_nlu(self, tone_results):
+    def run_nlu(self, tone_results, number):
         print("Running Natural Language Analysis")
         # NLU Analysis
         nlu_analysis = []
 
-        with open(os.path.abspath("./watson_api/result_jsons/nlu_results.txt"), 'a') as nlu:
+        with open(os.path.abspath("./watson_api/result_jsons/nlu_results_" + str(number) + ".txt"), 'w') as nlu:
             nlu.write('[')
             for ind in range(0, len(tone_results['sentences_tone'])):
                 # NLU
