@@ -1,0 +1,19 @@
+/* 211.0 - b1-4 - kv2 */
+new graph
+add vertex prime_matter with attributes(size=1000)
+add vertex matter with attributes(color=yellow)
+add edge prime_matter - matter
+add vertex power with attributes(color=yellow)
+add edge prime_matter - power
+add vertex motion with attributes(color=yellow)
+add edge prime_matter - motion
+add vertex order with attributes(color=yellow)
+add edge prime_matter - order
+add vertex ferment with attributes(color=yellow)
+add edge prime_matter - ferment
+add vertex creation with attributes(color=pink)
+add edge prime_matter - creation
+add vertex god with attributes(color=pink)
+add edge prime_matter - god
+add vertex soul with attributes(color=pink)
+add edge prime_matter - soul

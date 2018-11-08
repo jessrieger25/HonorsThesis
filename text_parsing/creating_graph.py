@@ -8,7 +8,7 @@ class CreateGraph:
 
     def within_range_graph(self, relational_dict, keyword, range):
 
-        with open(os.path.abspath("../g_star_graphs/within_range_" + keyword + '_' + str(range) + '.txt'), 'w') as g_star:
+        with open(os.path.abspath("../g_star_graphs/within_range_" + keyword + '_' + str(range) + '_b1-4_kv2.txt'), 'w') as g_star:
             g_star.write('new graph\n')
 
             vertices = []
@@ -31,7 +31,7 @@ class CreateGraph:
 
     def average_distances(self, relational_dict, keyword):
 
-        with open(os.path.abspath("../g_star_graphs/average_dist_" + keyword + '.txt'), 'w') as g_star:
+        with open(os.path.abspath("../g_star_graphs/average_dist_" + keyword + '_b1-4_kv2.txt'), 'w') as g_star:
             g_star.write('new graph\n')
             g_star.write('add vertex ' + keyword.strip() + ' with attributes(size=' + str(1000) + 'color=black)\n')
 

@@ -7,6 +7,7 @@ from text_parsing.creating_graph import CreateGraph
 from models.word_prep import WordPrep
 import matplotlib.pyplot as plt
 from datetime import datetime
+from models.utilities import group_phrases, convert_phrases, adjust_keywords
 
 
 class PositionalRelations:
@@ -22,15 +23,12 @@ class PositionalRelations:
 
         self.source_files = [os.path.abspath("../ficino/book_1-4.txt")]
 
-        self.corpus_raw = ''
-        for file in self.source_files:
-            # Load data
-            with open(file, "r",  encoding="utf8", errors='ignore') as time:
-                for line in time.readlines():
-                    self.corpus_raw += line.replace('\n', " ")
-        self.wp = WordPrep(self.corpus_raw)
-        self.count = self.wp.word_count()
-        self.keywords = self.wp.keywords
+        self.wp = WordPrep(file_list=self.source_files)
+
+        self.keywords = adjust_keywords(self.wp.keywords)
+        self.word2int = convert_phrases(self.keywords, self.wp.word2int)
+        self.words = group_phrases(self.keywords, self.wp.word_list)
+        self.count = self.wp.word_count(self.wp.word_list)
 
         self.average_distances = {}
         self.surrounding_words = []
@@ -147,15 +145,19 @@ class PositionalRelations:
         self.plot_category(used_keywords, current_category, counts)
 
     def plot_category(self, used_keywords, current_category, counts):
+        fig1, ax1 = plt.subplots()
         y_pos = np.arange(len(used_keywords))
-        plt.bar(y_pos, counts, align='center', alpha=0.5)
-        plt.xticks(y_pos, used_keywords, fontsize=5, rotation=30)
-        plt.ylabel('Usage')
-        plt.title('Keyword Counts for Category: ' + str(current_category))
-        plt.savefig(
+        ax1.bar(y_pos, counts, align='center', alpha=0.5)
+        print(used_keywords)
+        ax1.set_xticks(y_pos)
+        ax1.xaxis.set_ticklabels(used_keywords, rotation='vertical')
+        # plt.setp(ax1.get_xticklabels(), rotation='vertical', fontsize=5)
+        ax1.set_ylabel('Usage')
+        ax1.set_title('Keyword Counts for Category: ' + str(current_category))
+        fig1.tight_layout()
+        fig1.savefig(
             os.path.abspath("../graphics_ficino/word_count" + str(current_category) + "_" + datetime.utcnow().isoformat(
                 'T') + '_b1-4_kv2.png'))
-        plt.show()
 
 
 

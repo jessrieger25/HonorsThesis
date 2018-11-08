@@ -1,0 +1,11 @@
+/* 205.0 - b1-4 - kv2 */
+new graph
+add vertex evil with attributes(size=1000)
+add vertex good with attributes(color=turquoise)
+add edge evil - good
+add vertex will with attributes(color=purple)
+add edge evil - will
+add vertex privation with attributes(color=yellow)
+add edge evil - privation
+add vertex matter with attributes(color=yellow)
+add edge evil - matter
