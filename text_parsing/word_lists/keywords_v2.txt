@@ -129,6 +129,7 @@ Democritean
 Zoroaster
 Hebrew
 Avicenna
+Christian
 Stoicism
 Hermes
 Prisci_theologi
@@ -137,6 +138,7 @@ Timaeus
 Phaedo
 Phaedrus
 Republic
+Metaphysics
 Philebus
 Statesman
 Protagoras

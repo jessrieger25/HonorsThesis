@@ -123,10 +123,6 @@ class PositionalRelations:
         counts = []
         used_keywords = []
 
-        print(self.wp.keyword_categories)
-        print(self.wp.keywords)
-        print(self.count)
-
         current_category = 0
         for word, category in self.keywords.items():
             if word in self.count:
@@ -138,7 +134,6 @@ class PositionalRelations:
                     counts.append(self.count[word])
                     used_keywords.append(word)
                     current_category += 1
-
                 else:
                     counts.append(self.count[word])
                     used_keywords.append(word)
