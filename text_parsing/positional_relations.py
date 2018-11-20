@@ -152,7 +152,7 @@ class PositionalRelations:
         fig1.tight_layout()
         fig1.savefig(
             os.path.abspath("../graphics_ficino/word_count_" + str(current_category) + "_" + datetime.utcnow().isoformat(
-                'T') + '_b1-4_kv2.png'))
+                'T') + '_b1-4_kv3.png'))
 
 
 
