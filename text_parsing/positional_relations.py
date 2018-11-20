@@ -128,7 +128,7 @@ class PositionalRelations:
             if word in self.count:
                 if current_category != category:
                     print("Changing category")
-                    self.plot_category(used_keywords, current_category, counts)
+                    self.plot_category(used_keywords, self.wp.keyword_categories[current_category], counts)
                     counts = []
                     used_keywords = []
                     counts.append(self.count[word])
@@ -137,7 +137,7 @@ class PositionalRelations:
                 else:
                     counts.append(self.count[word])
                     used_keywords.append(word)
-        self.plot_category(used_keywords, current_category, counts)
+        self.plot_category(used_keywords, self.wp.keyword_categories[current_category], counts)
 
     def plot_category(self, used_keywords, current_category, counts):
         fig1, ax1 = plt.subplots()
@@ -151,7 +151,7 @@ class PositionalRelations:
         ax1.set_title('Keyword Counts for Category: ' + str(current_category))
         fig1.tight_layout()
         fig1.savefig(
-            os.path.abspath("../graphics_ficino/word_count" + str(current_category) + "_" + datetime.utcnow().isoformat(
+            os.path.abspath("../graphics_ficino/word_count_" + str(current_category) + "_" + datetime.utcnow().isoformat(
                 'T') + '_b1-4_kv2.png'))
 
 
