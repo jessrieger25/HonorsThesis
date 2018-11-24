@@ -38,16 +38,18 @@ class PositionalRelations:
         for other_word, category in self.keywords.items():
             for ind in range(0, len(self.wp.word_list)):
                 if self.wp.word_list[ind] == tracked:
-                    num = ind
-                    while num >= 0 and self.wp.word_list[num] != other_word:
+                    num = ind + 1
+                    while num >= 0 and self.wp.word_list[num] != other_word and self.wp.word_list[num] != tracked:
                         num -= 1
                     if num >= 0:
-                        distances.append({tracked: ind, other_word: num})
-                    num = ind
-                    while num < len(self.wp.word_list) and self.wp.word_list[num] != other_word:
+                        if self.wp.word_list[num] != tracked:
+                            distances.append({tracked: ind, other_word: num})
+                    num = ind + 1
+                    while num < len(self.wp.word_list) and self.wp.word_list[num] != other_word and self.wp.word_list[num] != tracked:
                         num += 1
-                    if num < len(self.wp.word_list) :
-                        distances.append({tracked: ind, other_word: num})
+                    if num < len(self.wp.word_list):
+                        if self.wp.word_list[num] != tracked:
+                            distances.append({tracked: ind, other_word: num})
 
             if len(distances) != 0:
                 sum = 0
@@ -57,8 +59,7 @@ class PositionalRelations:
                 self.average_distances[other_word] = sum / len(distances)
             else:
                 self.average_distances[other_word] = 0
-        print("THis is average distances")
-        print(self.average_distances)
+
         CreateGraph().average_distances(self.average_distances, tracked)
 
         return self.average_distances
