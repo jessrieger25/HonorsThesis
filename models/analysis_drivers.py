@@ -56,11 +56,12 @@ class AnalysisDriver():
         bow = BagOfWords()
 
         # Basic call to create bag of words with english stop words removed.
-        bag_of_words, features = bow.create_bag_of_words(self.wp.tokenized_sentences, stem=True)
+        bag_of_words, features = bow.create_bag_of_words(self.wp.tokenized_sentences)
+        print(len(self.wp.tokenized_sentences))
 
         # Diplaying the bag of words and the features
         print(bag_of_words)
-        print(features)
+        print(len(features))
 
         # Basic call to get word counts without additional parameters.
         word_counts = bow.get_word_counts(bag_of_words, features)
@@ -72,6 +73,7 @@ class AnalysisDriver():
 
         labels = []
         sizes = []
+        print(len(word_counts))
         for key, value in word_counts.items():
             sizes.append((value / 51) * 100)
             labels.append(key)

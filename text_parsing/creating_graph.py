@@ -46,4 +46,4 @@ class CreateGraph:
                 print('word', word + "hi")
                 if word != '':
                     print(word)
-                    g_star.write('add vertex ' + word.strip() + ' with attributes(size=' + str(abs(count-max)*.8).strip() + ', color=' + self.keyword_manager.category_colors[self.keyword_manager.keywords_list[word.strip()]] + ')\n')
+                    g_star.write('add vertex ' + word.strip() + ' with attributes(size=' + str(abs(count-max)).strip() + ', color=' + self.keyword_manager.category_colors[self.keyword_manager.keywords_list[word.strip()]] + ')\n')
